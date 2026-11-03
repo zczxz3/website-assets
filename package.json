@@ -1,0 +1,12 @@
+{
+  "name": "website-assets",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website motion research and reusable frontend components, with verified REA execution on GitHub Actions.",
+  "engines": {
+    "node": "^22.23.4 || ^24.22.1 || >=26.12.1"
+  },
+  "dependencies": {
+    "rea-agents": "6.8.0"
+  }
+}
