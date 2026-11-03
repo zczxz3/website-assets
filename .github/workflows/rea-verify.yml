@@ -16,13 +16,13 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
-    env:
-      REPORT_DIR: ${{ runner.temp }}/rea-verification-${{ github.run_id }}-${{ github.run_attempt }}
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/rea-playwright-browsers
     steps:
       - name: Prepare isolated reports
         shell: bash
         run: |
+          REPORT_DIR="${RUNNER_TEMP}/rea-verification-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          printf 'REPORT_DIR=%s\n' "${REPORT_DIR}" >> "${GITHUB_ENV}"
+          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "${RUNNER_TEMP}/rea-playwright-browsers" >> "${GITHUB_ENV}"
           mkdir -p "${REPORT_DIR}"
           printf '%s\n' '{"status":"not-run","reason":"The workflow has not reached the verification script."}' > "${REPORT_DIR}/verification.json"
 
