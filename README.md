@@ -4,7 +4,9 @@
 
 ## Start here
 
-- [Installable package and typed API](LIBRARY.md): 20 original button presets plus menu, async-task and reorder bindings. Install the versioned tarball from the **motion-v0.4.0** Release; npm registry publication is not claimed.
+[Independent package consumer verification](LIBRARY_VERIFICATION.md): strict TypeScript compilation and two Chromium consumer scenarios passed.
+
+- [Installable package and typed API](LIBRARY.md): 20 original button presets plus menu, async-task and reorder bindings. Install `zczxz3-website-assets-motion-0.4.0.tgz` from the repository root; npm registry publication is not claimed.
 - Study implementations are directly available in `components/`. **No source ZIP extraction is needed** to import them. Per-site folders are reference wrappers around shared modules, not independent reconstructed sites.
 - [Evidence and licensing boundaries](DISTRIBUTION.md). Reference-site fidelity, independent consumer integration and demo regression are different verification claims.
 
@@ -49,11 +51,10 @@ These are component-level technique reconstructions. Exact original routes, artw
 ## Run
 
 ```sh
-python3 -m zipfile -e study-source.zip .
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`. The gallery has no runtime npm dependency. Shared modules are directly available; the 25 full site directory trees, six research sections each, are inside `study-source.zip`.
+Open `http://localhost:8000`. The gallery has no runtime npm dependency. Shared modules are directly available; the 25 research directory trees, six research sections each, are inside `study-source.zip`.
 
 `mount(host)` returns `destroy()`. Keep shared module dependencies and include `styles.css`. New shader modules need WebGL; sound requires an explicit action. Motion preference, pause, offscreen suspension and cleanup follow the shared runtime.
 

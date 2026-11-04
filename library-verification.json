@@ -1,0 +1,24 @@
+{
+  "workflow_run": 41790254974,
+  "source_commit": "52f968822a117e65aa2466986b2b2d6662937761",
+  "typescript": "passed strict NodeNext imports and rejected invalid effect",
+  "browser": [
+    {
+      "width": 1280,
+      "passed": true,
+      "installed_tarball": true
+    },
+    {
+      "width": 390,
+      "passed": true,
+      "installed_tarball": true
+    }
+  ],
+  "delivered_package_bytes": 13765,
+  "delivered_package_sha256": "0895ca1de4f38638d42beaec5885864c445a1ba11b186d72b290d4faa23146a4",
+  "difference_from_tested_archive": [
+    "README installation location corrected; all code, CSS, declarations and package metadata byte-identical"
+  ],
+  "migration": "not executed; approval required",
+  "pages": "not deployed"
+}

@@ -4,13 +4,13 @@ An experimental browser ES-module package containing 20 original button presets 
 
 ## Install without cloning the research repository
 
-Download `zczxz3-website-assets-motion-0.4.0.tgz` from the repository's **motion-v0.4.0** GitHub Release, then:
+Download `zczxz3-website-assets-motion-0.4.0.tgz` from the repository root or the consumer-verification Actions artifact, then:
 
 ```sh
 npm install ./zczxz3-website-assets-motion-0.4.0.tgz
 ```
 
-This is an npm-compatible archive, not a claim that the package is published on npmjs.org. A registry CDN such as unpkg/jsDelivr is not supplied. The release archive is versioned; avoid depending on mutable main-branch URLs.
+This is an npm-compatible archive, not a claim that the package is published on npmjs.org. A registry CDN such as unpkg/jsDelivr is not supplied. The archive filename is versioned; avoid depending on mutable main-branch URLs.
 
 ```js
 import {mountButton, bindMenu} from '@zczxz3/website-assets-motion';
