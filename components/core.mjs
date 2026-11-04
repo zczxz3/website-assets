@@ -4,10 +4,10 @@ export const mix = (a, b, t) => a + (b - a) * t;
 export const ease = t => t < .5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 export function random(seed=7) { return () => { seed |= 0; seed = seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
 export function lifecycle(host) {
-  const abort=new AbortController(), clean=[];
+  const abort=new AbortController(), clean=[], original={className:host.className,style:host.style.cssText,tabIndex:host.getAttribute('tabindex'),data:{...host.dataset}};let destroyed=false;
   const api={host, on:(node,event,fn,options={})=>node.addEventListener(event,fn,{...options,signal:abort.signal}),
     add:fn=>clean.push(fn), state:value=>{host.dataset.state=String(value);},
-    destroy:()=>{abort.abort(); clean.splice(0).reverse().forEach(fn=>fn());}};
+    destroy:()=>{if(destroyed)return;destroyed=true;abort.abort();clean.splice(0).reverse().forEach(fn=>fn());host.replaceChildren();host.className=original.className;host.style.cssText=original.style;if(original.tabIndex===null)host.removeAttribute('tabindex');else host.setAttribute('tabindex',original.tabIndex);for(const key of Object.keys(host.dataset))delete host.dataset[key];Object.assign(host.dataset,original.data);}};
   return api;
 }
 export function motionAllowed() { return !matchMedia('(prefers-reduced-motion: reduce)').matches && document.documentElement.dataset.motion!=='paused'; }
