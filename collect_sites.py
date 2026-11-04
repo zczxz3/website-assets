@@ -231,7 +231,8 @@ def study(site, args):
             result, exit_code = rea([str(args.rea), 'capture-browser-scenario', str(scenario_path), '--format', 'json'], output, 'browser', 90)
             if result.get('normalized_result'):
                 summary = summarize_capture(result, output, site['url'])
-                report['browser'] = {'status': 'blocked' if summary['site_block_observed'] else 'captured' if exit_code == 0 else 'partial',
+                complete = summary.get('completeness', {}).get('status') == 'complete'
+                report['browser'] = {'status': 'blocked' if summary['site_block_observed'] else 'captured' if exit_code == 0 and complete else 'partial',
                                      'exit_code': exit_code, 'evidence_id': summary['evidence_id'],
                                      'completeness': summary['completeness'], 'screenshot_count': len(summary['screenshots'])}
             else:
