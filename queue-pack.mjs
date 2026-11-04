@@ -1,0 +1,18 @@
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {sample,websiteFiles,studioProject,zipFiles} from './queue-model.mjs';
+await mkdir('queue-dist',{recursive:true});
+const model=JSON.stringify(sample,null,2)+'\n';await writeFile('queue-data.json',model);
+const project=JSON.stringify(studioProject(sample),null,2)+'\n';await writeFile('queue-portfolio.mws.json',project);
+const module={id:'queue/project-card',version:'1.0.0',name:'Queue — Project card',description:'An original static project card. Edit text, colors and href in Studio.',html:'<article class="qr-project"><div class="qr-cover" aria-hidden="true"></div><h2>Field notes</h2><p>A quiet place for ideas and observations.</p><a href="#projects">Explore this project →</a></article>',css:'.qr-project{font:16px/1.6 system-ui,sans-serif;color:#182434;border:1px solid #d7e1e9;border-radius:16px;overflow:hidden;max-width:440px;padding:18px;background:#fff}.qr-project .qr-cover{height:200px;background:radial-gradient(ellipse at 55% 60%,#ffffff50,transparent 60%),#176f68;border-radius:12px}.qr-project h2{font-size:24px;margin:18px 0 4px}.qr-project p{color:#526173}.qr-project a{color:#2463eb;display:inline-block;min-height:44px;padding-block:10px}.qr-project a:focus-visible{outline:3px solid #2463eb;outline-offset:4px}',permissions:[],dependencies:{}};
+module.css='/*\n'+await readFile('LICENSE','utf8')+'*/\n'+module.css;
+await writeFile('queue-card.zip',zipFiles({'module.json':JSON.stringify(module,null,2)}));
+for(const [name,content]of Object.entries(websiteFiles(sample)))await writeFile('queue-dist/'+name,content);
+await writeFile('queue-website.zip',zipFiles(websiteFiles(sample)));
+const names=['queue.html','queue.css','queue-lab.mjs','queue-model.mjs','queue-components.mjs','queue-registry.json','queue-data.json','queue-upstream-licenses.json','queue-fetch.py','queue-pack.mjs','queue-tests.mjs','queue-browser.mjs','queue-core.test.ts','queue-rea.py','verify-queue.yml','QUEUE_RESEARCH.md','LICENSE'];
+const files={};for(const name of names)files[name]=await readFile(name,'utf8');
+files['portfolio.mws.json']=project;files['module.json']=JSON.stringify(module,null,2);
+const registry=JSON.parse(files['queue-registry.json']);
+for(const r of registry.targets)files[`research/${r.id}/README.md`]=`# ${r.id} — ${r.name}\n\nStatus: ${r.status}\n\nOriginal: ${r.demo_url}\n\nSource: ${r.repo_url||r.reference_url}\n\nPinned revision: ${r.source_commit||'Not applicable'}\n\nLicense evidence: ${r.license_evidence}; ${r.source_license}\n\nAcceptance: ${r.acceptance}\n\nImplementation: ${r.status==='implemented-bounded-study'?'See QUEUE_RESEARCH.md and queue-components.mjs / queue-model.mjs.':'Pending; no reconstruction or imported assets supplied.'}\n`;
+const bytes=zipFiles(files);await writeFile('queue-source.zip',bytes);
+const manifest={schema_version:1,files:Object.fromEntries(Object.entries(files).map(([name,s])=>[name,{bytes:Buffer.byteLength(s),sha256:createHash('sha256').update(s).digest('hex')}])),archive_sha256:createHash('sha256').update(bytes).digest('hex'),archive_bytes:bytes.length};await writeFile('queue-pack-manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:Object.keys(files).length,bytes:bytes.length,sha256:manifest.archive_sha256}));

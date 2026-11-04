@@ -1,0 +1,36 @@
+{
+  "format": "queue-portfolio",
+  "version": 1,
+  "name": "Alex Morgan",
+  "role": "Designer & creative developer",
+  "intro": "I build thoughtful digital experiences. A small collection of experiments in motion, space and interaction.",
+  "social": "https://github.com/",
+  "accent": "#2463eb",
+  "showBlog": true,
+  "motion": true,
+  "layout": "grid",
+  "article": {
+    "title": "Small details, better experiences",
+    "body": "A clear action, a useful response, and a way back. These are the details I return to when designing for the web.\n\nThis portfolio is made from independent, editable building blocks."
+  },
+  "projects": [
+    {
+      "id": "field",
+      "title": "Field notes",
+      "description": "A quiet place for ideas and observations.",
+      "cover": "#176f68"
+    },
+    {
+      "id": "orbit",
+      "title": "Orbit systems",
+      "description": "An exploration of rhythm, structure and space.",
+      "cover": "#335bce"
+    },
+    {
+      "id": "form",
+      "title": "Form & function",
+      "description": "Everyday objects seen from a different angle.",
+      "cover": "#8259a2"
+    }
+  ]
+}
