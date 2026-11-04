@@ -1,6 +1,6 @@
 # Website Assets — Motion Atlas
 
-25 distinctive website references plus 16 button resources, with independently written reusable interaction studies. English research, code and integration notes.
+25 distinctive website references, 16 button resources and 26 foundation resources, with independently written reusable interaction studies and installable Studio modules. Lists overlap; these are topic counts, not unique-site counts. English research, code and integration notes.
 
 **Version 0.3 verified:** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
 
@@ -9,6 +9,16 @@
 ## Button topic
 
 [Button Atlas research](BUTTON_RESEARCH.md) adds 20 original native-button components across 10 families. [Component contracts and API](BUTTON_COMPONENTS.md). Start a local HTTP server and open `buttons.html`; every button file is directly available in the repository and needs no source ZIP extraction. [Button verification](BUTTON_VERIFICATION.md): 45 Playwright scenarios, 2 REA scenarios and 7 Node tests passed. Original reference capture limitations are recorded separately from the 25-site checks below.
+
+## Modular Website Studio foundations
+
+[Foundation guide](FOUNDATION_GUIDE.md) adds **30 installable static modules**: 20 native fields, disclosures, cards, navigation, feedback, data and layout patterns, plus 10 Button Atlas adaptations. [Review of 26 resources](FOUNDATION_RESEARCH.md) separates usable static sources, framework/runtime adapters, generators and unresolved licenses.
+
+Download [foundation-pack.zip](foundation-pack.zip), extract it, then install one ZIP from `installable/` using Studio's **模块 → ＋ 安装模块 ZIP**. Or open [foundation-showcase.mws.json](foundation-showcase.mws.json) as a complete editable project. Run a local server and open `foundation.html` for filtering, live theme/HTML editing and customized module ZIP downloads. Exported modules have no runtime dependencies; original source and MIT notices are included.
+
+[Foundation verification](FOUNDATION_VERIFICATION.md): **33 Studio core tests, 63 Chromium scenarios and 2 REA scenarios passed**, including real UI installation of all 30 modules and a save/reopen/export round trip. This pack does not enable script modules in Studio.
+
+![Foundation workbench](foundation-preview.png)
 
 ## Research and components
 

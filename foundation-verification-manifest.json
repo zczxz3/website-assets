@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "tested_source_commit": "390c43867a478c4d5bec0682c5f42b58abb689a8",
+  "workflow_run": 41772507919,
+  "studio_commit": "3f989b2be833f468db600c24aa49194abf5f918e",
+  "core_tests": 33,
+  "browser_scenarios": 63,
+  "rea_scenarios": 2,
+  "pack_bytes": 309649,
+  "pack_sha256": "e005ad58b6d3e6c78a3096c1f9c7d043856600628220897b56a558e1c15b7951",
+  "evidence_bytes": 4998992,
+  "evidence_sha256": "77ea1aaac21d92db340ff2e11c530eaf4e393259d605c958e4927c3a4f55e5ab",
+  "source_sha256": {
+    "foundation.html": "836036af0c65d423545e6f58a52078db6275ae9a28cddb176dc66be56c4df46b",
+    "foundation.css": "297061ceee74dc6ef9607af195b053ee16d526dfe5b4e372e56687f5ab296efe",
+    "foundation.mjs": "41fc0c3a734d4931b6fd4ca606ecbe8edfdce6e1d697d3951055757d927e5e6e",
+    "foundation-modules.json": "582e4da95daaa0296e88330cc81739e9264d451d0761998d388284360aa75542",
+    "foundation-resources.json": "088653de4435bc49fa6530df29eb6d4ac0e1e6067844897b1204b10825c5d961",
+    "foundation-pack.py": "83d71615360d3607b9877fc82ea391704a1ea6abd72f8c5c633cf97c50490efc",
+    "foundation-pack.zip": "e005ad58b6d3e6c78a3096c1f9c7d043856600628220897b56a558e1c15b7951",
+    "foundation-pack-manifest.json": "495b359e3bf61b1dab0ed1a1f575a13051b47283b63161213a424cb71c38f81c",
+    "foundation-showcase.mws.json": "b5b72bb427e675b5fc33f1cc7debeb163fb4530f204ce2a17f2be2ae7db7ec04",
+    "foundation-core.test.ts": "45345186eca771efc1cbc18d22e84b6d462e352a379639a60df91f568bedb803",
+    "foundation-browser.mjs": "3c22806ce5406a9a07ebc657fd15c30a83054dd2ea1e7f357db03d4799c38537"
+  },
+  "screenshots_verified": 65
+}
