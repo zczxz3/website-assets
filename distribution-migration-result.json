@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "release": "https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3",
+  "source_commit": "9b58662e0ea937bffdfd28939889b8b049edc4af",
+  "release_assets_verified": 15,
+  "removed_reference_archives": 2,
+  "history_rewritten": false,
+  "online_deployment": false,
+  "verified_sha256": {
+    "component-verification.zip": "ae93f04606dd000f8616b637a0892b52079e1d9f751463a1b9f312495b7d9e11",
+    "button-verification.zip": "27eee1c88cd34bc6f00a86ff946e8b1a49c81c476de50d21e8f73d0795978211",
+    "foundation-verification.zip": "77ea1aaac21d92db340ff2e11c530eaf4e393259d605c958e4927c3a4f55e5ab",
+    "queue-verification.zip": "2ae123817c02858e541ea0c891d8b7d44e564c87fea2e7cf14d5ee23a905e207",
+    "rea-verification-2026-11-03.zip": "120ae0020761665f21006b5e541cfb316d2f4e6d17b3fff42f749fc4847de6e0",
+    "batch-two-preview.png": "fb220884be768ed3ecebe15eb6ff91159e5e5bc593d1b7f20e7e73a89aef1263",
+    "queue-mobile-preview.png": "8e3af12d9d9bd88912e20dda5f59a663138c30120687b0aa9c19017e30157073",
+    "gallery-preview-v3.png": "668938f2cb84a5d1d3886f30853b177046325f8c87195444d9b1327ef1543c67",
+    "foundation-preview.png": "96662cc8f0e233f9c050b9a3b86466bb714fb1ce8af22c6a814336e112c1bfcc",
+    "gallery-preview-v2.png": "3c670fb2f2d5ddf5a7601b1ff7a09d21623241b5917a6e08a64f81a70d3a4ea5",
+    "foundation-mobile-preview.png": "1ae751a57122650d5ed0452b3e2c42cf3cc810403a750ba7cb70694a8f8f57b7",
+    "button-mobile-preview.png": "47ed68718ec1d515892cea099ceb38bd15cf52282e2442202801d901ee56cc21",
+    "button-preview.png": "bed4de2561fa2a1f4feb78512b064d4a58b8808034d310827c2a57ffc1ce837b",
+    "queue-preview.png": "7f85a443967ee0e17f2d8d51c7c01f87d1007e252d8a1c5097136caba36b837c",
+    "queue-effects-published.jpg": "3f361a57ac8658faa508bc724a52a053305990f554a1fd56f6762d28bef52e0c"
+  }
+}

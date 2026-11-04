@@ -21,7 +21,7 @@ Reviewed on **2026-11-04 (Asia/Shanghai)**. Repository: [zczxz3/website-assets](
 | Check archive hashes and audited source files | [verification-manifest.json](verification-manifest.json) |
 | Read unresolved original-renderer failures | [BROWSER_LIMITATIONS.md](BROWSER_LIMITATIONS.md) |
 | Obtain all 15 research directories | [study-source.zip](study-source.zip) |
-| Inspect browser evidence and screenshots | [component-verification.zip](component-verification.zip) |
+| Inspect browser evidence and screenshots | [component-verification.zip](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/component-verification.zip) |
 
 ## 1. Layout, typography and product presentation
 

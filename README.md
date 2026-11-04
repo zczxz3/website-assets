@@ -12,7 +12,7 @@
 
 **Version 0.3 demo regression (not reference-site fidelity):** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
 
-![Motion Atlas gallery](gallery-preview-v3.png)
+![Motion Atlas gallery](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/gallery-preview-v3.png)
 
 ## Button topic
 
@@ -26,7 +26,7 @@ Download [foundation-pack.zip](foundation-pack.zip), extract it, then install on
 
 [Foundation verification](FOUNDATION_VERIFICATION.md): **33 Studio core tests, 63 Chromium scenarios and 2 REA scenarios passed**, including real UI installation of all 30 modules and a save/reopen/export round trip. This pack does not enable script modules in Studio.
 
-![Foundation workbench](foundation-preview.png)
+![Foundation workbench](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/foundation-preview.png)
 
 ## Frontend Queue — Batch 03
 
@@ -36,7 +36,7 @@ Open `queue.html` with a local HTTP server. Edit project data, drag or use keybo
 
 [Queue verification](QUEUE_VERIFICATION.md): **10 Node tests, 2 Studio core tests, 15 Chromium scenarios and 2 REA scenarios passed**. [Reusable API examples](QUEUE_COMPONENTS.md).
 
-![Queue Lab](queue-preview.png)
+![Queue Lab](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/queue-preview.png)
 
 ## Research and components
 
@@ -65,4 +65,4 @@ node --test component-tests.mjs
 python3 package_studies.py verify
 ```
 
-The GitHub workflow uses pinned REA 6.8.0 on a standard Ubuntu runner. The component archive is `component-verification.zip`; original second-batch evidence is `batch-two-reference-evidence.zip`. Artifact files are preserved in the repository as well as Actions, so the research does not rely on Actions retention.
+The GitHub workflow uses pinned REA 6.8.0 on a standard Ubuntu runner. The component archive is `component-verification.zip`; original second-batch evidence is `batch-two-reference-evidence.zip`. Original-demo evidence is preserved in the evidence-v0.3 Release. Third-party capture archives are no longer distributed from the current branch. Use the package directly, or use a shallow clone for local study; no online deployment is required.

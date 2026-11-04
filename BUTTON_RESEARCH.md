@@ -64,6 +64,6 @@ For a single effect, use `buttons.html?button=magnetic` (or another public ID). 
 
 Original-page capture: 12 complete bounded entries, 3 security-screened entries (Colorion and both Codrops pages), 1 partial entry (React Bits). The table above relies on the separately inspected official text/repository sources where rendering was limited.
 
-![Button Atlas gallery](button-preview.png)
+![Button Atlas gallery](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/button-preview.png)
 
 [Download the small source package](button-source.zip) and serve its directory with `python3 -m http.server 8000`; open `/buttons.html`.

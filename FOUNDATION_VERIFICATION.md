@@ -47,4 +47,4 @@ The 26 original resources were reviewed as public pages and indexes, not exhaust
 
 Earlier runs `41771865875` and `41772143491` stopped at test-fixture mismatches (byte input, then insignificant CSS value whitespace). They are superseded by the successful run above; no failed run is counted as passing.
 
-![Desktop workbench](foundation-preview.png)
+![Desktop workbench](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/foundation-preview.png)

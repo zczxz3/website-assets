@@ -5,7 +5,7 @@
 - [Successful workflow](https://github.com/zczxz3/website-assets/actions/runs/41781526357)
 - [Tested source](https://github.com/zczxz3/website-assets/tree/e84d571299b63d8c66b447ce52b8c8f5e8fd02cf)
 - [Pinned Studio](https://github.com/zczxz3/modular-website-studio/tree/3f989b2be833f468db600c24aa49194abf5f918e)
-- [Original evidence archive](queue-verification.zip) and [checksums](queue-verification-manifest.json)
+- [Original evidence archive](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/queue-verification.zip) and [checksums](queue-verification-manifest.json)
 
 ## Verified scope
 
@@ -43,4 +43,4 @@ source SHA-256   012755ebb4d17df77d325e55b777e1bd1a0ded4b79f52878e7c5fd08b6937ad
 evidence SHA-256 2ae123817c02858e541ea0c891d8b7d44e564c87fea2e7cf14d5ee23a905e207
 ```
 
-![Updated Queue Lab](queue-preview.png)
+![Updated Queue Lab](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/queue-preview.png)

@@ -11,4 +11,4 @@ These are two focused consumer scenarios, not tests of all presets, framework ad
 
 The delivered tarball differs from the tested tarball only in README installation instructions. Code, CSS, declarations and package metadata are byte-identical. See `library-verification.json` for hashes. The Actions artifact contains original screenshots, results, package and a static gallery ZIP.
 
-Release migration and Pages deployment have not run. The active CI workflow is read-only. Installation is supported from the repository tarball; npm registry and CDN publication are not claimed.
+Evidence migration is recorded in DISTRIBUTION.md. Online deployment was declined by the user. The consumer CI workflow is read-only. Installation is supported from the repository tarball; npm registry and CDN publication are not claimed.

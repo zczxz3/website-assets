@@ -10,18 +10,18 @@ This repository contains original technique studies, not 25 restored websites. P
 
 Passing one category does not imply the others. Mobile tests use Chromium emulation. Browser and assistive-technology coverage remains limited.
 
-## Storage policy — migration pending approval
+## Storage policy — migration completed
 
-Historical original-demo evidence and preview images are proposed to move from the default branch to the `evidence-v0.3` Release. Small installable/source packs stay where current verification requires them. New evidence belongs in Actions artifacts or Releases, not Git source commits. `distribution-migration.json` records paths and original hashes.
+Historical original-demo evidence and preview images have moved from the default branch to the `evidence-v0.3` Release. Small installable/source packs stay where current verification requires them. New evidence belongs in Actions artifacts or Releases, not Git source commits. `distribution-migration.json` records paths and original hashes.
 
-Third-party reference screenshot archives are proposed for removal from the default branch without republishing as Release assets. The study source archive is sanitized to retain source, analysis and original URLs, without reference images. Unknown rights are not treated as MIT.
+Third-party reference screenshot archives have been removed from the default branch without republishing as Release assets. The study source archive is sanitized to retain source, analysis and original URLs, without reference images. Unknown rights are not treated as MIT.
 
 Existing Git history still contains earlier binaries and reference captures. This migration does **not** erase history or guarantee a small full-history clone. Use `git clone --depth 1` or the small versioned package. A complete history purge is a separate disruptive operation affecting existing clones and commit links; it has not been performed. Adding Git LFS now would not by itself remove historical blobs, and is unnecessary for code-only package consumers.
 
 MIT covers our original code and procedural demonstration graphics. It does not license third-party websites, screenshots, trademarks, fonts, audio, models or data. Original sources are linked for research; no blanket redistribution permission is asserted.
 
-## Online preview
+## Local use only
 
-The distribution workflow prepares a code-only gallery artifact. GitHub Pages must be enabled for Actions deployment before a live hosted gallery can be claimed. The Actions artifact also includes `gallery.zip`, which can be served as static files. No external analytics or third-party reference screenshots are included.
+The user selected installable and locally runnable tools, with no online deployment. No Pages, website hosting or CDN publishing is configured by this migration. The consumer-verification workflow creates a static gallery ZIP for optional local use.
 
-The automatic Release migration and Pages deployment were blocked by approval review. Neither has run. The active consumer workflow has contents:read only and uploads test artifacts; it cannot create releases, delete repository files, push commits or deploy Pages.
+The one-time migration was explicitly approved after the initial approval block. All 15 Release assets were downloaded and SHA-256 verified before 17 files were removed from the current branch. The migration workflow deletes itself in the completion commit. Existing history remains unchanged.

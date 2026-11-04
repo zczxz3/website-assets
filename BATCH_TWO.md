@@ -63,4 +63,4 @@ Original public evidence is preserved in `batch-two-reference-evidence.zip`; san
 
 All 25 studies passed desktop/mobile functional checks. The complete suite passed 58/58 browser scenarios and 17/17 Node checks. See [verification](STUDY_VERIFICATION.md). This remains selected-mechanism reconstruction; complete original-site parity is not established.
 
-![Original procedural desk study](batch-two-preview.png)
+![Original procedural desk study](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/batch-two-preview.png)

@@ -19,6 +19,6 @@
   "difference_from_tested_archive": [
     "README installation location corrected; all code, CSS, declarations and package metadata byte-identical"
   ],
-  "migration": "not executed; approval required",
-  "pages": "not deployed"
+  "migration": "completed; see distribution-migration-result.json",
+  "pages": "not deployed; local tools requested"
 }
