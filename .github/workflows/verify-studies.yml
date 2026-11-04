@@ -64,7 +64,10 @@ jobs:
           exit "${status}"
 
       - name: Verify published source matches the tested archive
-        run: python3 package_studies.py verify | tee "${REPORT_DIR}/package-verification.json"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 package_studies.py verify | tee "${REPORT_DIR}/package-verification.json"
 
       - name: Materialize the reviewed study source bundle
         run: python3 -m zipfile -e study-source.zip .
