@@ -1,0 +1,21 @@
+{
+  "workflow_run": 41792728119,
+  "source_commit": "8d71c1a100eb679131002d4d76df574af8c3b4be",
+  "results": {
+    "portfolio-workbench": {
+      "passed": 33,
+      "total": 33,
+      "artifact_sha256": "c1bc7cff5b02fb1aa2e3f073f0bc27a9410f9107dffb54a685f29593f1c09f58"
+    },
+    "module-roundtrip": {
+      "passed": 33,
+      "total": 33,
+      "artifact_sha256": "ae8aebb2b740daf391d8fe7123fbbe0bd7fa16daa8407409aa389a9ab01b1f34"
+    },
+    "main": {
+      "passed": 33,
+      "total": 33,
+      "artifact_sha256": "cddb61073a940ef04864412e067473c9ceb5b0732e1902bd6ddb798109dabae8"
+    }
+  }
+}
