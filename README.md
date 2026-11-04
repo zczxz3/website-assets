@@ -4,6 +4,8 @@
 
 ## Start here
 
+**For Modular Website Studio:** [integration contract and offline installation](STUDIO_INTEGRATION.md). Download `studio-components.zip` for 31 existing static modules and a native two-page editable shelf. Runtime-only effects remain explicitly unsupported by the current Studio module interface.
+
 [Independent package consumer verification](LIBRARY_VERIFICATION.md): strict TypeScript compilation and two Chromium consumer scenarios passed.
 
 - [Installable package and typed API](LIBRARY.md): 20 original button presets plus menu, async-task and reorder bindings. Install `zczxz3-website-assets-motion-0.4.0.tgz` from the repository root; npm registry publication is not claimed.
