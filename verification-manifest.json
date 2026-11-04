@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "repository": "https://github.com/zczxz3/website-assets",
+  "scope": "Documentation and published-file integrity review; no new browser execution in this pass.",
+  "tested_commit": "238f076ff7b44db1f0504e63a7077f3b7db33c13",
+  "verified_workflow_run": "https://github.com/zczxz3/website-assets/actions/runs/41754711044",
+  "workflow_conclusion": "success",
+  "browser_checks": {
+    "passed": 31,
+    "total": 31,
+    "page_errors": 0,
+    "per_site_screenshots_rehashed": 30,
+    "gallery_lifecycle": "passed",
+    "motion_preference": "reduce",
+    "authoritative_result": "component-verification.zip!component-checks/summary.json"
+  },
+  "algorithm_checks": {
+    "passed": 6,
+    "total": 6
+  },
+  "archives": [
+    {
+      "path": "study-source.zip",
+      "bytes": 926088,
+      "sha256": "d93136a4b2a9b7bddbd5a060351bc8e81d6d4d15b56235748c87956f32b42855",
+      "github_blob_sha": "12b7d080424b930e8d2fdf3364ed150765f8345e",
+      "zip_integrity": "passed"
+    },
+    {
+      "path": "component-verification.zip",
+      "bytes": 4026341,
+      "sha256": "3944f6607a3a01d1942c563b4fc26b983e14147b8912bfc7afc3637a958d90d1",
+      "github_blob_sha": "5b656e1868aa7b5ebd4a2a330f255d54ace3a459",
+      "zip_integrity": "passed"
+    }
+  ],
+  "published_source_parity": {
+    "checked_files": 23,
+    "mismatches": 0,
+    "files": [
+      {
+        "path": "component-tests.mjs",
+        "bytes": 2410,
+        "sha256": "f75ebe3bde49bec7138674f9a16bf578188cc8841ad2f64157f699345b6cb051",
+        "github_blob_sha": "9d9ef75f281031018086395543862e52d5073268"
+      },
+      {
+        "path": "components/book-tilt.mjs",
+        "bytes": 1196,
+        "sha256": "6211fc98135f2cffa7b4455d4ba68988dde885620b38c2b729495597c5257d76",
+        "github_blob_sha": "eef91d93b5c5bb59672637478f2c74e7f906b07f"
+      },
+      {
+        "path": "components/color-theme.mjs",
+        "bytes": 1282,
+        "sha256": "b681c5323aca21b91c57e243d87124138520abdf2a5bf7b7c6c50bd1127e70ca",
+        "github_blob_sha": "f24d55abb7f82b8d6bfd5b95ae2a7c5853fa27be"
+      },
+      {
+        "path": "components/core.mjs",
+        "bytes": 4201,
+        "sha256": "cd6c48e60eafafeffcbd377daee3cc63f42f9dd47e52aba03d9f942167d86b45",
+        "github_blob_sha": "20bb48538c8abe80bd1fbf4deb2bf3578bd22283"
+      },
+      {
+        "path": "components/dither-image.mjs",
+        "bytes": 2727,
+        "sha256": "9c5c56acd5a9566e07c75e4a84576d23cfbfe6a337b9fc04b2f1c453ae9a3f6e",
+        "github_blob_sha": "a6508ac7a855da513fdc3ad7419af0aafef0dbea"
+      },
+      {
+        "path": "components/flow-field.mjs",
+        "bytes": 3221,
+        "sha256": "9346c1f07e00d3af850ee6444329b6a93546b0e3b139cc7ca4e6c43c2eb601dd",
+        "github_blob_sha": "5082b0f12b9fd80182bcc77caa4d287d94b1018a"
+      },
+      {
+        "path": "components/ink-story.mjs",
+        "bytes": 2008,
+        "sha256": "62bea050dd25851eb5887b6f2d2a0a2bd8b80eb344751ad440bf4779e5ac39f2",
+        "github_blob_sha": "d5a8037f234170bfe98ce38e1f2662a009116146"
+      },
+      {
+        "path": "components/key-visual-sampler.mjs",
+        "bytes": 2530,
+        "sha256": "299d27aec853016ff93a561769e44279a95b509e8ed5f66e8ed88a21d4a24976",
+        "github_blob_sha": "8410f7238c5b78384eb9d712f2f81c2a8239f48f"
+      },
+      {
+        "path": "components/mechanism-section.mjs",
+        "bytes": 2125,
+        "sha256": "791fc04a1b37db1ee116cc1dad5b400b2d98d48a9c06e18bce734dd3278dd959",
+        "github_blob_sha": "30fd2fb2ae809712580b431f6891b1b75d52cb7d"
+      },
+      {
+        "path": "components/particle-morph.mjs",
+        "bytes": 3674,
+        "sha256": "444ceeeb92f4daa8cf2560c32a0f88fb12ee31b308ad4f7638e9c44398971a13",
+        "github_blob_sha": "081200fad9a0f9c728d9811f790bce42125b879a"
+      },
+      {
+        "path": "components/population-terrain.mjs",
+        "bytes": 2024,
+        "sha256": "dbf291231af88646f8db8f65bd2c868184e76b7a2366329e511b1225e68c1e80",
+        "github_blob_sha": "b91a909133dda6995c24edf04f93906b522a403a"
+      },
+      {
+        "path": "components/scene-scroller.mjs",
+        "bytes": 2578,
+        "sha256": "fd93532c77ce32cd0ed695a3c639ac1d7eea76d8eb0161bdb987e3245b56b00d",
+        "github_blob_sha": "e0fdd5e6c7f39e774a7651862b5dc25ab5838d6a"
+      },
+      {
+        "path": "components/shared-transition.mjs",
+        "bytes": 2206,
+        "sha256": "42c2f553a505a886f9bbc6b7f51ff3b2d31650ed1c36ce8cbbaaeb9a59777cd6",
+        "github_blob_sha": "04d8516e1a91793841408f87050d31c3f379b0c4"
+      },
+      {
+        "path": "components/stroke-matcher.mjs",
+        "bytes": 3849,
+        "sha256": "d4d02a709dd994f6626466ea812288e0ee3f775bd91f67f63923ca93bd5bbe71",
+        "github_blob_sha": "155b2e3e02638d780e5b14bc01d9fc6dfbcf812e"
+      },
+      {
+        "path": "components/text-reveal.mjs",
+        "bytes": 1296,
+        "sha256": "da8263c97f382e1fb55abb72f8ae506d218861ba26b85724500de438ff747331",
+        "github_blob_sha": "7f1350be9317bef642fcf9ec2d45c2d45fc12534"
+      },
+      {
+        "path": "components/variable-type.mjs",
+        "bytes": 1373,
+        "sha256": "20250370432faa4171dc5a49d6d013c28f47cf639560f48008728f40148b6890",
+        "github_blob_sha": "bdb2d62b09095f050b6f12d088bf4dc08bfc36b9"
+      },
+      {
+        "path": "components/vehicle-world.mjs",
+        "bytes": 3117,
+        "sha256": "1c191944a777bd93631d73bfa5edcf4718f17808a13a523d377e06be45f70d4e",
+        "github_blob_sha": "3fc5659ec6857c961fbe9b2acba3476168b981a9"
+      },
+      {
+        "path": "followup_sites.py",
+        "bytes": 3324,
+        "sha256": "900b0939650d058dd487a1efe4ff7c78dc3fc209d1c4b2871e0b325cb4084443",
+        "github_blob_sha": "6469329d1f0b9e41632e1b898099d744d8ceda39"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1939,
+        "sha256": "0f83dcb8ed226f6ad2357bfc137fa1ad6230e57069dfc4957bd0b05e94ea82f4",
+        "github_blob_sha": "84208c6f323e44b6c99d9d884a8d799a1cde92b7"
+      },
+      {
+        "path": "index.mjs",
+        "bytes": 1940,
+        "sha256": "6e3a72c733fa5c41f769612afd29514a61014ff6d1ffb17e0fd5ba6b46bb1d1d",
+        "github_blob_sha": "a0c5dbdde6b583ae8e51c70cc99c0cb2c1962e81"
+      },
+      {
+        "path": "registry.mjs",
+        "bytes": 9631,
+        "sha256": "8d0d43e4e9a6de57584b5c0aa7b67c6b989dc8136b576d06120d9021da076bce",
+        "github_blob_sha": "a745b1943e8c92b395335bf37ffe889d1a4a700f"
+      },
+      {
+        "path": "styles.css",
+        "bytes": 11224,
+        "sha256": "4057a74eb60155a064ccebfdcc5b969e56ec797d7dbf6b050e950e61d13dd0e3",
+        "github_blob_sha": "b8862906863a65026bd8e529807834f6cd9502c1"
+      },
+      {
+        "path": "verify_studies.py",
+        "bytes": 9150,
+        "sha256": "cb60678b42cb43ec90ec307e6d4f41ee471432af5ab8598911f26b2b26eebbea",
+        "github_blob_sha": "e76d2e53777e5888020fbf349fde517d5f1ae959"
+      }
+    ]
+  },
+  "original_site_limitations": [
+    "The Boat: complete comic scene not exercised; WebGL context initialization failed.",
+    "Igloo Inc.: full WebGL2 scene not rendered in the current cloud browser.",
+    "Bruno Simon: WebGPU fallback to WebGL2 failed to initialize the complete world."
+  ],
+  "production_fidelity_verified": false
+}

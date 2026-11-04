@@ -4,6 +4,8 @@ Research of 15 distinctive websites, with original reusable frontend interaction
 
 **Verified:** 31/31 real REA browser checks and 6/6 algorithm checks passed. See [the measured verification report](STUDY_VERIFICATION.md).
 
+**Start here:** [Delivery overview and categorized component index](OVERVIEW.md) — practical uses, reuse requirements, file locations, verification scope and prioritized follow-up work. [Machine-readable verification manifest](verification-manifest.json).
+
 ![Motion Atlas gallery](demo-preview.jpg)
 
 ## What is implemented
