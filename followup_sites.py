@@ -3,6 +3,7 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json
+import os
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from collect_sites import rea, summarize_capture, write
@@ -34,7 +35,9 @@ def capture(site,args):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rea',type=Path,required=True);p.add_argument('--browser',type=Path,required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args();args.rea=args.rea.resolve();args.browser=args.browser.resolve()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rea',type=Path,required=True);p.add_argument('--browser',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--repeat-references',action='store_true');args=p.parse_args();args.rea=args.rea.resolve();args.browser=args.browser.resolve()
+    if int(os.environ.get('GITHUB_RUN_NUMBER','1'))>1 and not args.repeat_references:
+        print('Reference follow-ups are already retained from run 1; component-only rerun skips public site visits.',flush=True);return
     sites=[s for s in json.loads(Path('sites.json').read_text())['sites'] if s['id'] in ['06','07','08','09','10','11','13']]
     with ThreadPoolExecutor(max_workers=2) as pool:list(pool.map(lambda site:capture(site,args),sites))
 

@@ -32,8 +32,8 @@ def check(site,width,args,base):
       'actions':[{'step_id':'mounted','action':'wait_for','locator':{'kind':'css','selector':f"body[data-ready='{site['id']}']"},'state':'visible','timeout_ms':12000},
                  {'step_id':'settled','action':'wait_for_timeout','duration_ms':350}],
       'capture':{'after_each_step':['dom','url'],'at_end':['dom','screenshot','url'],'events':['page-errors']}}
-    control={'kind':'css','selector':'[data-testid="demo-control"]'}
-    is_button=site['id'] in ['01','02','07','09','10','13']
+    control={'kind':'css','selector':'[data-layout]' if site['id']=='02' else '[data-testid="demo-control"]'}
+    is_button=site['id'] in ['01','02','04','07','09','10','13']
     scenario['actions'].append({'step_id':'interaction','action':'click' if is_button else 'press','locator':control,'timeout_ms':5000,**({} if is_button else {'key':'ArrowRight'})})
     scenario['actions'].append({'step_id':'after-interaction','action':'wait_for_timeout','duration_ms':300})
     if site['id']=='01':
@@ -68,6 +68,29 @@ def check(site,width,args,base):
     (folder/'result.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary),flush=True);return summary
 
 
+def gallery_check(args,base):
+    folder=args.output/'gallery-lifecycle';folder.mkdir(parents=True,exist_ok=True)
+    actions=[{'step_id':'ready','action':'wait_for','locator':{'kind':'css','selector':"body[data-ready='01']"},'state':'visible','timeout_ms':10000}]
+    for sid in ['04','05','08','15','01']:
+        actions.extend([{'step_id':'select-'+sid,'action':'click','locator':{'kind':'css','selector':f"#study-nav button[data-id='{sid}']"},'timeout_ms':5000},
+                        {'step_id':'mounted-'+sid,'action':'wait_for','locator':{'kind':'css','selector':f"body[data-ready='{sid}']"},'state':'visible','timeout_ms':5000}])
+    actions.append({'step_id':'view-gallery','action':'press','locator':{'kind':'css','selector':'body'},'key':'PageDown','timeout_ms':5000})
+    scenario={'browser':{'mode':'launch','executable_path':str(args.browser),'headless':True},'start_url':{'url':base+'/'},'environment':{'viewport':{'width':1280,'height':1000,'device_scale_factor':1},'reduced_motion':'reduce'},'command_timeout_ms':50000,'actions':actions,'capture':{'after_each_step':['dom','url'],'at_end':['dom','screenshot','url'],'events':['page-errors']}}
+    path=folder/'scenario.json';path.write_text(json.dumps(scenario,indent=2))
+    result=subprocess.run([str(args.rea),'capture-browser-scenario',str(path),'--format','json'],capture_output=True,timeout=65)
+    evidence=json.loads(result.stdout);evidence=evidence.get('data',evidence);(folder/'evidence.json').write_text(json.dumps(evidence));normalized=evidence.get('normalized_result',{})
+    assert result.returncode==0 and normalized.get('completeness',{}).get('status')=='complete','Gallery capture failed'
+    assert not [e for e in normalized.get('events',{}).get('items',[]) if e.get('kind')=='page-error'],'Gallery page error'
+    steps={s['step_id']:s for s in normalized['steps']}
+    state=State();state.feed(steps['mounted-05']['artifacts']['dom']['value']['text'])
+    assert 'background-color' not in state.stage.get('style','') and 'color:' not in state.stage.get('style',''),'Previous color component leaked inline style'
+    assert 'color-demo' not in state.stage.get('class',''),'Previous component leaked its CSS class'
+    state=State();state.feed(steps['mounted-01']['artifacts']['dom']['value']['text'])
+    assert state.body.get('data-ready')=='01' and not state.body.get('data-error'),'Remount failed'
+    image=normalized['steps'][-1]['artifacts']['screenshot']['value'];data=base64.b64decode(image['data_base64']);assert hashlib.sha256(data).hexdigest()==image['sha256'];(folder/'demo.png').write_bytes(data)
+    return {'site':'gallery','status':'passed','evidence_id':evidence['evidence_id'],'checks':['color-style cleanup','class cleanup','WebGL mount/teardown','five successive mounts','zero page errors']}
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rea',type=Path,required=True);p.add_argument('--browser',type=Path,required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args();args.rea=args.rea.resolve();args.browser=args.browser.resolve();args.output=args.output.resolve();args.output.mkdir(parents=True,exist_ok=True)
     sites=json.loads(Path('research-registry.json').read_text())
@@ -83,8 +106,10 @@ def main():
                 try:results.append(future.result())
                 except Exception as error:
                     failures.append({'case':futures[future],'error':str(error)});print('FAILED',futures[future],str(error),flush=True)
+        try:results.append(gallery_check(args,base))
+        except Exception as error:failures.append({'case':'gallery lifecycle','error':str(error)})
     finally:server.shutdown();server.server_close()
-    summary={'status':'failed' if failures else 'passed','passed':len(results),'total':30,'failures':failures,'results':results}
+    summary={'status':'failed' if failures else 'passed','passed':len(results),'total':31,'failures':failures,'results':results}
     (args.output/'summary.json').write_text(json.dumps(summary,indent=2));print('BROWSER_SUMMARY',json.dumps({k:v for k,v in summary.items() if k!='results'}),flush=True)
     return 1 if failures else 0
 
