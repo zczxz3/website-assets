@@ -27,7 +27,7 @@ Use `styles.css` for the supplied presentation. A demo host should have a nonzer
 | --- | --- |
 | `shared-transition.mjs` | `mount(host)`; native dialog and FLIP geometry |
 | `text-reveal.mjs` | `mount(host)`; replay and layout controls |
-| `variable-type.mjs` | `mount(host, {fontFamily})`; separately licensed variable font |
+| `variable-type.mjs` | `mount(host, {fontFamily,nativeWidthAxis})`; separately licensed variable font; set nativeWidthAxis to true to disable geometric width fallback |
 | `color-theme.mjs` | `palette`; returned `select(index)` |
 | `book-tilt.mjs` | `mount(host)`; pointer and range rotation |
 | `ink-story.mjs` | `mount(host)`; scene wheel and narrative range |
