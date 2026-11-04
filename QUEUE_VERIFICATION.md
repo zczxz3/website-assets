@@ -1,45 +1,46 @@
-# Frontend Queue verification
+# Frontend Queue verification — 50 targets
 
-**Passed:** 8 Node tests, 2 Studio core tests, 15 Chromium browser scenarios and 2 unmodified REA scenarios.
+**Passed: 10 Node tests, 2 Studio core tests, 15 Chromium scenarios and 2 unmodified REA scenarios.** Checked 2026-11-04.
 
-- [Successful workflow run](https://github.com/zczxz3/website-assets/actions/runs/41778681401)
-- [Tested source](https://github.com/zczxz3/website-assets/tree/07e1155ad94811f2eb4c14a72213485b854e14e4)
+- [Successful workflow](https://github.com/zczxz3/website-assets/actions/runs/41781526357)
+- [Tested source](https://github.com/zczxz3/website-assets/tree/e84d571299b63d8c66b447ce52b8c8f5e8fd02cf)
 - [Pinned Studio](https://github.com/zczxz3/modular-website-studio/tree/3f989b2be833f468db600c24aa49194abf5f918e)
-- Original reports, screenshots and exported projects: [queue-verification.zip](queue-verification.zip)
-- Machine-readable hashes: [queue-verification-manifest.json](queue-verification-manifest.json)
+- [Original evidence archive](queue-verification.zip) and [checksums](queue-verification-manifest.json)
 
-## Scope
+## Verified scope
 
-| Check | Result | What was verified |
+| Check | Result | Coverage |
 |---|---|---|
-| Model and export | 8 tests | Source-backed reordering; undo/redo; invalid imports; route completeness; text escaping; HTTPS destination rules; ZIP metadata |
-| Actual Studio core | 2 tests | Open/edit/save/reopen/export a seven-file project; install and reject duplicate static-card modules |
-| Workbench and exports | 14 scenarios | At 1280 and 390 px: 30-item filters; native choices; three menu variants; keyboard focus; real request success/failure/retry/cancel; single-flight; dots/wave; reduced motion; mouse and emulated-touch drag; shelf addition; keyboard ordering; editable data and cover colors; save/open; offline linked pages; invalid input preservation |
-| Actual Studio UI | 1 scenario | Open the configured project; change its title; install and insert the ZIP card; save; reopen; export; preserve article and all pages |
-| REA CLI | 2 scenarios | Standalone menu open/close at 390 and 1280 px, with keyboard activation and original DOM/event/screenshot evidence |
-| Integrity | 17 screenshots | Recomputed terminal screenshot hashes and compared all 17 recorded source hashes against delivered files |
+| Model, export and catalog | 10 tests | Reordering, undo/redo, rejected imports, escaping, routes and ZIP structure; unique IDs, progress preservation, exact CSV checksum, acquisition pins and rejection of false runtime claims |
+| Studio core | 2 tests | Seven-file project open/edit/save/reopen/export; static card installation and duplicate rejection |
+| Workbench | 14 scenarios | Desktop 1280 px and emulated touch 390 px; 50 targets, 23/17/10 level filters, 26-effect view, two-tool view, no duplicate IDs; original controls, keyboard, request state, cancellation, dragging, ordering, save/open and offline export |
+| Studio UI | 1 scenario | Open configured portfolio, edit title, install and insert card ZIP, save, reopen and export while preserving article and all pages |
+| REA | 2 scenarios | Standalone menu keyboard activation and open/close at both widths, with original DOM, event and screenshot evidence |
+| Integrity | 17 screenshots | Recomputed every screenshot checksum and all 20 recorded source hashes; checked 75 source-archive entries including 50 research folders |
 
-The Studio production build passed. Runtime: Node 24.22.1, REA 6.8.0, and matching Playwright Chromium; exact browser version and path are inside `playwright-runtime.json` in the original archive. No Studio core changes were made.
+The Studio production build and deterministic archive rebuild passed. Runtime: Node 24.22.1, REA 6.8.0 and its matching Playwright Chromium. Exact runtime details are preserved in the evidence ZIP. Studio core and its opaque editing iframe were not changed.
 
-## What this delivery means
+## Progress and limits
 
-Six targets have **bounded, independent implementations**: B07–B10, A05 and the F03 portfolio recipe. Twenty-one targets remain queued; A09, A10 and F10 remain reference-only. The 28 upstream repository heads are pinned, but upstream applications have not been built or completely reconstructed. See [English research and acceptance criteria](QUEUE_RESEARCH.md) and [component APIs](QUEUE_COMPONENTS.md).
+The catalog now has **50 targets: 6 bounded implementations, 41 queued targets and 3 reference-only entries**. B07–B10, A05 and F03 retain their earlier verified implementations. A09, A10 and F10 remain reference-only.
 
-The initial run `41777673420` passed 14 browser scenarios and both core tests but exposed a test locator tied to the old title and an REA instrumentation incompatibility with an opaque-origin iframe. The title locator was corrected; REA now tests an independent control page. The workbench keeps its opaque preview sandbox, and the full preview/export flow remains covered by Chromium tests. No failures from that run are counted as passes. Runs `41778170700` and `41778432644` were cancelled after screenshot collection waited on an offscreen iframe animation. Static screenshot capture now uses Playwright’s bounded animation handling; interaction assertions still run before screenshots.
+**E01–E20 are planned effect contracts, not 20 newly working components.** This update verifies their catalog integrity, filtering, documentation and export in the research source pack. It does not claim to verify their visual behavior or to install them into Studio. See [effect contracts and reuse candidates](QUEUE_EFFECTS.md).
 
-Mobile means Chromium touch/viewport emulation, not physical iOS/Android hardware. Safari, Firefox, assistive technology audits, full WCAG conformance, measured performance budgets, backend services and the entire original Next.js portfolio are outside these results. Dragging has no automatic edge scroll; move buttons and arrow keys cover long lists.
+Acquisition has 38 clone candidates, one official download and 11 study references. Native CSS/SVG study references remain eligible for independent implementation. Typed.js v3 is excluded from permissive runtime bundling; E05 is planned as original JavaScript. Source metadata and pins do not constitute complete upstream builds or dependency/asset license audits.
+
+Mobile testing uses Chromium touch and viewport emulation, not real iOS/Android devices. Safari, Firefox, assistive-technology audits, full WCAG conformance, measured effect performance budgets and upstream whole-site reconstruction are outside these results. Dragging has no automatic edge scrolling; keyboard and move buttons remain available.
+
+The prior 30-target verification is preserved at [commit e2b5d3b](https://github.com/zczxz3/website-assets/blob/e2b5d3b552d70a4a8db9dfb03d5e10188e0659f0/QUEUE_VERIFICATION.md). Its results are superseded by this run for the updated queue.
 
 ## Downloads
 
-- [Source and 30 research folders](queue-source.zip): **166,695 bytes**, 51 entries.
-- [Ready-made offline website](queue-website.zip): linked HTML and CSS, no scripts or remote assets.
-- [Editable Studio project](queue-portfolio.mws.json).
-- [Installable original project card](queue-card.zip).
-- Evidence archive: **1,496,302 bytes**.
+- [Source with 50 research folders](queue-source.zip): **316,278 bytes**, 75 entries.
+- [Offline website](queue-website.zip), [editable Studio project](queue-portfolio.mws.json), [installable static card](queue-card.zip).
+- Evidence archive: **1,413,728 bytes**.
 
 ```text
-source SHA-256   2afc1ff61eff19e5dce553b5be13ef5051218b9f1b8736588ae5f14db3a2a434
-evidence SHA-256 0b31c9ebcc46e7ffe340724883799fb71c2da0fa2bc9cfaeae86f44b070ef228
+source SHA-256   012755ebb4d17df77d325e55b777e1bd1a0ded4b79f52878e7c5fd08b6937ad5
+evidence SHA-256 2ae123817c02858e541ea0c891d8b7d44e564c87fea2e7cf14d5ee23a905e207
 ```
 
-![Queue Lab](queue-preview.png)
+![Updated Queue Lab](queue-preview.png)

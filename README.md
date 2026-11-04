@@ -26,7 +26,7 @@ Download [foundation-pack.zip](foundation-pack.zip), extract it, then install on
 
 Open `queue.html` with a local HTTP server. Edit project data, drag or use keyboard controls, save/reopen edits, and export linked offline HTML pages or a Studio project. [Source pack](queue-source.zip), [ready-made website](queue-website.zip), [Studio project](queue-portfolio.mws.json), [installable static card](queue-card.zip), and [verification](QUEUE_VERIFICATION.md). This is an original static portfolio recipe, not a complete port of the upstream Next.js application.
 
-[Queue verification](QUEUE_VERIFICATION.md): **8 Node tests, 2 Studio core tests, 15 Chromium scenarios and 2 REA scenarios passed**. [Reusable API examples](QUEUE_COMPONENTS.md).
+[Queue verification](QUEUE_VERIFICATION.md): **10 Node tests, 2 Studio core tests, 15 Chromium scenarios and 2 REA scenarios passed**. [Reusable API examples](QUEUE_COMPONENTS.md).
 
 ![Queue Lab](queue-preview.png)
 
