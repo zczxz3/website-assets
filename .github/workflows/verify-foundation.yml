@@ -72,6 +72,7 @@ jobs:
           persist-credentials: false
 
       - name: Install and build the pinned Studio
+        id: studio_build
         shell: bash
         run: |
           set -euo pipefail
@@ -89,13 +90,32 @@ jobs:
           npx vitest run tests/foundation-core.test.ts --reporter=json --outputFile="${REPORT_DIR}/core-tests.json"
 
       - name: Verify native interactions and the real Studio install edit export flow
+        if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
         run: node foundation-browser.mjs "${REPORT_DIR}/browser"
 
       - name: Verify standalone disclosure through unmodified REA
+        if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
           python3 foundation-rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea"
+
+      - name: Summarize completed checks
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, json
+          r=pathlib.Path(os.environ['REPORT_DIR'])
+          def read(p):
+              f=r/p
+              return json.loads(f.read_text()) if f.exists() else {}
+          core=read('core-tests.json');browser=read('browser/summary.json');rea=read('rea/summary.json')
+          passed=core.get('success') is True and browser.get('status')=='passed' and rea.get('status')=='passed'
+          report={'status':'passed' if passed else 'failed-or-incomplete','source_commit':os.environ['GITHUB_SHA'],'core_passed':core.get('numPassedTests',0),'core_total':core.get('numTotalTests',0),'browser_passed':len(browser.get('scenarios',[])),'browser_failures':browser.get('failures',[]),'rea_passed':len(rea.get('scenarios',[]))}
+          (r/'verification.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report))
+          PYCODE
 
       - name: Upload original reports, including after failure
         if: ${{ always() }}
