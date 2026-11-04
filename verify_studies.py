@@ -134,7 +134,7 @@ def extra_check(name,width,args,base):
         filtered=State();filtered.feed(steps['filtered']['artifacts']['dom']['value']['text'])
         assert [b['data-id'] for b in filtered.buttons if 'hidden' not in b]==['08'],'Search result mismatch'
         reset=State();reset.feed(steps['reset']['artifacts']['dom']['value']['text'])
-        assert len([b for b in reset.buttons if 'hidden' not in b])==15,'Reset failed'
+        assert len([b for b in reset.buttons if 'hidden' not in b])==len(json.loads(Path('research-registry.json').read_text())),'Reset failed'
         selected=State();selected.feed(steps['selected']['artifacts']['dom']['value']['text'])
         assert '?study=05' in selected.nodes['study-permalink']['href'],'Permalink not updated'
         assert selected.stage['aria-busy']=='false','Mount stayed busy'
@@ -159,7 +159,7 @@ def main():
                 try:results.append(future.result())
                 except Exception as error:
                     failures.append({'case':futures[future],'error':str(error)});print('FAILED',futures[future],str(error),flush=True)
-        for sid in ['01','08']:
+        for sid in ['01','08','17','23']:
             try:results.append(check(next(s for s in sites if s['id']==sid),1280,args,base,'no-preference'))
             except Exception as error:failures.append({'case':sid+' active motion','error':str(error)})
         for name,width in [('gallery-ux',1280),('gallery-ux',390),('runtime',1280)]:
@@ -168,7 +168,7 @@ def main():
         try:results.append(gallery_check(args,base))
         except Exception as error:failures.append({'case':'gallery lifecycle','error':str(error)})
     finally:server.shutdown();server.server_close()
-    summary={'status':'failed' if failures else 'passed','passed':len(results),'total':36,'failures':failures,'results':results}
+    summary={'status':'failed' if failures else 'passed','passed':len(results),'total':len(sites)*2+8,'failures':failures,'results':results}
     (args.output/'summary.json').write_text(json.dumps(summary,indent=2));print('BROWSER_SUMMARY',json.dumps({k:v for k,v in summary.items() if k!='results'}),flush=True)
     return 1 if failures else 0
 

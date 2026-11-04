@@ -8,7 +8,7 @@ import zipfile
 
 ROOT_FILES = ['index.html','index.mjs','styles.css','registry.mjs','catalog.mjs',
               'research-registry.json','component-tests.mjs','runtime-check.html',
-              'verify_studies.py','followup_sites.py','package_studies.py','LICENSE']
+              'verify_studies.py','followup_sites.py','package_studies.py','LICENSE','batch-two-sites.json']
 
 def verify(root=Path('.')):
     root=root.resolve();checked=0

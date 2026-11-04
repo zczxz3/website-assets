@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "sites": [
+    {
+      "id": "16",
+      "name": "San Rita",
+      "url": "https://sanrita.ca/",
+      "directory": "16-san-rita"
+    },
+    {
+      "id": "17",
+      "name": "Podium",
+      "url": "https://podium.global/",
+      "directory": "17-podium"
+    },
+    {
+      "id": "18",
+      "name": "Ten Years Away",
+      "url": "https://ten.375.studio/",
+      "directory": "18-ten-years-away"
+    },
+    {
+      "id": "19",
+      "name": "The Spark",
+      "url": "https://spark.thedigitalpanda.com/",
+      "directory": "19-the-spark"
+    },
+    {
+      "id": "20",
+      "name": "Juan Mora Romero",
+      "url": "https://juanmoraromero.com/",
+      "directory": "20-juan-mora-romero"
+    },
+    {
+      "id": "21",
+      "name": "Maria Vasilyeva",
+      "url": "https://www.mariavasilyeva.com/",
+      "directory": "21-maria-vasilyeva"
+    },
+    {
+      "id": "22",
+      "name": "Chasing the Moment",
+      "url": "https://chasing-the-moment.byholm.co/",
+      "directory": "22-chasing-the-moment"
+    },
+    {
+      "id": "23",
+      "name": "Yichen Xie",
+      "url": "https://yichenxie.com/",
+      "directory": "23-yichen-xie"
+    },
+    {
+      "id": "24",
+      "name": "ULTRAGRID",
+      "url": "https://ultragrid.studio/",
+      "directory": "24-ultragrid"
+    },
+    {
+      "id": "25",
+      "name": "Heron AI",
+      "url": "https://heronaiapp.com/",
+      "directory": "25-heron-ai"
+    }
+  ]
+}

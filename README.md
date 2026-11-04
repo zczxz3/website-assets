@@ -1,8 +1,10 @@
 # Website Assets — Motion Atlas
 
-Research of 15 distinctive websites, with original reusable frontend interaction studies. All documentation and code comments are in English.
+Research of 25 distinctive websites, with original reusable frontend interaction studies. All documentation and code comments are in English.
 
-**Version 0.2 verified:** 36/36 REA browser scenarios, 14/14 unit checks and 29/29 published source comparisons passed. Search, shareable links, demand-driven rendering and stronger cleanup are included. [Upgrade notes](UPGRADE_NOTES.md) · [Verification report](STUDY_VERIFICATION.md).
+**Batch two (16–25):** ten new prototypes and [author-backed research notes](BATCH_TWO.md). Expanded verification is pending.
+
+**Previous version 0.2 verified:** 36/36 REA browser scenarios, 14/14 unit checks and 29/29 published source comparisons passed. Search, shareable links, demand-driven rendering and stronger cleanup are included. [Upgrade notes](UPGRADE_NOTES.md) · [Verification report](STUDY_VERIFICATION.md).
 
 **Start here:** [Delivery overview and categorized component index](OVERVIEW.md) — practical uses, reuse requirements, file locations, verification scope and prioritized follow-up work. [Machine-readable verification manifest](verification-manifest.json).
 
@@ -10,11 +12,11 @@ Research of 15 distinctive websites, with original reusable frontend interaction
 
 ## What is implemented
 
-- 15 independent runnable studies, from editorial transitions and variable typography to WebGL particles, projected 3D worlds, flow fields, line matching and dithering.
+- 25 independent runnable studies, from editorial transitions and variable typography to WebGL particles, projected 3D worlds, flow fields, line matching and dithering.
 - Directly browsable shared module source in `components/`, with a common `mount()` / `destroy()` lifecycle.
 - An interactive gallery: `index.html`, `index.mjs`, `registry.mjs` and `styles.css`.
-- A complete `study-source.zip` package with all 15 separate research directories, evidence, analysis, original asset notes, standalone demos, reusable exports and reproduction instructions.
-- Bounded REA captures of all 15 original public pages, with completeness and unverified production details recorded honestly.
+- A complete `study-source.zip` package with all 25 separate research directories, evidence, analysis, original asset notes, standalone demos, reusable exports and reproduction instructions.
+- Bounded REA captures of the first 15 original public pages, with completeness and unverified production details recorded honestly.
 
 This is a first-pass component library and research package, not a complete or pixel-identical reconstruction of all 15 websites. See [the findings](RESEARCH.md) for exact coverage and differences.
 
