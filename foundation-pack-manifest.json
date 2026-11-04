@@ -3,8 +3,8 @@
   "modules": 30,
   "resources": 26,
   "studio_commit": "3f989b2be833f468db600c24aa49194abf5f918e",
-  "archive_sha256": "61d6446c0ded4c681f804a799db15b48b65b85814223b6900ece0c9bc8246df0",
-  "archive_bytes": 309652,
+  "archive_sha256": "e005ad58b6d3e6c78a3096c1f9c7d043856600628220897b56a558e1c15b7951",
+  "archive_bytes": 309649,
   "entries": {
     "FOUNDATION_GUIDE.md": {
       "bytes": 5004,
@@ -43,8 +43,8 @@
       "sha256": "836036af0c65d423545e6f58a52078db6275ae9a28cddb176dc66be56c4df46b"
     },
     "foundation.mjs": {
-      "bytes": 4990,
-      "sha256": "82edf2dc651b816172bf2f18efcbe69f6571e9e46923a208836d36e3d28260d9"
+      "bytes": 4983,
+      "sha256": "41fc0c3a734d4931b6fd4ca606ecbe8edfdce6e1d697d3951055757d927e5e6e"
     },
     "installable/accordion.zip": {
       "bytes": 2994,

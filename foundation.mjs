@@ -6,7 +6,7 @@ export function zipFile(filename,text){
  const out=new Uint8Array(30+name.length+data.length+46+name.length+22),v=new DataView(out.buffer);let p=0;
  const u16=n=>{v.setUint16(p,n,true);p+=2;},u32=n=>{v.setUint32(p,n,true);p+=4;};
  u32(0x04034b50);u16(20);u16(0x800);u16(0);u16(0);u16(33);u32(crc);u32(data.length);u32(data.length);u16(name.length);u16(0);out.set(name,p);p+=name.length;out.set(data,p);p+=data.length;
- const offset=p;u32(0x02014b50);u16(20);u16(20);u16(0x800);u16(0);u16(0);u16(0);u16(33);u32(crc);u32(data.length);u32(data.length);u16(name.length);u16(0);u16(0);u16(0);u16(0);u32(0);u32(0);out.set(name,p);p+=name.length;
+ const offset=p;u32(0x02014b50);u16(20);u16(20);u16(0x800);u16(0);u16(0);u16(33);u32(crc);u32(data.length);u32(data.length);u16(name.length);u16(0);u16(0);u16(0);u16(0);u32(0);u32(0);out.set(name,p);p+=name.length;
  const size=p-offset;u32(0x06054b50);u16(0);u16(0);u16(1);u16(1);u32(size);u32(offset);u16(0);return out;
 }
 export function manifestOf(module){const {study,...manifest}=module;return manifest;}
