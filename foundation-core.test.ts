@@ -7,10 +7,10 @@ import {moduleFromZip,installModule,validateModule} from '../src/core/modules';
 import {projectFromFiles,exportWebsite,parseProjectJson,saveProject} from '../src/core/io';
 import {elements,sourceText} from '../src/core/source';
 import {applyCommand,ownStyle} from '../src/core/commands';
-import {unzipSync,strFromU8} from 'fflate';
+import {unzipSync,strFromU8,strToU8} from 'fflate';
 const root=resolve(process.cwd(),'..');
 const rows=JSON.parse(readFileSync(resolve(root,'foundation-modules.json'),'utf8'));
-const blank=()=>projectFromFiles({'index.html':{kind:'text',content:'<!doctype html><html lang="en"><head><title>Contract</title></head><body><!-- preserve this byte-level comment --></body></html>'}},'Contract');
+const blank=()=>projectFromFiles({'index.html':strToU8('<!doctype html><html lang="en"><head><title>Contract</title></head><body><!-- preserve this byte-level comment --></body></html>')},'Contract');
 test.each(rows)('$id installs, repeats, edits, saves and exports',row=>{
  const slug=row.id.split('/')[1],m=moduleFromZip(new Uint8Array(readFileSync(resolve(root,'foundation-dist/installable/'+slug+'.zip'))));expect(m.id).toBe(row.id);expect(m.html).toBe(row.html);expect(m.css).toBe(row.css);
  let p=installModule(blank(),m);expect(()=>installModule(p,m)).toThrow(/已安装/);
