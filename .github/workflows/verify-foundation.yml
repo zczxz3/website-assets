@@ -1,0 +1,107 @@
+name: Verify Foundation Modules
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/verify-foundation.yml
+      - "foundation*.mjs"
+      - "foundation*.json"
+      - "foundation*.html"
+      - "foundation*.css"
+      - "foundation*.py"
+      - "foundation*.ts"
+      - foundation-pack.zip
+      - FOUNDATION_GUIDE.md
+      - FOUNDATION_RESEARCH.md
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Prepare isolated reports
+        shell: bash
+        run: |
+          REPORT_DIR="${RUNNER_TEMP}/website-study-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          printf 'REPORT_DIR=%s\n' "${REPORT_DIR}" >> "${GITHUB_ENV}"
+          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "${RUNNER_TEMP}/rea-playwright-browsers" >> "${GITHUB_ENV}"
+          mkdir -p "${REPORT_DIR}"
+          printf '%s\n' '{"status":"not-run","reason":"The workflow has not reached the verification script."}' > "${REPORT_DIR}/verification.json"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24.22.1"
+
+      - name: Install locked REA dependencies
+        shell: bash
+        run: |
+          node --version > "${REPORT_DIR}/node-version.txt"
+          npm --version > "${REPORT_DIR}/npm-version.txt"
+          set +e
+          npm ci --ignore-scripts --omit=optional --no-audit --no-fund > "${REPORT_DIR}/npm-ci.stdout.log" 2> "${REPORT_DIR}/npm-ci.stderr.log"
+          status=$?
+          set -e
+          printf '%s\n' "${status}" > "${REPORT_DIR}/npm-ci.exit-code.txt"
+          exit "${status}"
+
+      - name: Install the matching Playwright Chromium and system dependencies
+        shell: bash
+        run: |
+          playwright_cli="$(node -e 'const {createRequire}=require("node:module"); const {dirname,join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(join(dirname(r.resolve("playwright-core/package.json")),"cli.js"));')"
+          node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); console.log(JSON.stringify({rea:r("./package.json").version,playwright_core:r("playwright-core/package.json").version,chromium_executable:r("playwright-core").chromium.executablePath()},null,2));' > "${REPORT_DIR}/playwright-runtime.json"
+          set +e
+          node "${playwright_cli}" install --with-deps chromium > "${REPORT_DIR}/browser-install.stdout.log" 2> "${REPORT_DIR}/browser-install.stderr.log"
+          status=$?
+          set -e
+          printf '%s\n' "${status}" > "${REPORT_DIR}/browser-install.exit-code.txt"
+          exit "${status}"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: zczxz3/modular-website-studio
+          ref: 3f989b2be833f468db600c24aa49194abf5f918e
+          path: studio-fixture
+          persist-credentials: false
+
+      - name: Install and build the pinned Studio
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm --prefix studio-fixture ci --ignore-scripts --no-audit --no-fund
+          npm --prefix studio-fixture run build | tee "${REPORT_DIR}/studio-build.log"
+
+      - name: Verify deterministic packages and the unmodified Studio core
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 foundation-pack.py verify | tee "${REPORT_DIR}/package-check.txt"
+          python3 foundation-pack.py build
+          cp foundation-core.test.ts studio-fixture/tests/foundation-core.test.ts
+          cd studio-fixture
+          npx vitest run tests/foundation-core.test.ts --reporter=json --outputFile="${REPORT_DIR}/core-tests.json"
+
+      - name: Verify native interactions and the real Studio install edit export flow
+        run: node foundation-browser.mjs "${REPORT_DIR}/browser"
+
+      - name: Verify standalone disclosure through unmodified REA
+        shell: bash
+        run: |
+          browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
+          python3 foundation-rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea"
+
+      - name: Upload original reports, including after failure
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: foundation-verification
+          path: ${{ env.REPORT_DIR }}
+          if-no-files-found: warn
+          retention-days: 7
