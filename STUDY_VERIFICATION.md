@@ -1,48 +1,54 @@
-# Independent study verification
+# Independent study verification — version 0.2
 
-**Result: PASSED — 31/31 real REA browser checks, plus 6/6 algorithm checks.**
+**PASSED: 36/36 REA browser scenarios, 14/14 Node unit checks and 29/29 published source-file comparisons.**
 
-- Successful run: https://github.com/zczxz3/website-assets/actions/runs/41754711044
-- Tested commit: `238f076ff7b44db1f0504e63a7077f3b7db33c13`
-- Tested source bundle SHA-256: `d93136a4b2a9b7bddbd5a060351bc8e81d6d4d15b56235748c87956f32b42855`
+- Successful run: https://github.com/zczxz3/website-assets/actions/runs/41761319184
+- Tested commit: `18a74a796438f97d56c14cc117651cbbee107a87`
+- Tested source bundle SHA-256: `5d0f8b2033ce3a0e916dd93dbcddf04e7f7030f4547695492ac544a186cb8064`
+- Preserved artifact: [component-verification.zip](component-verification.zip), 4,862,915 bytes
+- Artifact SHA-256: `287f86720f1811b12542ebbddcbea1dc2dafef6e0d0229a1d134736198bbc6be`
 - Runtime: REA 6.8.0, Node 24.22.1, matching Playwright Chromium on Ubuntu 24.04
-- Original local-code evidence archive: `component-verification.zip`
-- Archive SHA-256: `3944f6607a3a01d1942c563b4fc26b983e14147b8912bfc7afc3637a958d90d1`
+- Review date: 2026-11-04 (Asia/Shanghai)
 
-The authoritative final result inside the archive is `component-checks/summary.json`. The archive-root `verification.json` is a legacy bootstrap placeholder inherited from the original runtime-fixture workflow; it is not the component test result. The downloaded archive is preserved unchanged so its SHA-256 remains verifiable.
+The authoritative browser result is **`component-checks/summary.json`** inside the evidence ZIP. `package-verification.json` records the pre-extraction source comparison. `bootstrap.json` records workflow initialization and is not the test result. All 36 screenshot hashes were checked against their captured Evidence; both published ZIP files were also checked for integrity.
 
 ## Browser coverage
 
-Every independent study was mounted through HTTP at desktop width 1280 and mobile width 390. Each check required complete REA Evidence, a successful interaction with an observable state change, no page errors and an integrity-checked screenshot. WebGL initialization was required for the particle study; an unsupported renderer was not treated as success.
+| Scenario group | Passed | Scope |
+| --- | ---: | --- |
+| Desktop studies | 15/15 | Width 1280, reduced motion, observable interaction and no page errors |
+| Mobile studies | 15/15 | Width 390, reduced motion, observable interaction and no page errors |
+| Normal-motion studies | 2/2 | MERSI transition including completed close; Igloo-style WebGL particle interaction |
+| Gallery search and filters | 2/2 | Desktop and mobile; deep link, search, empty state, reset, selection, permalink and pause |
+| Gallery lifecycle | 1/1 | Five successive mounts, style cleanup, WebGL teardown and remount |
+| Runtime fixture | 1/1 | Eight real-browser contract assertions, listed below |
+| **Total** | **36/36** | All scenarios completed with no page errors |
 
-A further gallery case switched through color, book, WebGL, dithering and editorial components, checking style/class cleanup, remounting and zero page errors. The tests run with reduced-motion preferences to make the functional snapshots stable; they do not measure complete animation quality or performance.
+All 15 independent prototypes passed at both widths. The particle checks require a working WebGL context; unsupported rendering is not accepted as a pass.
 
-| Study | Desktop | Mobile |
-| --- | --- | --- |
-| 01 MERSI Architecture | Passed | Passed |
-| 02 Obys Agency | Passed | Passed |
-| 03 GT Flexa | Passed | Passed |
-| 04 NIPPON COLORS | Passed | Passed |
-| 05 Stripe Press | Passed | Passed |
-| 06 The Boat | Passed | Passed |
-| 07 Short Trip | Passed | Passed |
-| 08 Igloo Inc. | Passed | Passed |
-| 09 Bruno Simon | Passed | Passed |
-| 10 Patatap | Passed | Passed |
-| 11 Human Terrain | Passed | Passed |
-| 12 Earth Nullschool | Passed | Passed |
-| 13 Land Lines | Passed | Passed |
-| 14 Mechanical Watch | Passed | Passed |
-| 15 LOW←TECH MAGAZINE | Passed | Passed |
+The runtime fixture includes eight assertions within one browser scenario:
 
-Gallery teardown/remount check: **Passed**.
+1. Remaining cleanup runs even when one disposer throws; host styles, classes, attributes and data are restored.
+2. Destroying an active FLIP transition leaves no clone or delayed host-state write.
+3. Repeated closing during opening completes and restores focus to the trigger.
+4. Actual browser draw calls stop when paused, repaint on input, resume, stop offscreen and remain stopped after destruction.
+5. Invalid terrain input allocates no DOM, and supplied data is labeled as custom data.
+6. Vehicle input releases when focus and keyup leave the component.
+7. Gallery back/forward navigation restores selection and clears filters that would hide it.
+8. Rapid switching mounts only the latest requested scene.
 
-## Algorithm coverage
+## Node coverage
 
-Six Node tests check normalized stroke-match invariance, polyline arc resampling, two-color dithering and endpoint preservation, linear/clamped height encoding, bilinear interpolation and longitude wrapping, and vehicle integration across update rates.
+The 14 checks cover six existing mathematical invariants, four scheduling behaviors, two catalog/URL behaviors and two grid-validation behaviors. Scheduling checks use an injected frame queue to verify cancellation and that paused scenes leave no pending frame. The browser fixture independently checks observed drawing behavior.
 
-## Visual review and fixes
+## Source and packaging checks
 
-Desktop and mobile screenshots were reviewed. The vehicle ground was moved to a separate render pass so it does not hide the car. Component teardown now restores host styles and classes. Narrow editorial typography was reduced to fit its column. Tests were rerun after these changes.
+CI now compares all 29 published package source files against the ZIP **before extraction**. Missing modules, different bytes, duplicate paths, unsafe paths and missing site sections fail verification. A repeated local package build produced the identical SHA-256. The bundle contains 194 files, including all 15 site directories with six research sections each.
 
-The original reference websites and these independent prototypes are distinct: these 31 checks validate the prototypes, not complete recovery of the original sites. Original loading-state and entry-gate limitations remain documented in RESEARCH.md. No frame-rate, asset-loading or production accessibility certification is claimed.
+## Visual review and limits
+
+The updated desktop/mobile gallery, ink narrative, terrain and particle screenshots were inspected. Controls and text fit the inspected mobile layouts. Verification establishes the listed functional cases, not exhaustive accessibility, touch-device compatibility, memory profiling or a measured frame-rate improvement. Most study checks use reduced motion; two study scenarios and the runtime fixture additionally exercise normal animation.
+
+These results cover original component prototypes, not the complete production websites. Igloo, Bruno Simon and The Boat original-scene renderer limitations remain in [BROWSER_LIMITATIONS.md](BROWSER_LIMITATIONS.md).
+
+The previous version passed 31 browser and six algorithm checks in [its historical run](https://github.com/zczxz3/website-assets/actions/runs/41754711044); the current evidence ZIP contains the version 0.2 results above.

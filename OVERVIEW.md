@@ -4,6 +4,8 @@ Reviewed on **2026-11-04 (Asia/Shanghai)**. Repository: [zczxz3/website-assets](
 
 **Delivered: 15 independent interaction prototypes, an interactive gallery, English research notes, reusable modules and preserved verification evidence.** This is a first-pass component library. Complete production-site reconstruction, visual parity and production readiness are still outside the verified scope.
 
+**Version 0.2:** [search, shareable links, runtime improvements and verification](UPGRADE_NOTES.md).
+
 ## Start here
 
 | Goal | Open |
@@ -63,25 +65,27 @@ Variable typography needs a suitable licensed font. Audio needs an explicit user
 | Desktop interactions | 15/15 passed | Width 1280; one functional interaction per prototype |
 | Mobile interactions | 15/15 passed | Width 390; one functional interaction per prototype |
 | Gallery lifecycle | 1/1 passed | Teardown, style cleanup and repeated mounting |
-| Algorithm invariants | 6/6 passed | Stroke matching, resampling, dithering, heights, interpolation and vehicle integration |
-| Browser page errors | 0 in the 31 final checks | Independent prototypes only |
-| Source package | 190 files; 15 site directories | All six requested sections present per site |
+| Algorithm and utility checks | 14/14 passed | Mathematical invariants, frame scheduling, catalog/URL helpers and grid validation |
+| Additional browser coverage | 5/5 passed | Two normal-motion studies, two gallery search cases and one runtime fixture with eight assertions |
+| Browser page errors | 0 in the 36 final scenarios | Independent prototypes only |
+| Source package | 194 files; 15 site directories | All six requested sections present per site |
 | Archive integrity | Passed | Both ZIP files readable; SHA-256 values match the recorded delivery |
-| Published code parity | 23/23 audited runtime/test files match | GitHub blob IDs and the tested source ZIP agree |
+| Published code parity | 29/29 published source files match | CI compares file bytes before ZIP extraction |
 
-[Successful browser and algorithm run](https://github.com/zczxz3/website-assets/actions/runs/41754711044). Tested commit: `238f076ff7b44db1f0504e63a7077f3b7db33c13`. This documentation pass rechecks published-file and evidence integrity; it does not claim a new browser execution.
+[Successful version 0.2 verification run](https://github.com/zczxz3/website-assets/actions/runs/41761319184). Tested commit: `18a74a796438f97d56c14cc117651cbbee107a87`. This run includes the upgraded gallery, scheduler, component lifecycle and packaging checks.
 
-The authoritative browser result is **`component-checks/summary.json` inside `component-verification.zip`**. The archive-root `verification.json` is an old bootstrap placeholder, not the final component result. Browser checks use reduced-motion preferences and do not establish full animation quality, frame rate, accessibility coverage or production-site fidelity.
+The authoritative browser result is **`component-checks/summary.json` inside `component-verification.zip`**; `package-verification.json` contains the source comparison. Two study scenarios and the runtime fixture exercise normal animation; the remaining cases use reduced-motion preferences. The checks do not establish full animation fidelity, frame rate or complete accessibility coverage.
 
 ## Files and size
 
 | Item | Size | Contents |
 | --- | ---: | --- |
-| `study-source.zip` | 926,088 bytes (0.93 MB) | Full per-site notes, evidence, standalone demos and module source |
-| `component-verification.zip` | 4,026,341 bytes (4.03 MB) | Preserved final-run reports and screenshots |
-| Repository files before this documentation pass | 5,367,717 bytes (5.37 MB) | Sum of 46 current file blobs; excludes Git history and Actions storage |
+| `study-source.zip` | 936,406 bytes (0.94 MB) | Full per-site notes, evidence, standalone demos and module source |
+| `component-verification.zip` | 4,862,915 bytes (4.86 MB) | Preserved final-run reports and screenshots |
 
 The 15 per-site directory trees are inside `study-source.zip`; they are not expanded in GitHub's file tree. Shared components and the root gallery are already directly accessible. This packaging avoids repeating the evidence files in the repository tree.
+
+The gallery now supports keyword/category filtering and shareable `?study=ID` links. Back/forward navigation restores the selected study.
 
 ## Run and reuse
 

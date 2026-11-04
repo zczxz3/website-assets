@@ -1,50 +1,101 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "version": "0.2",
   "reviewed_on": "2026-11-04",
   "timezone": "Asia/Shanghai",
   "repository": "https://github.com/zczxz3/website-assets",
-  "scope": "Documentation and published-file integrity review; no new browser execution in this pass.",
-  "tested_commit": "238f076ff7b44db1f0504e63a7077f3b7db33c13",
-  "verified_workflow_run": "https://github.com/zczxz3/website-assets/actions/runs/41754711044",
+  "tested_commit": "18a74a796438f97d56c14cc117651cbbee107a87",
+  "verified_workflow_run": "https://github.com/zczxz3/website-assets/actions/runs/41761319184",
   "workflow_conclusion": "success",
   "browser_checks": {
-    "passed": 31,
-    "total": 31,
+    "passed": 36,
+    "total": 36,
     "page_errors": 0,
-    "per_site_screenshots_rehashed": 30,
-    "gallery_lifecycle": "passed",
-    "motion_preference": "reduce",
+    "screenshots_rehashed": 36,
+    "normal_motion_study_scenarios": 2,
+    "runtime_fixture_contract_assertions": 8,
     "authoritative_result": "component-verification.zip!component-checks/summary.json"
   },
-  "algorithm_checks": {
-    "passed": 6,
-    "total": 6
+  "unit_checks": {
+    "passed": 14,
+    "total": 14
   },
-  "archives": [
-    {
-      "path": "study-source.zip",
-      "bytes": 926088,
-      "sha256": "d93136a4b2a9b7bddbd5a060351bc8e81d6d4d15b56235748c87956f32b42855",
-      "github_blob_sha": "12b7d080424b930e8d2fdf3364ed150765f8345e",
-      "zip_integrity": "passed"
-    },
-    {
-      "path": "component-verification.zip",
-      "bytes": 4026341,
-      "sha256": "3944f6607a3a01d1942c563b4fc26b983e14147b8912bfc7afc3637a958d90d1",
-      "github_blob_sha": "5b656e1868aa7b5ebd4a2a330f255d54ace3a459",
-      "zip_integrity": "passed"
-    }
-  ],
   "published_source_parity": {
-    "checked_files": 23,
+    "checked_files": 29,
     "mismatches": 0,
+    "checked_before_extraction": true,
     "files": [
       {
+        "path": "index.html",
+        "bytes": 2759,
+        "sha256": "460e1643a62bb3c69e8bcc8db7bf7e06b8831f275860f6b17a14df0354827f1e",
+        "github_blob_sha": "da7e9cac8f07ae0509d59b7073db8da1049fe137"
+      },
+      {
+        "path": "index.mjs",
+        "bytes": 4280,
+        "sha256": "137c24f25e6ced3d2bcd9e2991ab5cd3db209eb42f3620bfed38005a99018816",
+        "github_blob_sha": "08f50fe06fa0115326a42eb6fa5a66c6e4a52032"
+      },
+      {
+        "path": "styles.css",
+        "bytes": 13130,
+        "sha256": "8b994c2e1ffa069cec5264c4653025dd40a603c25884dcb584afabe4c01441bb",
+        "github_blob_sha": "1a0714b599c9cdce054e74b604b6e16f2cd6c235"
+      },
+      {
+        "path": "registry.mjs",
+        "bytes": 9631,
+        "sha256": "8d0d43e4e9a6de57584b5c0aa7b67c6b989dc8136b576d06120d9021da076bce",
+        "github_blob_sha": "a745b1943e8c92b395335bf37ffe889d1a4a700f"
+      },
+      {
+        "path": "catalog.mjs",
+        "bytes": 686,
+        "sha256": "e7ed3ea5712433a384c7b7b4b842df0ae950cd36ec7c47078ebd1eabf3095e97",
+        "github_blob_sha": "7f785aa022f899dbd34391852f8d0e6f3d7e9edb"
+      },
+      {
+        "path": "research-registry.json",
+        "bytes": 9607,
+        "sha256": "d84a5430287ae1a2472dd94dcb8dc84eaa1593f885ae07c117c3c08227294616",
+        "github_blob_sha": "f3fc4214da2e5f7393d3d158d20e11f031f56f02"
+      },
+      {
         "path": "component-tests.mjs",
-        "bytes": 2410,
-        "sha256": "f75ebe3bde49bec7138674f9a16bf578188cc8841ad2f64157f699345b6cb051",
-        "github_blob_sha": "9d9ef75f281031018086395543862e52d5073268"
+        "bytes": 6292,
+        "sha256": "221cac0fb67a6bb8dc6d896ce5f0f2ffb8d429973278d2552bb555745c696c32",
+        "github_blob_sha": "f232f4ec8e894e8f3ddc008f7675948fc2e6fc8b"
+      },
+      {
+        "path": "runtime-check.html",
+        "bytes": 7523,
+        "sha256": "d01f13aa52170af4da2a7ddc8c72b0b27fcb9cbd3e5d676221a1e5652cd66442",
+        "github_blob_sha": "c291e652464646c53b5e5d899de25594c05b4ee4"
+      },
+      {
+        "path": "verify_studies.py",
+        "bytes": 14078,
+        "sha256": "d274f9f57af156c6b5dbbcdc64db2310db206a6dfafbeefa9ef3560751feaa36",
+        "github_blob_sha": "c05db9864dcf68c7cea7f5c51bb9a565856901e9"
+      },
+      {
+        "path": "followup_sites.py",
+        "bytes": 3324,
+        "sha256": "900b0939650d058dd487a1efe4ff7c78dc3fc209d1c4b2871e0b325cb4084443",
+        "github_blob_sha": "6469329d1f0b9e41632e1b898099d744d8ceda39"
+      },
+      {
+        "path": "package_studies.py",
+        "bytes": 3215,
+        "sha256": "9e6e368dca80f63b17706d61602312fcff83b8493e69ad3f55cc7a2a2fa1d13c",
+        "github_blob_sha": "8779599722642b7b48c4a558514732a1de07ff6a"
+      },
+      {
+        "path": "LICENSE",
+        "bytes": 1269,
+        "sha256": "3bc7a747d201d2f9c109a956bc99fa54558e190b25f8bf70fa598d306a2ba0d4",
+        "github_blob_sha": "c3867cb3a40d9efa9e356f7f58e12ba03ce7f482"
       },
       {
         "path": "components/book-tilt.mjs",
@@ -60,9 +111,9 @@
       },
       {
         "path": "components/core.mjs",
-        "bytes": 4201,
-        "sha256": "cd6c48e60eafafeffcbd377daee3cc63f42f9dd47e52aba03d9f942167d86b45",
-        "github_blob_sha": "20bb48538c8abe80bd1fbf4deb2bf3578bd22283"
+        "bytes": 5696,
+        "sha256": "c517e9005e7e81aedf2a8bdbf12bd416302a6d5ba02f311e45b2e5df82e78922",
+        "github_blob_sha": "4b860ce4f86b2c263cc83166885b86cbf192f4b1"
       },
       {
         "path": "components/dither-image.mjs",
@@ -77,10 +128,16 @@
         "github_blob_sha": "5082b0f12b9fd80182bcc77caa4d287d94b1018a"
       },
       {
+        "path": "components/frame-scheduler.mjs",
+        "bytes": 1019,
+        "sha256": "785b44293b619889839c3e19561f42499d71f536d31fce2df62228d62c88f057",
+        "github_blob_sha": "8e36c4b37d60c11c159bf26adb4868da0b219122"
+      },
+      {
         "path": "components/ink-story.mjs",
-        "bytes": 2008,
-        "sha256": "62bea050dd25851eb5887b6f2d2a0a2bd8b80eb344751ad440bf4779e5ac39f2",
-        "github_blob_sha": "d5a8037f234170bfe98ce38e1f2662a009116146"
+        "bytes": 1927,
+        "sha256": "8676c909fe4d2ef833b135004266be62691fab82c47d53e1a8dd3ce8e3719ef6",
+        "github_blob_sha": "444acbacc7dede1510c199bd8cb279b0dcdbec8c"
       },
       {
         "path": "components/key-visual-sampler.mjs",
@@ -102,21 +159,21 @@
       },
       {
         "path": "components/population-terrain.mjs",
-        "bytes": 2024,
-        "sha256": "dbf291231af88646f8db8f65bd2c868184e76b7a2366329e511b1225e68c1e80",
-        "github_blob_sha": "b91a909133dda6995c24edf04f93906b522a403a"
+        "bytes": 2983,
+        "sha256": "11173aa256fe9d41442d648b2645b0cad5b1d7183191b14f77f3d7c535d6cc07",
+        "github_blob_sha": "fe29e8d0a5a3ebd4997ff1f8bad2115c7b602f5e"
       },
       {
         "path": "components/scene-scroller.mjs",
-        "bytes": 2578,
-        "sha256": "fd93532c77ce32cd0ed695a3c639ac1d7eea76d8eb0161bdb987e3245b56b00d",
-        "github_blob_sha": "e0fdd5e6c7f39e774a7651862b5dc25ab5838d6a"
+        "bytes": 2825,
+        "sha256": "9cc955413b905fb1a6514541b17293dc58d80bf1f37b4ca00c848a9b6c7251af",
+        "github_blob_sha": "501067b7a4ecfd9452af0a91e10730235effdfd9"
       },
       {
         "path": "components/shared-transition.mjs",
-        "bytes": 2206,
-        "sha256": "42c2f553a505a886f9bbc6b7f51ff3b2d31650ed1c36ce8cbbaaeb9a59777cd6",
-        "github_blob_sha": "04d8516e1a91793841408f87050d31c3f379b0c4"
+        "bytes": 3286,
+        "sha256": "049928f8c7f190e6fa231c92a3c4d5e1eb14491ed24498efc70afdad78db59a1",
+        "github_blob_sha": "8bfc8fd5a630def52eaff118e39b6b0c60cef898"
       },
       {
         "path": "components/stroke-matcher.mjs",
@@ -138,52 +195,38 @@
       },
       {
         "path": "components/vehicle-world.mjs",
-        "bytes": 3117,
-        "sha256": "1c191944a777bd93631d73bfa5edcf4718f17808a13a523d377e06be45f70d4e",
-        "github_blob_sha": "3fc5659ec6857c961fbe9b2acba3476168b981a9"
-      },
-      {
-        "path": "followup_sites.py",
-        "bytes": 3324,
-        "sha256": "900b0939650d058dd487a1efe4ff7c78dc3fc209d1c4b2871e0b325cb4084443",
-        "github_blob_sha": "6469329d1f0b9e41632e1b898099d744d8ceda39"
-      },
-      {
-        "path": "index.html",
-        "bytes": 1939,
-        "sha256": "0f83dcb8ed226f6ad2357bfc137fa1ad6230e57069dfc4957bd0b05e94ea82f4",
-        "github_blob_sha": "84208c6f323e44b6c99d9d884a8d799a1cde92b7"
-      },
-      {
-        "path": "index.mjs",
-        "bytes": 1940,
-        "sha256": "6e3a72c733fa5c41f769612afd29514a61014ff6d1ffb17e0fd5ba6b46bb1d1d",
-        "github_blob_sha": "a0c5dbdde6b583ae8e51c70cc99c0cb2c1962e81"
-      },
-      {
-        "path": "registry.mjs",
-        "bytes": 9631,
-        "sha256": "8d0d43e4e9a6de57584b5c0aa7b67c6b989dc8136b576d06120d9021da076bce",
-        "github_blob_sha": "a745b1943e8c92b395335bf37ffe889d1a4a700f"
-      },
-      {
-        "path": "styles.css",
-        "bytes": 11224,
-        "sha256": "4057a74eb60155a064ccebfdcc5b969e56ec797d7dbf6b050e950e61d13dd0e3",
-        "github_blob_sha": "b8862906863a65026bd8e529807834f6cd9502c1"
-      },
-      {
-        "path": "verify_studies.py",
-        "bytes": 9150,
-        "sha256": "cb60678b42cb43ec90ec307e6d4f41ee471432af5ab8598911f26b2b26eebbea",
-        "github_blob_sha": "e76d2e53777e5888020fbf349fde517d5f1ae959"
+        "bytes": 3383,
+        "sha256": "c765f4463f0b6a163da39f112c507ad8cefae845c6d2681f005dd79aaa17492b",
+        "github_blob_sha": "f6673bd568d706274fd2e2b561e8844a83954579"
       }
     ]
   },
+  "source_package": {
+    "files": 194,
+    "sites": 15,
+    "sections_per_site": 6,
+    "reproducible_build_verified": true
+  },
+  "archives": [
+    {
+      "path": "study-source.zip",
+      "bytes": 936406,
+      "sha256": "5d0f8b2033ce3a0e916dd93dbcddf04e7f7030f4547695492ac544a186cb8064",
+      "github_blob_sha": "86a124bc9e9179667d9b63e79570a05100a2788c",
+      "zip_integrity": "passed"
+    },
+    {
+      "path": "component-verification.zip",
+      "bytes": 4862915,
+      "sha256": "287f86720f1811b12542ebbddcbea1dc2dafef6e0d0229a1d134736198bbc6be",
+      "github_blob_sha": "e8b8d7e2d2edc955304c30cfc0f9c505836d721e",
+      "zip_integrity": "passed"
+    }
+  ],
   "original_site_limitations": [
-    "The Boat: complete comic scene not exercised; WebGL context initialization failed.",
-    "Igloo Inc.: full WebGL2 scene not rendered in the current cloud browser.",
-    "Bruno Simon: WebGPU fallback to WebGL2 failed to initialize the complete world."
+    "Igloo full WebGL2 scene unverified",
+    "Bruno full WebGPU/WebGL2 world unverified",
+    "The Boat complete comic progression unverified"
   ],
   "production_fidelity_verified": false
 }

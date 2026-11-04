@@ -2,11 +2,11 @@
 
 Research of 15 distinctive websites, with original reusable frontend interaction studies. All documentation and code comments are in English.
 
-**Version 0.2 candidate:** search, shareable study links, demand-driven rendering and stronger cleanup. [Upgrade notes](UPGRADE_NOTES.md). Browser verification for this candidate is in progress; [the previous report](STUDY_VERIFICATION.md) records 31/31 browser and 6/6 algorithm checks for version 0.1.
+**Version 0.2 verified:** 36/36 REA browser scenarios, 14/14 unit checks and 29/29 published source comparisons passed. Search, shareable links, demand-driven rendering and stronger cleanup are included. [Upgrade notes](UPGRADE_NOTES.md) · [Verification report](STUDY_VERIFICATION.md).
 
 **Start here:** [Delivery overview and categorized component index](OVERVIEW.md) — practical uses, reuse requirements, file locations, verification scope and prioritized follow-up work. [Machine-readable verification manifest](verification-manifest.json).
 
-![Motion Atlas gallery](demo-preview.jpg)
+![Motion Atlas gallery](gallery-preview-v2.png)
 
 ## What is implemented
 
@@ -43,12 +43,14 @@ Then serve the root and open a standalone page under `sites/<site>/04-reconstruc
 - [Pinned REA runtime verification](REA_VERIFICATION.md)
 - [Component verification report and preserved evidence](STUDY_VERIFICATION.md)
 - [First original-site capture run](https://github.com/zczxz3/website-assets/actions/runs/41750252643)
-- [Desktop/mobile component verification run](https://github.com/zczxz3/website-assets/actions/runs/41754711044)
+- [Desktop/mobile component verification run](https://github.com/zczxz3/website-assets/actions/runs/41761319184)
 
 The original studies use procedural artwork, synthesized sound and clearly labeled synthetic data. Original implementation code is MIT-licensed; reference screenshots and third-party materials keep their own rights. GT Flexa's commercial font, site photography, original game assets, sound recordings and production geographic datasets are not bundled as reusable material.
 
 ## Verification
 
-`node --test component-tests.mjs` checks mathematical and algorithmic invariants. The Verify independent studies workflow additionally uses the real REA CLI to run an interaction in every study at desktop width 1280 and mobile width 390, with evidence, page-error checks and screenshots. A further gallery check verifies teardown and repeated mounting, for 31 browser checks in total. Read the workflow result rather than treating this description as a passing-test claim.
+`node --test component-tests.mjs` runs 14 algorithm, scheduling, catalog and data checks. CI verifies published source parity before expanding the deterministic source ZIP, then runs 36 real REA browser scenarios: 30 desktop/mobile studies, two normal-motion studies, two gallery navigation cases, one lifecycle case and one runtime fixture containing eight assertions. The full evidence is preserved in `component-verification.zip`.
+
+For a fully expanded checkout, `python3 package_studies.py build` rebuilds and verifies the source bundle. `python3 package_studies.py verify` checks published-file parity without changing files.
 
 REA 6.8.0 runs on a normal GitHub-hosted Ubuntu runner with its standard ownership checks. The current Work container's process namespace and browser IPC limitations remain unchanged. No additional model API key or repository secret is required.

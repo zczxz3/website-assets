@@ -1,6 +1,6 @@
 # Motion Atlas 0.2 — Usability and runtime hardening
 
-Implemented on 2026-11-04 (Asia/Shanghai). Browser verification is pending for this candidate; the older 31-check report describes the previous version.
+Implemented on 2026-11-04 (Asia/Shanghai). **Verified:** 36/36 REA browser scenarios, 14/14 Node checks and 29/29 source comparisons passed. [Successful run](https://github.com/zczxz3/website-assets/actions/runs/41761319184).
 
 ## Changes
 
@@ -15,6 +15,6 @@ Implemented on 2026-11-04 (Asia/Shanghai). Browser verification is pending for t
 
 ## Verification scope
 
-The upgraded suite contains 36 REA browser scenarios: 30 desktop/mobile component checks, one gallery lifecycle scenario, two search/filter scenarios, two normal-motion scenarios and one real-browser runtime fixture with eight contract assertions. Node checks cover 14 algorithm, scheduling, catalog and data-validation cases. Counts are test scope, not a claim that the pending run passed.
+The upgraded suite contains 36 REA browser scenarios: 30 desktop/mobile component checks, one gallery lifecycle scenario, two search/filter scenarios, two normal-motion scenarios and one real-browser runtime fixture with eight contract assertions. Node checks cover 14 algorithm, scheduling, catalog and data-validation cases. All passed in the run linked above. See [the verification report](STUDY_VERIFICATION.md) for evidence hashes and the precise limits of these checks.
 
 The renderer limitations of the original Igloo, Bruno Simon and The Boat scenes remain documented in [BROWSER_LIMITATIONS.md](BROWSER_LIMITATIONS.md). This update strengthens the independent library; it does not establish complete original-site fidelity or measured frame-rate gains.
