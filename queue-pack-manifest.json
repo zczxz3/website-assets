@@ -50,8 +50,8 @@
       "sha256": "3f0b8ecd62e933333f561f5928e7da69e147d7d0292bfe71194e1e1368762d87"
     },
     "queue-browser.mjs": {
-      "bytes": 15678,
-      "sha256": "1e67efb71710ce77e1c9956b48ea64da7fe3ad85149a801bb0bc0b0c6bc7e0db"
+      "bytes": 15492,
+      "sha256": "8ba71da79cbd59ba9d299dab7682dc24a4eb3b787855911efd7cca10913cbc21"
     },
     "queue-core.test.ts": {
       "bytes": 1694,
@@ -206,6 +206,6 @@
       "sha256": "26453b42f8dadfac0765afce8e0a767db0fdce90352174e8cc85fa0a786736fe"
     }
   },
-  "archive_sha256": "d55d1d8693ca4171a5358128ccea76b71fc1ae5d4073ca38452086f4836edd8e",
-  "archive_bytes": 166881
+  "archive_sha256": "2afc1ff61eff19e5dce553b5be13ef5051218b9f1b8736588ae5f14db3a2a434",
+  "archive_bytes": 166695
 }
