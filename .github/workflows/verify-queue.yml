@@ -1,0 +1,131 @@
+name: Verify Frontend Queue
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/verify-queue.yml
+      - "queue*.mjs"
+      - "queue*.json"
+      - "queue*.html"
+      - "queue*.css"
+      - "queue*.py"
+      - "queue*.ts"
+      - queue-source.zip
+      - QUEUE_RESEARCH.md
+      - QUEUE_RESEARCH.md
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Prepare isolated reports
+        shell: bash
+        run: |
+          REPORT_DIR="${RUNNER_TEMP}/website-study-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          printf 'REPORT_DIR=%s\n' "${REPORT_DIR}" >> "${GITHUB_ENV}"
+          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "${RUNNER_TEMP}/rea-playwright-browsers" >> "${GITHUB_ENV}"
+          mkdir -p "${REPORT_DIR}"
+          printf '%s\n' '{"status":"not-run","reason":"The workflow has not reached the verification script."}' > "${REPORT_DIR}/verification.json"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24.22.1"
+
+      - name: Install locked REA dependencies
+        shell: bash
+        run: |
+          node --version > "${REPORT_DIR}/node-version.txt"
+          npm --version > "${REPORT_DIR}/npm-version.txt"
+          set +e
+          npm ci --ignore-scripts --omit=optional --no-audit --no-fund > "${REPORT_DIR}/npm-ci.stdout.log" 2> "${REPORT_DIR}/npm-ci.stderr.log"
+          status=$?
+          set -e
+          printf '%s\n' "${status}" > "${REPORT_DIR}/npm-ci.exit-code.txt"
+          exit "${status}"
+
+      - name: Install the matching Playwright Chromium and system dependencies
+        shell: bash
+        run: |
+          playwright_cli="$(node -e 'const {createRequire}=require("node:module"); const {dirname,join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(join(dirname(r.resolve("playwright-core/package.json")),"cli.js"));')"
+          node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); console.log(JSON.stringify({rea:r("./package.json").version,playwright_core:r("playwright-core/package.json").version,chromium_executable:r("playwright-core").chromium.executablePath()},null,2));' > "${REPORT_DIR}/playwright-runtime.json"
+          set +e
+          node "${playwright_cli}" install --with-deps chromium > "${REPORT_DIR}/browser-install.stdout.log" 2> "${REPORT_DIR}/browser-install.stderr.log"
+          status=$?
+          set -e
+          printf '%s\n' "${status}" > "${REPORT_DIR}/browser-install.exit-code.txt"
+          exit "${status}"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: zczxz3/modular-website-studio
+          ref: 3f989b2be833f468db600c24aa49194abf5f918e
+          path: studio-fixture
+          persist-credentials: false
+
+      - name: Install and build the pinned Studio
+        id: studio_build
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm --prefix studio-fixture ci --ignore-scripts --no-audit --no-fund
+          npm --prefix studio-fixture run build | tee "${REPORT_DIR}/studio-build.log"
+
+      - name: Verify deterministic archives and Studio core
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum queue-source.zip queue-card.zip queue-website.zip queue-portfolio.mws.json > "${REPORT_DIR}/packages.sha256"
+          node queue-pack.mjs
+          sha256sum -c "${REPORT_DIR}/packages.sha256"
+          node --test --test-reporter=junit queue-tests.mjs > "${REPORT_DIR}/node-tests.xml"
+          cp queue-core.test.ts studio-fixture/tests/queue-core.test.ts
+          cd studio-fixture
+          npx vitest run tests/queue-core.test.ts --reporter=json --outputFile="${REPORT_DIR}/core-tests.json"
+
+      - name: Verify native interactions and the real Studio install edit export flow
+        if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
+        run: node queue-browser.mjs "${REPORT_DIR}/browser"
+
+      - name: Verify menu state through unmodified REA
+        if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
+        shell: bash
+        run: |
+          browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
+          python3 queue-rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea"
+
+      - name: Summarize completed checks
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, json, xml.etree.ElementTree as ET
+          r=pathlib.Path(os.environ['REPORT_DIR'])
+          def read(p):
+              f=r/p
+              return json.loads(f.read_text()) if f.exists() else {}
+          core=read('core-tests.json');browser=read('browser/summary.json');rea=read('rea/summary.json')
+          node=ET.parse(r/'node-tests.xml').getroot() if (r/'node-tests.xml').exists() else None
+          node_passed=node is not None and not list(node.iter('failure')) and not list(node.iter('error')) and len(list(node.iter('testcase')))==8
+          passed=node_passed and core.get('success') is True and browser.get('status')=='passed' and rea.get('status')=='passed'
+          report={'status':'passed' if passed else 'failed-or-incomplete','source_commit':os.environ['GITHUB_SHA'],'node_passed':8 if node_passed else 0,'core_passed':core.get('numPassedTests',0),'core_total':core.get('numTotalTests',0),'browser_passed':len(browser.get('scenarios',[])),'browser_failures':browser.get('failures',[]),'rea_passed':len(rea.get('scenarios',[]))}
+          (r/'verification.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report))
+          PYCODE
+
+      - name: Upload original reports, including after failure
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: queue-verification
+          path: ${{ env.REPORT_DIR }}
+          if-no-files-found: warn
+          retention-days: 7
