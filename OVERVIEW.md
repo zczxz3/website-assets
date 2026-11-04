@@ -2,9 +2,13 @@
 
 Reviewed on **2026-11-04 (Asia/Shanghai)**. Repository: [zczxz3/website-assets](https://github.com/zczxz3/website-assets), public.
 
-**Delivered: 15 independent interaction prototypes, an interactive gallery, English research notes, reusable modules and preserved verification evidence.** This is a first-pass component library. Complete production-site reconstruction, visual parity and production readiness are still outside the verified scope.
+**Delivered: 25 independent interaction prototypes, an interactive gallery, English research notes, reusable modules and preserved verification evidence.** This is a first-pass component library. Complete production-site reconstruction, visual parity and production readiness are still outside the verified scope.
 
 **Version 0.2:** [search, shareable links, runtime improvements and verification](UPGRADE_NOTES.md).
+
+## Batch two
+
+[References 16–25](BATCH_TWO.md) add terrain navigation, two GLSL effects, horizontal chapters, camera storytelling, infinite posters, a melody grid, a runner, a desk and an engineering diagram. This extends the original catalog; precise limitations are documented per site.
 
 ## Start here
 
@@ -57,35 +61,11 @@ For practical integration, start with **color themes, CSS books, masked text, sh
 
 Variable typography needs a suitable licensed font. Audio needs an explicit user action. Particle work needs a supported WebGL context. Vehicle, population, weather, satellite matching and watch studies are useful foundations for further work; their simplified models or synthetic inputs must be replaced where the application requires real-world accuracy.
 
-## Verification and upload status
+## Current verification and files
 
-| Check | Result | Scope |
-| --- | --- | --- |
-| REA runtime | Verified | Pinned REA 6.8.0 on a standard GitHub Ubuntu runner |
-| Desktop interactions | 15/15 passed | Width 1280; one functional interaction per prototype |
-| Mobile interactions | 15/15 passed | Width 390; one functional interaction per prototype |
-| Gallery lifecycle | 1/1 passed | Teardown, style cleanup and repeated mounting |
-| Algorithm and utility checks | 14/14 passed | Mathematical invariants, frame scheduling, catalog/URL helpers and grid validation |
-| Additional browser coverage | 5/5 passed | Two normal-motion studies, two gallery search cases and one runtime fixture with eight assertions |
-| Browser page errors | 0 in the 36 final scenarios | Independent prototypes only |
-| Source package | 194 files; 15 site directories | All six requested sections present per site |
-| Archive integrity | Passed | Both ZIP files readable; SHA-256 values match the recorded delivery |
-| Published code parity | 29/29 published source files match | CI compares file bytes before ZIP extraction |
+The 25-study version passed 58 browser scenarios, 17 Node checks and 41 pre-extraction source comparisons. Full coverage, archive hashes and original-site limitations are in [STUDY_VERIFICATION.md](STUDY_VERIFICATION.md).
 
-[Successful version 0.2 verification run](https://github.com/zczxz3/website-assets/actions/runs/41761319184). Tested commit: `18a74a796438f97d56c14cc117651cbbee107a87`. This run includes the upgraded gallery, scheduler, component lifecycle and packaging checks.
-
-The authoritative browser result is **`component-checks/summary.json` inside `component-verification.zip`**; `package-verification.json` contains the source comparison. Two study scenarios and the runtime fixture exercise normal animation; the remaining cases use reduced-motion preferences. The checks do not establish full animation fidelity, frame rate or complete accessibility coverage.
-
-## Files and size
-
-| Item | Size | Contents |
-| --- | ---: | --- |
-| `study-source.zip` | 936,406 bytes (0.94 MB) | Full per-site notes, evidence, standalone demos and module source |
-| `component-verification.zip` | 4,862,915 bytes (4.86 MB) | Preserved final-run reports and screenshots |
-
-The 15 per-site directory trees are inside `study-source.zip`; they are not expanded in GitHub's file tree. Shared components and the root gallery are already directly accessible. This packaging avoids repeating the evidence files in the repository tree.
-
-The gallery now supports keyword/category filtering and shareable `?study=ID` links. Back/forward navigation restores the selected study.
+The source archive contains 306 files, including 25 site directory trees and six research sections per site. Source and original screenshots are separated from the preserved component-test archive. The newly added studies and bounded original captures are indexed in [BATCH_TWO.md](BATCH_TWO.md).
 
 ## Run and reuse
 

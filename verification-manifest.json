@@ -1,35 +1,29 @@
 {
-  "schema_version": 2,
-  "version": "0.2",
+  "schema_version": 3,
+  "version": "0.3",
   "reviewed_on": "2026-11-04",
   "timezone": "Asia/Shanghai",
-  "repository": "https://github.com/zczxz3/website-assets",
-  "tested_commit": "18a74a796438f97d56c14cc117651cbbee107a87",
-  "verified_workflow_run": "https://github.com/zczxz3/website-assets/actions/runs/41761319184",
-  "workflow_conclusion": "success",
+  "tested_commit": "fb86adab1ad7792f0fefe1989fde6b26ac5fb5c2",
+  "verified_workflow_run": "https://github.com/zczxz3/website-assets/actions/runs/41764993014",
   "browser_checks": {
-    "passed": 36,
-    "total": 36,
-    "page_errors": 0,
-    "screenshots_rehashed": 36,
-    "normal_motion_study_scenarios": 2,
-    "runtime_fixture_contract_assertions": 8,
-    "authoritative_result": "component-verification.zip!component-checks/summary.json"
+    "passed": 58,
+    "total": 58,
+    "screenshots_rehashed": 58,
+    "page_errors": 0
   },
   "unit_checks": {
-    "passed": 14,
-    "total": 14
+    "passed": 17,
+    "total": 17
   },
   "published_source_parity": {
-    "checked_files": 29,
+    "checked_files": 41,
     "mismatches": 0,
-    "checked_before_extraction": true,
     "files": [
       {
         "path": "index.html",
-        "bytes": 2759,
-        "sha256": "460e1643a62bb3c69e8bcc8db7bf7e06b8831f275860f6b17a14df0354827f1e",
-        "github_blob_sha": "da7e9cac8f07ae0509d59b7073db8da1049fe137"
+        "bytes": 2763,
+        "sha256": "f6ab2f71ce1a5f65f10ac31d949e5e35cad5f69229543cf815b916ed3b09d087",
+        "github_blob_sha": "ca1f933e7114d6a38b90a1d65f267cfda2387829"
       },
       {
         "path": "index.mjs",
@@ -45,9 +39,9 @@
       },
       {
         "path": "registry.mjs",
-        "bytes": 9631,
-        "sha256": "8d0d43e4e9a6de57584b5c0aa7b67c6b989dc8136b576d06120d9021da076bce",
-        "github_blob_sha": "a745b1943e8c92b395335bf37ffe889d1a4a700f"
+        "bytes": 15375,
+        "sha256": "f0f8b9fbecabd79b00fcce06bfb69aa635a488e47d38fa1e6d1900aec55f5ead",
+        "github_blob_sha": "113cc6cb5ac7f9664322834ca32baefeef874792"
       },
       {
         "path": "catalog.mjs",
@@ -57,15 +51,15 @@
       },
       {
         "path": "research-registry.json",
-        "bytes": 9607,
-        "sha256": "d84a5430287ae1a2472dd94dcb8dc84eaa1593f885ae07c117c3c08227294616",
-        "github_blob_sha": "f3fc4214da2e5f7393d3d158d20e11f031f56f02"
+        "bytes": 15351,
+        "sha256": "bd8732865d51a146f288f88021f1822cb446482ccd1fc2da095df59edb06a938",
+        "github_blob_sha": "a2ae17db2f09d24e0a79ea736f3cfbf5d24a9409"
       },
       {
         "path": "component-tests.mjs",
-        "bytes": 6292,
-        "sha256": "221cac0fb67a6bb8dc6d896ce5f0f2ffb8d429973278d2552bb555745c696c32",
-        "github_blob_sha": "f232f4ec8e894e8f3ddc008f7675948fc2e6fc8b"
+        "bytes": 7012,
+        "sha256": "ce0f2ab108a729d36a2700d8181196c1b8a977f42c85e8a278d167507558ca6e",
+        "github_blob_sha": "3045d604f40240af463ad7f9cc0d04ebb80a48ed"
       },
       {
         "path": "runtime-check.html",
@@ -75,9 +69,9 @@
       },
       {
         "path": "verify_studies.py",
-        "bytes": 14078,
-        "sha256": "d274f9f57af156c6b5dbbcdc64db2310db206a6dfafbeefa9ef3560751feaa36",
-        "github_blob_sha": "c05db9864dcf68c7cea7f5c51bb9a565856901e9"
+        "bytes": 15152,
+        "sha256": "8ffebf286e101c7a4739ba637699d2ddce5bebefe90d27ba794d4cdf9f29853c",
+        "github_blob_sha": "cf96da3c92eeadcd41c6c69bc15a95d64795bcb8"
       },
       {
         "path": "followup_sites.py",
@@ -87,9 +81,9 @@
       },
       {
         "path": "package_studies.py",
-        "bytes": 3215,
-        "sha256": "9e6e368dca80f63b17706d61602312fcff83b8493e69ad3f55cc7a2a2fa1d13c",
-        "github_blob_sha": "8779599722642b7b48c4a558514732a1de07ff6a"
+        "bytes": 3238,
+        "sha256": "cd245cbc18fc3dd01f25f9de3c889398834c172a60176d3e5aa67712d9a1d39d",
+        "github_blob_sha": "26c74ced063c80d1099494dd13754d5bf4643e55"
       },
       {
         "path": "LICENSE",
@@ -98,16 +92,46 @@
         "github_blob_sha": "c3867cb3a40d9efa9e356f7f58e12ba03ce7f482"
       },
       {
+        "path": "batch-two-sites.json",
+        "bytes": 1434,
+        "sha256": "7236bfd79cb6c9bac6f4998fb3030c0f1b39dccda48014b5791f7ab502ee17d8",
+        "github_blob_sha": "056bb2fd19eb22a2dbb873478ace9273505bc7ac"
+      },
+      {
+        "path": "components/batch-two.mjs",
+        "bytes": 15243,
+        "sha256": "de0a3306224ea8a04abecdb35d5529d4ce0aa6dc178cd17634e17690b223945c",
+        "github_blob_sha": "e3a47b0f01025b356b1a06689982a732f4f2bc56"
+      },
+      {
+        "path": "components/blueprint-workflow.mjs",
+        "bytes": 121,
+        "sha256": "46723d7831f5dcc282498f1d6e5a7bbafc63056562df34137c6ee604c4b23a47",
+        "github_blob_sha": "23f7f139eb134703cead5b6a57a232e1424b8ec7"
+      },
+      {
         "path": "components/book-tilt.mjs",
         "bytes": 1196,
         "sha256": "6211fc98135f2cffa7b4455d4ba68988dde885620b38c2b729495597c5257d76",
         "github_blob_sha": "eef91d93b5c5bb59672637478f2c74e7f906b07f"
       },
       {
+        "path": "components/cinematic-city.mjs",
+        "bytes": 117,
+        "sha256": "f786e010f9d4a6158c6986b8c4ab466c161b7e77f4213723703e952de390314e",
+        "github_blob_sha": "781e6e39e0502cac1d7f66e986ad71bcb86a358e"
+      },
+      {
         "path": "components/color-theme.mjs",
         "bytes": 1282,
         "sha256": "b681c5323aca21b91c57e243d87124138520abdf2a5bf7b7c6c50bd1127e70ca",
         "github_blob_sha": "f24d55abb7f82b8d6bfd5b95ae2a7c5853fa27be"
+      },
+      {
+        "path": "components/comic-rail.mjs",
+        "bytes": 117,
+        "sha256": "f81a625ee7221c866068333f404a89f4083e890abd212c6b2a7697c2a39e5f50",
+        "github_blob_sha": "a6b0222b7532813486daf7fcf640eda0258fabb6"
       },
       {
         "path": "components/core.mjs",
@@ -122,6 +146,12 @@
         "github_blob_sha": "a6508ac7a855da513fdc3ad7419af0aafef0dbea"
       },
       {
+        "path": "components/film-distortion.mjs",
+        "bytes": 116,
+        "sha256": "87c4c69b3cce904ad7f5251f5a552f6c526c91e4a47597218644fa886f6131ac",
+        "github_blob_sha": "6d25c32d1e71aa5f0717c54fbbdda1dcafc891a0"
+      },
+      {
         "path": "components/flow-field.mjs",
         "bytes": 3221,
         "sha256": "9346c1f07e00d3af850ee6444329b6a93546b0e3b139cc7ca4e6c43c2eb601dd",
@@ -134,10 +164,22 @@
         "github_blob_sha": "8e36c4b37d60c11c159bf26adb4868da0b219122"
       },
       {
+        "path": "components/infinite-posters.mjs",
+        "bytes": 119,
+        "sha256": "9f3a74af55a11e858186a97d1f7328273d891423b2e41e8eeddd901b7e70bd80",
+        "github_blob_sha": "c4857f4173c772fbe5f99f484ec0b4c928e1c87c"
+      },
+      {
         "path": "components/ink-story.mjs",
         "bytes": 1927,
         "sha256": "8676c909fe4d2ef833b135004266be62691fab82c47d53e1a8dd3ce8e3719ef6",
         "github_blob_sha": "444acbacc7dede1510c199bd8cb279b0dcdbec8c"
+      },
+      {
+        "path": "components/isometric-office.mjs",
+        "bytes": 118,
+        "sha256": "ebd84e938725b34b8e5623ea18c757a0627f281ccb8fbba360f3280522428900",
+        "github_blob_sha": "0f2bbe45032f3a478fe1641cbca8cd899a25c7a4"
       },
       {
         "path": "components/key-visual-sampler.mjs",
@@ -152,6 +194,12 @@
         "github_blob_sha": "30fd2fb2ae809712580b431f6891b1b75d52cb7d"
       },
       {
+        "path": "components/melody-grid.mjs",
+        "bytes": 118,
+        "sha256": "40a37ab63aab5a51cecd02cf93d7322d2177ce26993160edd8fa60bfbeaf234b",
+        "github_blob_sha": "45351c7acef6af7cadf767a9ccdd6afdf69c655f"
+      },
+      {
         "path": "components/particle-morph.mjs",
         "bytes": 3674,
         "sha256": "444ceeeb92f4daa8cf2560c32a0f88fb12ee31b308ad4f7638e9c44398971a13",
@@ -164,10 +212,22 @@
         "github_blob_sha": "fe29e8d0a5a3ebd4997ff1f8bad2115c7b602f5e"
       },
       {
+        "path": "components/runner-camera.mjs",
+        "bytes": 118,
+        "sha256": "93e9d3018057bedcfd8168c17f512e740742d23ee4dabeb08e9635b99699b044",
+        "github_blob_sha": "1c370c56793326e8ea8ae9df277162ca653cf757"
+      },
+      {
         "path": "components/scene-scroller.mjs",
         "bytes": 2825,
         "sha256": "9cc955413b905fb1a6514541b17293dc58d80bf1f37b4ca00c848a9b6c7251af",
         "github_blob_sha": "501067b7a4ecfd9452af0a91e10730235effdfd9"
+      },
+      {
+        "path": "components/sdf-bubbles.mjs",
+        "bytes": 119,
+        "sha256": "f3eadf4174701fa174cc50225bd547ea6b72ac47969fd61ba8e95b843a697e96",
+        "github_blob_sha": "b0f7c46c72816d8fcb7e0cd04156ab05d402e9a9"
       },
       {
         "path": "components/shared-transition.mjs",
@@ -188,6 +248,12 @@
         "github_blob_sha": "7f1350be9317bef642fcf9ec2d45c2d45fc12534"
       },
       {
+        "path": "components/topographic-trail.mjs",
+        "bytes": 119,
+        "sha256": "9d86e4f6731acd1183e6d370feb027f81babb3e32cab73d32c88bf6b0a0638be",
+        "github_blob_sha": "eb726ff75fd9a83c92a7d22391afb84720795c0d"
+      },
+      {
         "path": "components/variable-type.mjs",
         "bytes": 1373,
         "sha256": "20250370432faa4171dc5a49d6d013c28f47cf639560f48008728f40148b6890",
@@ -202,31 +268,41 @@
     ]
   },
   "source_package": {
-    "files": 194,
-    "sites": 15,
-    "sections_per_site": 6,
-    "reproducible_build_verified": true
+    "files": 306,
+    "sites": 25,
+    "sections_per_site": 6
+  },
+  "original_batch_two": {
+    "http_200": 10,
+    "complete_bounded_scenarios": 9,
+    "partial": [
+      "22"
+    ],
+    "static_subsets": {
+      "completed": 4,
+      "failed": 3,
+      "not_run": 3
+    }
   },
   "archives": [
     {
       "path": "study-source.zip",
-      "bytes": 936406,
-      "sha256": "5d0f8b2033ce3a0e916dd93dbcddf04e7f7030f4547695492ac544a186cb8064",
-      "github_blob_sha": "86a124bc9e9179667d9b63e79570a05100a2788c",
-      "zip_integrity": "passed"
+      "bytes": 5747695,
+      "sha256": "5a59a7acca1af7c2d3aa095f8b919358c6744d690023ab5a20e52ee95f82029a",
+      "github_blob_sha": "79f3c18e9a864bdef66884c143bce4d12bc6c98c"
     },
     {
       "path": "component-verification.zip",
-      "bytes": 4862915,
-      "sha256": "287f86720f1811b12542ebbddcbea1dc2dafef6e0d0229a1d134736198bbc6be",
-      "github_blob_sha": "e8b8d7e2d2edc955304c30cfc0f9c505836d721e",
-      "zip_integrity": "passed"
+      "bytes": 10358946,
+      "sha256": "ae93f04606dd000f8616b637a0892b52079e1d9f751463a1b9f312495b7d9e11",
+      "github_blob_sha": "6430ee782e7363762f42f4b6c7f3d8ab5a3fc3fb"
+    },
+    {
+      "path": "batch-two-reference-evidence.zip",
+      "bytes": 9999978,
+      "sha256": "6a894cbc8b34f97861ee28bd16bb50b6d583f4ee984fd891b8e1e39faf3087b7",
+      "github_blob_sha": "04ce2e0823e757ec2f4e4160a2c94b7d8fa2c6a5"
     }
-  ],
-  "original_site_limitations": [
-    "Igloo full WebGL2 scene unverified",
-    "Bruno full WebGPU/WebGL2 world unverified",
-    "The Boat complete comic progression unverified"
   ],
   "production_fidelity_verified": false
 }

@@ -1,4 +1,4 @@
-# Research findings: 15 distinctive websites
+# Research findings: 25 distinctive websites
 
 This is a first-pass study with bounded live evidence and independently implemented, reusable interaction prototypes. It is not a complete or pixel-identical reconstruction of all 15 production websites.
 
@@ -667,3 +667,8 @@ No third-party image is bundled. The original publishing theme is Hugo and AGPL-
 Change threshold, switch between Bayer and Floyd–Steinberg, and save a PNG. The input image is an original procedural composition.
 
 This is a runnable component-level reconstruction of selected principles, not a complete or pixel-identical reconstruction of the production website. Remaining production-specific features include exact timing, content, all routes, complete asset loading, pointer-specific effects, mobile behavior and field-data integration where applicable.
+
+
+## Batch two: references 16–25
+
+See [BATCH_TWO.md](BATCH_TWO.md) for ten author-supported research entries, bounded original-capture results, reconstruction choices and remaining differences. Each site has six study sections in the current source ZIP. The new original capture has nine complete bounded scenarios and one partial scenario; this does not establish complete scene behavior.

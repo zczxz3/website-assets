@@ -30,7 +30,7 @@ Ten author case studies and public text entries were reviewed on 2026-11-04. Thi
 
 ## Evidence and reproduction
 
-The source ZIP contains six research sections per site. `components/batch-two.mjs` contains the shared original implementations; each named module is an independent mount entry. Original captures and prototype checks are separate workflows. Browser and capture status will be updated after the bounded runs complete.
+The source ZIP contains six research sections per site. `components/batch-two.mjs` contains the shared original implementations; each named module is an independent mount entry. Original captures and prototype checks are separate workflows. Capture results are below; the latest component results are in STUDY_VERIFICATION.md.
 
 ## Priority
 
@@ -58,3 +58,9 @@ All 10 returned HTTP 200. Nine bounded entry/PageDown scenarios completed; Chasi
 | 25 Heron AI | captured | Architectural building illustration and technical UI visible; full product workflow not exercised. |
 
 Original public evidence is preserved in `batch-two-reference-evidence.zip`; sanitized reports and one reference screenshot per site are also inside the source package. The original entry gates were not bypassed. `captured` refers to the finite scenario, not complete application rendering.
+
+## Verified prototype delivery
+
+All 25 studies passed desktop/mobile functional checks. The complete suite passed 58/58 browser scenarios and 17/17 Node checks. See [verification](STUDY_VERIFICATION.md). This remains selected-mechanism reconstruction; complete original-site parity is not established.
+
+![Original procedural desk study](batch-two-preview.png)
