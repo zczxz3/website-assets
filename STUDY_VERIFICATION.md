@@ -9,6 +9,8 @@
 - Original local-code evidence archive: `component-verification.zip`
 - Archive SHA-256: `3944f6607a3a01d1942c563b4fc26b983e14147b8912bfc7afc3637a958d90d1`
 
+The authoritative final result inside the archive is `component-checks/summary.json`. The archive-root `verification.json` is a legacy bootstrap placeholder inherited from the original runtime-fixture workflow; it is not the component test result. The downloaded archive is preserved unchanged so its SHA-256 remains verifiable.
+
 ## Browser coverage
 
 Every independent study was mounted through HTTP at desktop width 1280 and mobile width 390. Each check required complete REA Evidence, a successful interaction with an observable state change, no page errors and an integrity-checked screenshot. WebGL initialization was required for the particle study; an unsupported renderer was not treated as success.

@@ -2,6 +2,8 @@
 
 This is a first-pass study with bounded live evidence and independently implemented, reusable interaction prototypes. It is not a complete or pixel-identical reconstruction of all 15 production websites.
 
+See [the later direct renderer diagnostics](BROWSER_LIMITATIONS.md) for confirmed WebGL/WebGPU initialization failures on Igloo, Bruno Simon and The Boat.
+
 ## Evidence
 
 The [original REA capture run](https://github.com/zczxz3/website-assets/actions/runs/41750252643) visited all 15 public URLs. Thirteen initial PageDown scenarios were complete; Igloo and Bruno Simon had incomplete scenarios and are explicitly marked. Seven bounded JavaScript subsets completed static parsing, one subset failed, and seven were not analyzed because no qualifying bounded same-host input was retained. A canvas count is not proof of WebGL or any particular library. Primary sources and runtime observations are distinguished below.

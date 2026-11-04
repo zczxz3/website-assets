@@ -35,6 +35,7 @@ Then serve the root and open a standalone page under `sites/<site>/04-reconstruc
 ## Research and reuse
 
 - [Research findings and observed technology](RESEARCH.md)
+- [Specific original-site renderer limitations](BROWSER_LIMITATIONS.md)
 - [Component API and integration](COMPONENT_API.md)
 - [Original project catalog](WEBSITE_CATALOG.md)
 - [Pinned REA runtime verification](REA_VERIFICATION.md)
