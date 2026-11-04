@@ -2,7 +2,7 @@
 
 Research of 15 distinctive websites, with original reusable frontend interaction studies. All documentation and code comments are in English.
 
-**Verified:** 31/31 real REA browser checks and 6/6 algorithm checks passed. See [the measured verification report](STUDY_VERIFICATION.md).
+**Version 0.2 candidate:** search, shareable study links, demand-driven rendering and stronger cleanup. [Upgrade notes](UPGRADE_NOTES.md). Browser verification for this candidate is in progress; [the previous report](STUDY_VERIFICATION.md) records 31/31 browser and 6/6 algorithm checks for version 0.1.
 
 **Start here:** [Delivery overview and categorized component index](OVERVIEW.md) — practical uses, reuse requirements, file locations, verification scope and prioritized follow-up work. [Machine-readable verification manifest](verification-manifest.json).
 

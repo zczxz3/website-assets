@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Motion Atlas runtime regression checks</title><link rel="stylesheet" href="styles.css"><body><main class="standalone-shell"><h1>Runtime regression checks</h1><p>Owned local-code fixture. No original websites are contacted.</p><pre id="report">Running…</pre><button id="outside">Outside focus target</button><div id="fixture" class="demo-stage" style="position:fixed;left:20px;top:20px;width:320px;height:440px;z-index:2"></div><iframe id="gallery" title="Gallery navigation test" style="width:390px;height:700px" hidden></iframe></main><script type="module">
+import {lifecycle,loop} from './components/core.mjs';
+import {mount as transition} from './components/shared-transition.mjs';
+import {mount as terrain} from './components/population-terrain.mjs';
+import {mount as vehicle} from './components/vehicle-world.mjs';
+const host=document.querySelector('#fixture'),results=[],report=document.querySelector('#report');
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const assert=(value,message)=>{if(!value)throw new Error(message);};
+async function until(fn,message,timeout=4000){const start=performance.now();while(!fn()){if(performance.now()-start>timeout)throw new Error(message);await sleep(25);}}
+async function check(name,fn){try{await fn();results.push({name,status:'passed'});}catch(error){results.push({name,status:'failed',error:error.message});}report.textContent=JSON.stringify(results,null,2);}
+await check('cleanup survives a throwing disposer and preserves host attributes',async()=>{
+  host.dataset.owner='fixture';host.tabIndex=4;const oldStyle=host.style.cssText,oldClass=host.className;
+  const life=lifecycle(host);let finalCleanup=false;life.add(()=>{finalCleanup=true;});life.add(()=>{throw new Error('expected cleanup fixture');});
+  host.classList.add('temporary');host.style.color='red';host.dataset.state='changed';host.append(document.createElement('span'));
+  let error;try{life.destroy();}catch(value){error=value;}life.destroy();life.state('late');
+  assert(error instanceof AggregateError&&finalCleanup,'not all disposers ran');
+  assert(host.childElementCount===0&&host.style.cssText===oldStyle&&host.className===oldClass&&host.tabIndex===4,'host not restored');
+  assert(host.dataset.owner==='fixture'&&!host.dataset.state,'destroyed state leaked');
+});
+await check('destroy during active FLIP leaves no clone or late host state',async()=>{
+  const life=transition(host,{duration:180});host.querySelector('[data-testid]').click();
+  assert(host.querySelector('dialog').open,'dialog did not open');assert(host.querySelector('.flying-image'),'active animation did not start');
+  life.destroy();await sleep(230);assert(!host.querySelector('dialog,.flying-image')&&!host.dataset.state,'late transition mutation');
+});
+await check('repeated close cancels opening and restores keyboard focus',async()=>{
+  const life=transition(host,{duration:120}),button=host.querySelector('[data-testid]'),dialog=host.querySelector('dialog');
+  button.click();await sleep(30);dialog.dispatchEvent(new Event('cancel',{cancelable:true}));dialog.querySelector('button').click();
+  await until(()=>!dialog.open,'dialog did not close');assert(document.activeElement===button,'focus did not return');assert(host.dataset.state==='closed','close state missing');
+  assert(!host.querySelector('.flying-image'),'animation clone retained');life.destroy();
+});
+await check('real browser scheduler pauses, repaints input, resumes and suspends offscreen',async()=>{
+  document.documentElement.dataset.motion='running';const life=lifecycle(host);let frames=0;
+  const input=document.createElement('input');host.append(input);loop(host,()=>frames++,life);
+  await until(()=>frames>=3,'visible animation did not run');document.documentElement.dataset.motion='paused';await sleep(120);const paused=frames;
+  await sleep(120);assert(frames===paused,'paused scene still rendering');input.dispatchEvent(new Event('input',{bubbles:true}));await sleep(80);assert(frames===paused+1,'input was not coalesced into one repaint');
+  document.documentElement.dataset.motion='running';await until(()=>frames>paused+3,'animation did not resume');
+  host.style.top='3000px';await sleep(120);const offscreen=frames;await sleep(120);assert(frames===offscreen,'offscreen rendering continued');
+  host.style.top='20px';await until(()=>frames>offscreen,'visible animation did not resume');life.destroy();const stopped=frames;await sleep(80);assert(frames===stopped,'destroyed loop still rendering');
+});
+await check('invalid grid allocates no DOM and custom data is labeled',async()=>{
+  let rejected=false;try{terrain(host,{size:2,gridA:[0,1,NaN,3]});}catch{rejected=true;}
+  assert(rejected&&host.childElementCount===0,'invalid data allocated a partial scene');
+  const life=terrain(host,{size:2,gridA:[0,1,2,3]});assert(host.textContent.includes('Custom data'),'real input mislabeled synthetic');life.destroy();
+});
+await check('vehicle key release outside host stops control under paused motion',async()=>{
+  document.documentElement.dataset.motion='paused';const life=vehicle(host);host.focus();
+  host.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowUp',code:'ArrowUp',bubbles:true}));
+  await until(()=>host.dataset.position&&host.dataset.position!=='0.00,0.00','held key did not drive');
+  document.querySelector('#outside').focus();window.dispatchEvent(new KeyboardEvent('keyup',{key:'ArrowUp',code:'ArrowUp',bubbles:true}));
+  await sleep(100);const released=host.dataset.position;await sleep(120);assert(host.dataset.position===released,'control remained active after focus loss');life.destroy();
+});
+host.hidden=true;
+await check('gallery back and forward restore selection and clear hidden filters',async()=>{
+  const frame=document.querySelector('#gallery');frame.hidden=false;frame.src='./index.html?study=04';
+  await until(()=>frame.contentDocument?.body?.dataset.ready==='04','deep link failed',6000);
+  const doc=frame.contentDocument;doc.querySelector('[data-id="05"]').click();await until(()=>doc.body.dataset.ready==='05','second study failed');
+  doc.querySelector('#study-search').value='no-match';doc.querySelector('#study-search').dispatchEvent(new Event('input',{bubbles:true}));
+  frame.contentWindow.history.back();await until(()=>doc.body.dataset.ready==='04','back navigation failed');assert(doc.querySelector('#study-search').value==='','back left the selected item filtered out');
+  frame.contentWindow.history.forward();await until(()=>doc.body.dataset.ready==='05','forward navigation failed');
+  assert(new URL(frame.contentWindow.location.href).searchParams.get('study')==='05','URL not restored');
+});
+await check('rapid gallery switching keeps only the latest scene',async()=>{
+  const frame=document.querySelector('#gallery'),doc=frame.contentDocument;
+  for(const id of ['08','15','01','04','05'])doc.querySelector(`[data-id="${id}"]`).click();
+  await until(()=>doc.body.dataset.ready==='05','last selection failed');await sleep(150);
+  assert(doc.querySelector('#stage').dataset.site==='05'&&doc.querySelectorAll('.book-object').length===1,'stale component mounted');
+  assert(!doc.querySelector('#stage canvas')&&!doc.body.dataset.error,'stale canvas or error survived');frame.remove();
+});
+document.body.dataset.result=results.every(r=>r.status==='passed')?'passed':'failed';document.body.dataset.checks=String(results.length);
+</script></body></html>
