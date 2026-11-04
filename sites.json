@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "sites": [
+    {
+      "id": "01",
+      "name": "MERSI Architecture",
+      "url": "https://www.mersi-architecture.com/",
+      "directory": "01-mersi-architecture"
+    },
+    {
+      "id": "02",
+      "name": "Obys Agency",
+      "url": "https://obys.agency/",
+      "directory": "02-obys-agency"
+    },
+    {
+      "id": "06",
+      "name": "The Boat",
+      "url": "https://www.sbs.com.au/theboat/",
+      "directory": "06-the-boat"
+    },
+    {
+      "id": "08",
+      "name": "Igloo Inc.",
+      "url": "https://www.igloo.inc/",
+      "directory": "08-igloo-inc"
+    },
+    {
+      "id": "09",
+      "name": "Bruno Simon",
+      "url": "https://bruno-simon.com/",
+      "directory": "09-bruno-simon"
+    },
+    {
+      "id": "11",
+      "name": "Human Terrain",
+      "url": "https://pudding.cool/2018/10/city_3d/",
+      "directory": "11-human-terrain"
+    },
+    {
+      "id": "12",
+      "name": "Earth Nullschool",
+      "url": "https://earth.nullschool.net/",
+      "directory": "12-earth-nullschool"
+    },
+    {
+      "id": "03",
+      "name": "GT Flexa",
+      "url": "https://gt-flexa.com/",
+      "directory": "03-gt-flexa"
+    },
+    {
+      "id": "04",
+      "name": "NIPPON COLORS",
+      "url": "https://nipponcolors.com/",
+      "directory": "04-nippon-colors"
+    },
+    {
+      "id": "05",
+      "name": "Stripe Press",
+      "url": "https://press.stripe.com/",
+      "directory": "05-stripe-press"
+    },
+    {
+      "id": "07",
+      "name": "Short Trip",
+      "url": "https://alexanderperrin.com.au/paper/shorttrip/",
+      "directory": "07-short-trip"
+    },
+    {
+      "id": "10",
+      "name": "Patatap",
+      "url": "https://patatap.com/",
+      "directory": "10-patatap"
+    },
+    {
+      "id": "13",
+      "name": "Land Lines",
+      "url": "https://lines.chromeexperiments.com/",
+      "directory": "13-land-lines"
+    },
+    {
+      "id": "14",
+      "name": "Mechanical Watch",
+      "url": "https://ciechanow.ski/mechanical-watch/",
+      "directory": "14-mechanical-watch"
+    },
+    {
+      "id": "15",
+      "name": "LOW\u2190TECH MAGAZINE",
+      "url": "https://solar.lowtechmagazine.com/",
+      "directory": "15-low-tech-magazine"
+    }
+  ]
+}
