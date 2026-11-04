@@ -1,7 +1,7 @@
 # Independent motion components
 
-Fifteen original ES modules expose mount(host, options), returning destroy(). Import them directly or use the per-site exports in the complete study-source.zip source package. The shared core.mjs provides lifecycle, animation gating, Canvas and 3D projection helpers. No third-party runtime dependency is required.
+Fifteen original ES modules expose `mount(host, options)`, returning `destroy()`. Keep `core.mjs` and `frame-scheduler.mjs` beside the selected module and include the root `styles.css` for the supplied presentation. No third-party runtime dependency is required.
 
-Use the root styles.css for the supplied presentation. The population component accepts numeric grids and preserves linear height encoding. The variable-type component accepts a separately licensed variable font. The particle module reports unsupported if WebGL cannot be created.
+The shared scheduler stops offscreen/background work and repaints paused scenes on demand. Dispose components before replacing their host. Cleanup releases listeners, observers, animation frames and module-owned GPU/audio resources. The shared lifecycle ignores late state writes and completes remaining cleanup even if a disposer throws.
 
-Call destroy() before replacing a component. It removes listeners, observers and animation loops; GPU and audio resources are released by their owning components.
+See [the component API](../COMPONENT_API.md), [delivery overview](../OVERVIEW.md) and [upgrade notes](../UPGRADE_NOTES.md) for integration constraints and verification scope. Population defaults remain synthetic, particle rendering requires WebGL, and real variable font axes require a separately licensed font.
