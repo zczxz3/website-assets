@@ -2,8 +2,8 @@
   "schema_version": 1,
   "files": {
     "queue.html": {
-      "bytes": 5299,
-      "sha256": "df0be3312364c2fb2f5a46c6e17890a544485d3b8f40540ccaf5c624e16ab7cc"
+      "bytes": 5422,
+      "sha256": "4d1a054d180d42a72670920645ec87ee9f59610ca4d2b003156bf097d44fa946"
     },
     "queue-controls.html": {
       "bytes": 2868,
@@ -50,8 +50,8 @@
       "sha256": "3f0b8ecd62e933333f561f5928e7da69e147d7d0292bfe71194e1e1368762d87"
     },
     "queue-browser.mjs": {
-      "bytes": 15619,
-      "sha256": "5ddd93e799a67fc9653079673a4cfff7d854d29988c76215c0f9be9266da8a01"
+      "bytes": 15678,
+      "sha256": "1e67efb71710ce77e1c9956b48ea64da7fe3ad85149a801bb0bc0b0c6bc7e0db"
     },
     "queue-core.test.ts": {
       "bytes": 1694,
@@ -206,6 +206,6 @@
       "sha256": "26453b42f8dadfac0765afce8e0a767db0fdce90352174e8cc85fa0a786736fe"
     }
   },
-  "archive_sha256": "adedf834a19131244f1a73130fb7ed479851875b7481df3679b0f31197bcf9c7",
-  "archive_bytes": 166699
+  "archive_sha256": "d55d1d8693ca4171a5358128ccea76b71fc1ae5d4073ca38452086f4836edd8e",
+  "archive_bytes": 166881
 }
