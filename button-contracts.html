@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Button lifecycle contracts</title><link rel="stylesheet" href="buttons.css"><body class="button-atlas"><h1>Lifecycle contracts</h1><div id="fixture"></div><ol id="results"></ol><script type="module">
+import {mountButton} from './buttons.mjs';
+const host=document.querySelector('#fixture'), results=document.querySelector('#results');let checks=0;
+function ok(value,message){if(!value)throw Error(message);checks++;const li=document.createElement('li');li.textContent=message;results.append(li);}
+const tick=()=>new Promise(resolve=>setTimeout(resolve,80));
+try{
+ const marker=document.createElement('p');marker.textContent='Host content survives';host.append(marker);
+ let a=mountButton(host,{effect:'fill'}),b=mountButton(host,{effect:'goo'}),c=mountButton(host,{effect:'goo'});
+ ok(b.wrapper.querySelector('filter').id!==c.wrapper.querySelector('filter').id,'SVG identifiers are unique');
+ a.destroy();a.destroy();ok(host.contains(marker)&&host.contains(b.wrapper),'Destroy is idempotent and preserves siblings');b.destroy();c.destroy();
+ let finish,aborted=false;a=mountButton(host,{effect:'async',onAction:({signal})=>{signal.addEventListener('abort',()=>aborted=true);return new Promise(r=>finish=r);}});a.element.click();ok(a.element.disabled&&a.element.getAttribute('aria-busy')==='true','Async task blocks repeated activation');const element=a.element;a.destroy();finish();await tick();ok(aborted&&!element.isConnected&&element.dataset.state==='loading','Unmount aborts pending work and rejects late UI updates');
+ a=mountButton(host,{effect:'undo'});a.element.click();ok(a.element.getAttribute('aria-pressed')==='true','Save exposes a pressed state');a.element.click();ok(a.element.getAttribute('aria-pressed')==='false','Undo restores state');a.destroy();
+ a=mountButton(host,{effect:'menu'});a.element.click();const action=a.wrapper.querySelector('.ba-panel button');action.focus();action.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));ok(a.element.getAttribute('aria-expanded')==='false'&&document.activeElement===a.element,'Escape closes disclosure and restores focus');a.destroy();
+ a=mountButton(host,{effect:'ripple',motion:false});a.element.click();ok(!a.wrapper.querySelector('.ba-ripple'),'Explicit reduced motion avoids particle creation');a.destroy();
+ a=mountButton(host,{effect:'fill',disabled:true});a.element.click();ok(!a.element.dataset.activations,'Disabled control cannot activate');a.setDisabled(false);a.element.click();ok(a.element.dataset.activations==='1','Re-enabling restores activation');a.destroy();
+ a=mountButton(host,{effect:'fill',label:'<img src=x onerror=alert(1)>'});ok(!a.element.querySelector('img'),'Labels remain plain text');a.destroy();
+ const count=host.childElementCount;try{mountButton(host,{duration:-1});throw Error('Accepted invalid config');}catch(error){ok(error instanceof RangeError&&host.childElementCount===count,'Invalid configuration leaves host unchanged');}
+ document.body.dataset.result='passed';document.body.dataset.checks=checks;
+}catch(error){document.body.dataset.result='failed';document.body.dataset.error=String(error);throw error;}
+</script></body></html>
