@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - .github/workflows/button-capture.yml
+      - button-sites.json
 
 permissions:
   contents: read
