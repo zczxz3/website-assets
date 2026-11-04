@@ -7,6 +7,12 @@ on:
       - .github/workflows/verify-studies.yml
       - study-source.zip
       - verify_studies.py
+      - package_studies.py
+      - "components/*.mjs"
+      - "*.mjs"
+      - styles.css
+      - index.html
+      - runtime-check.html
 
 permissions:
   contents: read
@@ -23,7 +29,7 @@ jobs:
           printf 'REPORT_DIR=%s\n' "${REPORT_DIR}" >> "${GITHUB_ENV}"
           printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "${RUNNER_TEMP}/rea-playwright-browsers" >> "${GITHUB_ENV}"
           mkdir -p "${REPORT_DIR}"
-          printf '%s\n' '{"status":"not-run","reason":"The workflow has not reached the verification script."}' > "${REPORT_DIR}/verification.json"
+          printf '%s\n' '{"phase":"initialized","result_file":"component-checks/summary.json"}' > "${REPORT_DIR}/bootstrap.json"
 
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -56,6 +62,9 @@ jobs:
           set -e
           printf '%s\n' "${status}" > "${REPORT_DIR}/browser-install.exit-code.txt"
           exit "${status}"
+
+      - name: Verify published source matches the tested archive
+        run: python3 package_studies.py verify | tee "${REPORT_DIR}/package-verification.json"
 
       - name: Materialize the reviewed study source bundle
         run: python3 -m zipfile -e study-source.zip .
