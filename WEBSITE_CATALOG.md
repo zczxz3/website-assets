@@ -1,8 +1,8 @@
 # Website study catalog
 
-15 references supplied by the project owner, organized for reusable frontend motion research. All website entries are **queued**: live inspection, REA capture and reconstruction have not yet been completed. Descriptions and targets below are a translated study brief, not verified claims about each current technology stack.
+15 references supplied by the project owner, organized for reusable frontend motion research. All 15 have first-pass research and an independently runnable component prototype. See [RESEARCH.md](RESEARCH.md) for measured original-site coverage and limitations. The complete per-site directory structures are packaged in `study-source.zip`; shared component source is also directly browsable in `components/`.
 
-REA runner verification passed; see [REA_VERIFICATION.md](REA_VERIFICATION.md).
+The brief below preserves the original study targets. It is not a declaration that every target interaction or production technology has been recovered. REA runtime verification passed; see [REA_VERIFICATION.md](REA_VERIFICATION.md).
 
 ## Priority order
 
@@ -34,7 +34,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://www.mersi-architecture.com/
 - Planned directory: `sites/01-mersi-architecture/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Architectural editorial layout, photography, restrained transitions.
 - Study targets: Shared-image transition; horizontal project browsing; image scale and masks.
 - Candidate reusable components: SharedElementTransition; ProjectRail.
@@ -45,7 +45,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://obys.agency/
 - Planned directory: `sites/02-obys-agency/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Experimental typography and a bold studio identity.
 - Study targets: Large text reveals; pointer interaction; image/video switches; grid and horizontal layouts.
 - Candidate reusable components: TextReveal; CursorFollower; ProjectGrid.
@@ -55,7 +55,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://gt-flexa.com/
 - Planned directory: `sites/03-gt-flexa/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Variable typography and modern graphic design.
 - Study targets: Animated font width and weight; interactive composition; text deformation.
 - Candidate reusable components: VariableTypeController.
@@ -65,7 +65,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://nipponcolors.com/
 - Planned directory: `sites/04-nippon-colors/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Japanese minimalism and traditional color presentation.
 - Study targets: Full-screen color changes; linked labels; theme state transitions.
 - Candidate reusable components: ColorThemeTransition.
@@ -75,7 +75,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://press.stripe.com/
 - Planned directory: `sites/05-stripe-press/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Editorial design and dimensional book presentation.
 - Study targets: Book rotation; pointer-driven perspective; product detail motion; scroll pacing.
 - Candidate reusable components: BookPreview; PointerTilt.
@@ -85,7 +85,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://www.sbs.com.au/theboat/
 - Planned directory: `sites/06-the-boat/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Ink illustration and cinematic interactive storytelling.
 - Study targets: Scroll narrative; layered parallax; synchronized text; ambient audio.
 - Candidate reusable components: ScrollStory; LayeredParallax.
@@ -95,7 +95,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://alexanderperrin.com.au/paper/shorttrip/
 - Planned directory: `sites/07-short-trip/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Pencil drawing and a playable illustrated scene.
 - Study targets: Horizontal scrolling; layered depth; vehicle controls; continuous scenery.
 - Candidate reusable components: SceneScroller; VehicleInput.
@@ -105,7 +105,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://www.igloo.inc/
 - Planned directory: `sites/08-igloo-inc/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Abstract particle art and immersive motion.
 - Study targets: Particle formation and dispersion; pointer response; shape transitions.
 - Candidate reusable components: ParticleMorph.
@@ -115,7 +115,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://bruno-simon.com/
 - Planned directory: `sites/09-bruno-simon/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: A game-like 3D portfolio and interactive environment.
 - Study targets: Vehicle physics; spatial navigation; camera follow; collision and content markers.
 - Candidate reusable components: FollowCamera; VehicleController; WorldMarker.
@@ -126,7 +126,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://patatap.com/
 - Planned directory: `sites/10-patatap/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Geometric visual performance and sound interaction.
 - Study targets: Keyboard-triggered shapes; audio synchronization; easing and generative graphics.
 - Candidate reusable components: KeyVisualSampler.
@@ -136,7 +136,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://pudding.cool/2018/10/city_3d/
 - Planned directory: `sites/11-human-terrain/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Population as a 3D landscape.
 - Study targets: Population-to-height mapping; geographic mesh; camera flights; time comparison.
 - Candidate reusable components: PopulationTerrain; CameraFlight.
@@ -146,7 +146,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://earth.nullschool.net/
 - Planned directory: `sites/12-earth-nullschool/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Global weather, animated flow fields and scientific layers.
 - Study targets: Wind particles; globe projection; scientific color scales; layer selection.
 - Candidate reusable components: FlowField; GlobeControls; DataLegend.
@@ -156,7 +156,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://lines.chromeexperiments.com/
 - Planned directory: `sites/13-land-lines/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Drawing and satellite imagery as geographic art.
 - Study targets: Stroke capture; outline matching; image stitching; real-time interaction.
 - Candidate reusable components: StrokeMatcher; ImageMosaic.
@@ -167,7 +167,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://ciechanow.ski/mechanical-watch/
 - Planned directory: `sites/14-mechanical-watch/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Technical illustration and interactive mechanical explanation.
 - Study targets: Section views; rotation; parameter sliders; synchronized technical diagrams.
 - Candidate reusable components: ModelSection; ParameterSlider.
@@ -177,7 +177,7 @@ MERSI Architecture → Obys Agency → The Boat → Igloo Inc. → Bruno Simon �
 
 - Original: https://solar.lowtechmagazine.com/
 - Planned directory: `sites/15-low-tech-magazine/`
-- Status: queued
+- Status: first-pass analysis and independent component prototype; production-specific coverage is recorded in RESEARCH.md
 - Visual direction: Low-energy publishing and printed halftone aesthetics.
 - Study targets: Dithering; limited-color images; publication typography; resource budgets.
 - Candidate reusable components: DitherImage; ResourceBudget.
