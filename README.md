@@ -1,8 +1,14 @@
-# Website Assets — Motion Atlas
+# Website Assets — Technique Studies and Motion Components
 
-25 distinctive website references, 16 button resources and 26 foundation resources, with independently written reusable interaction studies and installable Studio modules. Lists overlap; these are topic counts, not unique-site counts. English research, code and integration notes.
+25 site-inspired technique studies (not reconstructed websites), 16 button resources and 26 foundation resources, with independently written reusable interaction studies and installable Studio modules. Lists overlap; these are topic counts, not unique-site counts. English research, code and integration notes.
 
-**Version 0.3 verified:** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
+## Start here
+
+- [Installable package and typed API](LIBRARY.md): 20 original button presets plus menu, async-task and reorder bindings. Install the versioned tarball from the **motion-v0.4.0** Release; npm registry publication is not claimed.
+- Study implementations are directly available in `components/`. **No source ZIP extraction is needed** to import them. Per-site folders are reference wrappers around shared modules, not independent reconstructed sites.
+- [Evidence and licensing boundaries](DISTRIBUTION.md). Reference-site fidelity, independent consumer integration and demo regression are different verification claims.
+
+**Version 0.3 demo regression (not reference-site fidelity):** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
 
 ![Motion Atlas gallery](gallery-preview-v3.png)
 

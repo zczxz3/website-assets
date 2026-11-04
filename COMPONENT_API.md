@@ -6,11 +6,9 @@ Serve the repository through HTTP. The gallery has no runtime dependency or pack
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`. To expand the full per-site research folders first:
+Open `http://localhost:8000`. The `components/` modules already exist in the repository; ZIP extraction is optional and only needed to inspect the per-site research wrappers. For the separately packaged button/binding API, see [LIBRARY.md](LIBRARY.md).
 
-```sh
-python3 -m zipfile -e study-source.zip .
-```
+Study mounts require a dedicated empty host. Their shared `lifecycle.destroy()` clears children and restores selected attributes; it does not restore pre-existing child nodes. The installable button API preserves unrelated host children.
 
 ## Minimal integration
 

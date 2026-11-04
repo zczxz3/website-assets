@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Independent package consumer</title>
+<link rel="stylesheet" href="node_modules/@zczxz3/website-assets-motion/buttons.css">
+<style>body{font:18px system-ui;background:#fff;color:#172939;padding:24px}button{min-height:44px}#host{padding:20px}button:focus-visible{outline:3px solid #2463eb}</style>
+<h1>Independent consumer</h1><div id="host"><p id="preserved">Existing application content</p></div>
+<button id="menu" aria-controls="panel">Navigation</button><nav id="panel" hidden><a href="#host">Home</a></nav>
+<button id="load">Load data</button><p id="status" role="status"></p>
+<button id="dispose">Remove bindings</button>
+<script type="module">
+import {mountButton,bindMenu,bindAsync} from './node_modules/@zczxz3/website-assets-motion/index.mjs';
+const button=mountButton(document.querySelector('#host'),{label:'Explore',effect:'magnetic',onAction:()=>document.body.dataset.activated='true'});
+const menu=bindMenu(document.querySelector('#menu'),document.querySelector('#panel'));
+const task=bindAsync(document.querySelector('#load'),document.querySelector('#status'),async signal=>{const response=await fetch('./data.json',{signal});if(!response.ok)throw Error('Request failed');await response.json();});
+document.querySelector('#dispose').onclick=()=>{button.destroy();button.destroy();menu.destroy();task.destroy();};document.body.dataset.ready='true';
+</script></html>
