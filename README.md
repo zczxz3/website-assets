@@ -22,7 +22,7 @@ Download [foundation-pack.zip](foundation-pack.zip), extract it, then install on
 
 ## Frontend Queue — Batch 03
 
-[30-target queue and English analysis](QUEUE_RESEARCH.md): 10 controls, 10 advanced interactions and 10 websites/apps. Six bounded original studies connect **menu, loading, selection and spinner controls → project ordering → an editable portfolio**. The remaining 21 implementations are queued; React Bits, GSAP and Lusion are reference-only.
+[50-target queue and English analysis](QUEUE_RESEARCH.md): 23 basic, 17 advanced and 10 full-site targets. [20 new effect contracts](QUEUE_EFFECTS.md) add targets, triggers, parameters, export recipes and reduced-motion requirements; their implementations remain queued. Six bounded original studies connect **menu, loading, selection and spinner controls → project ordering → an editable portfolio**. The remaining 41 implementations are queued; React Bits, GSAP and Lusion are reference-only.
 
 Open `queue.html` with a local HTTP server. Edit project data, drag or use keyboard controls, save/reopen edits, and export linked offline HTML pages or a Studio project. [Source pack](queue-source.zip), [ready-made website](queue-website.zip), [Studio project](queue-portfolio.mws.json), [installable static card](queue-card.zip), and [verification](QUEUE_VERIFICATION.md). This is an original static portfolio recipe, not a complete port of the upstream Next.js application.
 

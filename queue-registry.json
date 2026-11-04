@@ -1,14 +1,22 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "checked_at": "2026-11-04",
-  "original_csv_sha256": "4859b38ee30dee577d4c7e0a5ac621185780d1ddf2e69861625d19825f8e8f3d",
+  "original_csv_sha256": "1f6ec208a7ff2a681532f4deddcd8584b42fbf6640710cf5ae1e9a51df3d51d1",
   "counts": {
-    "total": 30,
-    "clone_candidates": 26,
+    "total": 50,
+    "clone_candidates": 38,
     "official_download": 1,
+    "study_acquisition": 11,
     "reference_only": 3,
     "implemented_bounded_studies": 6,
-    "queued": 21
+    "queued": 41,
+    "effect_components": 26,
+    "orchestration_tools": 2,
+    "levels": {
+      "basic": 23,
+      "advanced": 17,
+      "full": 10
+    }
   },
   "targets": [
     {
@@ -30,7 +38,18 @@
       "license_url": "https://github.com/saadeghi/daisyui",
       "repository_pushed_at": "2026-10-31T12:32:39Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B02",
@@ -51,7 +70,18 @@
       "license_url": "https://github.com/twbs/bootstrap",
       "repository_pushed_at": "2026-11-04T04:49:25Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B03",
@@ -72,7 +102,25 @@
       "license_url": "https://github.com/magicuidesign/magicui",
       "repository_pushed_at": "2026-11-04T02:56:47Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls",
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Button or CTA",
+      "trigger": [
+        "visible-loop"
+      ],
+      "parameters": [
+        "color",
+        "radius",
+        "period"
+      ],
+      "export_recipe": "Preserve licensed source and inline scoped styles.",
+      "reduced_motion": "Keep a static highlighted border."
     },
     {
       "id": "B04",
@@ -93,7 +141,18 @@
       "license_url": "https://github.com/carbon-design-system/carbon",
       "repository_pushed_at": "2026-11-03T19:48:51Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B05",
@@ -114,7 +173,18 @@
       "license_url": "https://github.com/nostalgic-css/NES.css",
       "repository_pushed_at": "2024-01-17T20:53:09Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B06",
@@ -135,7 +205,18 @@
       "license_url": "https://github.com/jdan/98.css",
       "repository_pushed_at": "2025-09-07T13:40:43Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B07",
@@ -156,7 +237,25 @@
       "license_url": "https://github.com/jonsuh/hamburgers/blob/b26b25f8c70d1412a73a0bf046c980710843dfca/LICENSE",
       "repository_pushed_at": "2023-05-24T01:21:02Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Components/Basic controls",
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "state-transition",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Menu icon and associated panel",
+      "trigger": [
+        "menu-state"
+      ],
+      "parameters": [
+        "variant",
+        "duration",
+        "easing"
+      ],
+      "export_recipe": "Export the original menu binding and scoped CSS; synchronize aria-expanded.",
+      "reduced_motion": "Switch icon and panel state immediately."
     },
     {
       "id": "B08",
@@ -177,7 +276,25 @@
       "license_url": "https://github.com/hakimel/Ladda/blob/c7a9c44c5e9d6e200bc74771c6570e9bcff46063/LICENSE",
       "repository_pushed_at": "2021-12-02T21:28:53Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Components/Basic controls",
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Submit button",
+      "trigger": [
+        "async-state"
+      ],
+      "parameters": [
+        "indicatorPosition",
+        "style",
+        "progress"
+      ],
+      "export_recipe": "Export the original abortable task binding and readable status text.",
+      "reduced_motion": "Use a static waiting indicator and readable progress."
     },
     {
       "id": "B09",
@@ -198,7 +315,18 @@
       "license_url": "https://github.com/lokesh-coder/pretty-checkbox/blob/84ef0d820146ccfaa181649f45dff71a7026ca21/LICENSE",
       "repository_pushed_at": "2020-10-14T16:34:51Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Components/Basic controls"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "B10",
@@ -219,7 +347,25 @@
       "license_url": "https://github.com/tobiasahlin/SpinKit/blob/742a71277c49b69053b5beb9fad80d720840a2ab/LICENSE",
       "repository_pushed_at": "2020-08-01T09:04:59Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Components/Basic controls",
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Button or loading area",
+      "trigger": [
+        "loading-state"
+      ],
+      "parameters": [
+        "count",
+        "color",
+        "period"
+      ],
+      "export_recipe": "Export scoped original keyframes and a separate readable status.",
+      "reduced_motion": "Show a static waiting indicator."
     },
     {
       "id": "A01",
@@ -240,13 +386,24 @@
       "license_url": "https://github.com/radix-ui/primitives",
       "repository_pushed_at": "2026-10-14T21:52:47Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Interactions"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A02",
       "level": "advanced",
       "name": "Headless UI Combobox",
-      "stack": "React\uff08\u53e6\u6709 Vue \u7248\uff09",
+      "stack": "React (Vue variant also available)",
       "demo_url": "https://headlessui.com/react/combobox",
       "repo_url": "https://github.com/tailwindlabs/headlessui",
       "reference_url": "https://github.com/tailwindlabs/headlessui",
@@ -261,13 +418,24 @@
       "license_url": "https://github.com/tailwindlabs/headlessui",
       "repository_pushed_at": "2026-04-13T16:12:31Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Interactions"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A03",
       "level": "advanced",
       "name": "Floating UI Tooltip",
-      "stack": "React \u793a\u4f8b / JavaScript \u6838\u5fc3",
+      "stack": "React examples / JavaScript core",
       "demo_url": "https://floating-ui.com/docs/tooltip",
       "repo_url": "https://github.com/floating-ui/floating-ui",
       "reference_url": "https://github.com/floating-ui/floating-ui",
@@ -282,13 +450,24 @@
       "license_url": "https://github.com/floating-ui/floating-ui",
       "repository_pushed_at": "2026-10-27T04:48:44Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Interactions"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A04",
       "level": "advanced",
       "name": "Embla Carousel",
-      "stack": "JavaScript\uff1b\u63d0\u4f9b\u6846\u67b6\u9002\u914d",
+      "stack": "JavaScript with framework adapters",
       "demo_url": "https://www.embla-carousel.com/docs/examples/predefined",
       "repo_url": "https://github.com/davidjerleke/embla-carousel",
       "reference_url": "https://github.com/davidjerleke/embla-carousel",
@@ -303,7 +482,18 @@
       "license_url": "https://github.com/davidjerleke/embla-carousel",
       "repository_pushed_at": "2026-11-01T12:48:18Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Interactions"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A05",
@@ -324,7 +514,18 @@
       "license_url": "https://github.com/SortableJS/Sortable/blob/48b626bbc61afbb0f179730c1dd3cca3dcc8b788/LICENSE",
       "repository_pushed_at": "2026-03-24T22:02:22Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Components/Interactions"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A06",
@@ -345,7 +546,26 @@
       "license_url": "https://github.com/juliangarnier/anime",
       "repository_pushed_at": "2026-11-02T22:25:55Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Tools/Effect timeline"
+      ],
+      "effect_role": "orchestration-tool",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Mounted effects",
+      "trigger": [
+        "play",
+        "pause",
+        "replay"
+      ],
+      "parameters": [
+        "offset",
+        "delay",
+        "easing"
+      ],
+      "export_recipe": "Bundle the chosen engine with its license; serialize a timeline recipe.",
+      "reduced_motion": "Set the final state."
     },
     {
       "id": "A07",
@@ -366,13 +586,24 @@
       "license_url": "https://github.com/shadcn-ui/ui",
       "repository_pushed_at": "2026-11-03T08:33:18Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Page blocks"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "A08",
       "level": "advanced",
       "name": "Codrops Scroll3DGrid",
-      "stack": "JavaScript + CSS / \u52a8\u753b\u4f9d\u8d56",
+      "stack": "JavaScript + CSS / animation dependencies",
       "demo_url": "https://tympanus.net/Development/Scroll3DGrid/",
       "repo_url": "https://github.com/codrops/Scroll3DGrid",
       "reference_url": "https://tympanus.net/codrops/licensing/",
@@ -387,7 +618,25 @@
       "license_url": "https://github.com/codrops/Scroll3DGrid",
       "repository_pushed_at": "2023-08-03T10:20:03Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Interactive blocks",
+        "Components/Effects/Scroll and transitions"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Image grid",
+      "trigger": [
+        "scroll"
+      ],
+      "parameters": [
+        "perspective",
+        "amplitude",
+        "stagger"
+      ],
+      "export_recipe": "Use self-owned images and separately review dependency licenses.",
+      "reduced_motion": "Use a flat image grid."
     },
     {
       "id": "A09",
@@ -408,7 +657,25 @@
       "license_url": "https://raw.githubusercontent.com/DavidHDev/react-bits/main/LICENSE.md",
       "repository_pushed_at": "2026-10-31T00:02:43Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "study",
+      "reuse_policy": "reference-only",
+      "target": "Section background",
+      "trigger": [
+        "pointer-move",
+        "visible-loop"
+      ],
+      "parameters": [
+        "color",
+        "speed",
+        "pointerResponse"
+      ],
+      "export_recipe": "Reference only; exports require an original implementation or suitable permission.",
+      "reduced_motion": "Use a static gradient."
     },
     {
       "id": "A10",
@@ -429,7 +696,25 @@
       "license_url": "https://gsap.com/community/standard-license/",
       "repository_pushed_at": "2026-11-04T00:56:41Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Tools/Scroll orchestration"
+      ],
+      "effect_role": "orchestration-tool",
+      "acquisition": "study",
+      "reuse_policy": "reference-only",
+      "target": "Story chapter",
+      "trigger": [
+        "scroll"
+      ],
+      "parameters": [
+        "start",
+        "end",
+        "pin",
+        "scrub"
+      ],
+      "export_recipe": "Reference only; do not distribute restricted runtime integration in Studio.",
+      "reduced_motion": "Use natural document flow."
     },
     {
       "id": "F01",
@@ -450,7 +735,18 @@
       "license_url": "https://github.com/StartBootstrap/startbootstrap-agency",
       "repository_pushed_at": "2024-07-15T17:10:23Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F02",
@@ -471,7 +767,18 @@
       "license_url": "https://html5up.net/license",
       "repository_pushed_at": null,
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "download",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F03",
@@ -492,7 +799,18 @@
       "license_url": "https://github.com/magicuidesign/portfolio/blob/5ef12e4c8bd0de3e22e89c2181ee77a35925ec8b/LICENSE",
       "repository_pushed_at": "2026-01-13T16:26:06Z",
       "upstream_built": false,
-      "verification": "QUEUE_VERIFICATION.md"
+      "verification": "QUEUE_VERIFICATION.md",
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F04",
@@ -513,7 +831,18 @@
       "license_url": "https://github.com/saicaca/fuwari",
       "repository_pushed_at": "2026-03-10T20:47:36Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F05",
@@ -534,7 +863,18 @@
       "license_url": "https://github.com/withastro/starlight",
       "repository_pushed_at": "2026-11-03T16:25:52Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F06",
@@ -555,7 +895,18 @@
       "license_url": "https://github.com/tabler/tabler",
       "repository_pushed_at": "2026-10-29T21:40:49Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F07",
@@ -576,7 +927,18 @@
       "license_url": "https://github.com/vercel/shop",
       "repository_pushed_at": "2026-11-01T21:31:10Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F08",
@@ -597,13 +959,24 @@
       "license_url": "https://github.com/excalidraw/excalidraw",
       "repository_pushed_at": "2026-11-03T15:21:44Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/Applications"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F09",
       "level": "full",
       "name": "Webamp",
-      "stack": "TypeScript / \u6d4f\u89c8\u5668\u97f3\u9891",
+      "stack": "TypeScript / browser audio",
       "demo_url": "https://webamp.org/",
       "repo_url": "https://github.com/captbaritone/webamp",
       "reference_url": "https://github.com/captbaritone/webamp",
@@ -618,13 +991,24 @@
       "license_url": "https://github.com/captbaritone/webamp",
       "repository_pushed_at": "2026-11-04T03:47:20Z",
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/Applications"
+      ],
+      "effect_role": "none",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
     },
     {
       "id": "F10",
       "level": "full",
       "name": "Lusion",
-      "stack": "\u516c\u5f00\u4f53\u9a8c / \u4e09\u7ef4\u521b\u610f\u7f51\u7ad9",
+      "stack": "Public experience / creative 3D website",
       "demo_url": "https://lusion.co/",
       "repo_url": "",
       "reference_url": "https://lusion.co/projects/lusion_labs/",
@@ -639,7 +1023,817 @@
       "license_url": "",
       "repository_pushed_at": null,
       "upstream_built": false,
-      "verification": null
+      "verification": null,
+      "catalog_paths": [
+        "Websites/References and templates"
+      ],
+      "effect_role": "none",
+      "acquisition": "study",
+      "reuse_policy": "reference-only",
+      "target": null,
+      "trigger": [],
+      "parameters": [],
+      "export_recipe": null,
+      "reduced_motion": null
+    },
+    {
+      "id": "E01",
+      "level": "basic",
+      "stack": "AOS / CSS + JS",
+      "demo_url": "https://michalsnik.github.io/aos/",
+      "repo_url": "https://github.com/michalsnik/aos",
+      "reference_url": "https://github.com/michalsnik/aos",
+      "batch": "clone",
+      "name": "Fade and rise",
+      "focus": "Fade and rise",
+      "acceptance": "Reveal on entry; once=true must not replay after leaving and re-entering.",
+      "status": "queued",
+      "source_commit": "329fb34f777034345f4d3f4def4dc3bcc300cc2e",
+      "default_branch": "next",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/michalsnik/aos",
+      "repository_pushed_at": "2024-03-26T15:58:43Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Entrance and reveal"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Heading, image or card",
+      "trigger": [
+        "viewport-enter"
+      ],
+      "parameters": [
+        "distance",
+        "duration",
+        "delay",
+        "once"
+      ],
+      "export_recipe": "Inline scoped transform/opacity CSS and an observer; content starts readable if JS fails.",
+      "reduced_motion": "Show final position and full opacity."
+    },
+    {
+      "id": "E02",
+      "level": "basic",
+      "stack": "CSS clip-path",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path",
+      "batch": "study",
+      "name": "Mask reveal",
+      "focus": "Mask reveal",
+      "acceptance": "A circle from the selected origin or a directional rectangle reveals all corners after an image change.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Entrance and reveal"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Image, cover or title container",
+      "trigger": [
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "shape",
+        "origin",
+        "direction",
+        "duration"
+      ],
+      "export_recipe": "Inline clip-path keyframes and a trigger; remove clipping in the unsupported fallback.",
+      "reduced_motion": "Show the complete target immediately."
+    },
+    {
+      "id": "E03",
+      "level": "basic",
+      "stack": "SVG + Rough Notation",
+      "demo_url": "https://roughnotation.com/",
+      "repo_url": "https://github.com/rough-stuff/rough-notation",
+      "reference_url": "https://github.com/rough-stuff/rough-notation",
+      "batch": "clone",
+      "name": "Hand-drawn annotation",
+      "focus": "Hand-drawn annotation",
+      "acceptance": "Underline or circle remains aligned after wrapping; repeated entry creates no duplicate SVG nodes.",
+      "status": "queued",
+      "source_commit": "668ba82ac89c903d6f59c9351b9b85855da9882c",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/rough-stuff/rough-notation",
+      "repository_pushed_at": "2024-03-18T05:16:12Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Single-line or multiline text",
+      "trigger": [
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "type",
+        "strokeWidth",
+        "color",
+        "duration"
+      ],
+      "export_recipe": "Bundle the chosen licensed annotation runtime; measure after fonts load and on resize.",
+      "reduced_motion": "Render the completed annotation."
+    },
+    {
+      "id": "E04",
+      "level": "basic",
+      "stack": "Splitting.js + CSS",
+      "demo_url": "https://splitting.js.org/guide.html",
+      "repo_url": "https://github.com/shshaw/Splitting",
+      "reference_url": "https://github.com/shshaw/Splitting",
+      "batch": "clone",
+      "name": "Character and word stagger",
+      "focus": "Character and word stagger",
+      "acceptance": "Chinese and English reveal in reading order; assistive technology receives the complete sentence; split only once.",
+      "status": "queued",
+      "source_commit": "d5a8fd0137e90770ae10d2e0e874a4a101161544",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/shshaw/Splitting",
+      "repository_pushed_at": "2024-06-19T03:08:08Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Heading or short text",
+      "trigger": [
+        "viewport-enter"
+      ],
+      "parameters": [
+        "splitMode",
+        "stagger",
+        "distance",
+        "duration"
+      ],
+      "export_recipe": "Inline original splitting logic and indexed CSS; preserve a whole accessible text alternative.",
+      "reduced_motion": "Show the complete sentence immediately."
+    },
+    {
+      "id": "E05",
+      "level": "basic",
+      "stack": "JavaScript / Typed.js reference",
+      "demo_url": "https://mattboldt.com/demos/typed-js/",
+      "repo_url": "https://github.com/mattboldt/typed.js",
+      "reference_url": "https://github.com/mattboldt/typed.js",
+      "batch": "study",
+      "name": "Typewriter and erase",
+      "focus": "Typewriter and erase",
+      "acceptance": "Preserve Chinese and emoji graphemes, reserve layout space and allow looping to stop.",
+      "status": "queued",
+      "source_commit": "b2d6a7d9af6d9cd39830701f6b6a7cd98a37e13f",
+      "default_branch": "main",
+      "source_license": "GPL-3.0 or commercial license",
+      "license_evidence": "Pinned upstream README licensing section reviewed; v3 is not MIT. No upstream runtime bundled.",
+      "license_url": "https://github.com/mattboldt/typed.js/blob/b2d6a7d9af6d9cd39830701f6b6a7cd98a37e13f/README.md",
+      "repository_pushed_at": "2026-01-25T21:28:00Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation; upstream runtime excluded",
+      "target": "Heading, short phrase or tutorial",
+      "trigger": [
+        "load",
+        "click-play"
+      ],
+      "parameters": [
+        "typeSpeed",
+        "pause",
+        "eraseSpeed",
+        "loop"
+      ],
+      "export_recipe": "Write original plain JavaScript; do not bundle current Typed.js code in the permissive component pack.",
+      "reduced_motion": "Show the complete text without a blinking cursor."
+    },
+    {
+      "id": "E06",
+      "level": "basic",
+      "stack": "JavaScript / CountUp.js",
+      "demo_url": "https://inorganik.github.io/countUp.js/",
+      "repo_url": "https://github.com/inorganik/countUp.js",
+      "reference_url": "https://github.com/inorganik/countUp.js",
+      "batch": "clone",
+      "name": "Number counter",
+      "focus": "Number counter",
+      "acceptance": "Handle negative numbers, decimals and units; finish at the exact formatted destination value.",
+      "status": "queued",
+      "source_commit": "a47732056085af3e0e81374db71e088dddf17362",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/inorganik/countUp.js",
+      "repository_pushed_at": "2026-10-17T12:56:37Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Metric, card number or index",
+      "trigger": [
+        "viewport-enter",
+        "value-change"
+      ],
+      "parameters": [
+        "start",
+        "end",
+        "precision",
+        "duration",
+        "prefix",
+        "suffix"
+      ],
+      "export_recipe": "Bundle the chosen counter or original formatter; initial HTML contains the readable final value.",
+      "reduced_motion": "Set the final formatted number immediately."
+    },
+    {
+      "id": "E07",
+      "level": "basic",
+      "stack": "JavaScript / CSS 3D",
+      "demo_url": "https://micku7zu.github.io/vanilla-tilt.js/",
+      "repo_url": "https://github.com/micku7zu/vanilla-tilt.js",
+      "reference_url": "https://github.com/micku7zu/vanilla-tilt.js",
+      "batch": "clone",
+      "name": "Card tilt and glare",
+      "focus": "Card tilt and glare",
+      "acceptance": "Reset on pointer leave, preserve touch clicks and recompute bounds after editor movement.",
+      "status": "queued",
+      "source_commit": "48f4ee931d4d91dcdd2f91803db67a9f3a16587e",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/micku7zu/vanilla-tilt.js",
+      "repository_pushed_at": "2024-03-01T09:20:19Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Card, cover or button inner wrapper",
+      "trigger": [
+        "fine-pointer-move"
+      ],
+      "parameters": [
+        "maxAngle",
+        "perspective",
+        "glare",
+        "resetDuration"
+      ],
+      "export_recipe": "Keep editor placement on an outer wrapper and tilt transforms on an inner effect layer.",
+      "reduced_motion": "Keep the card static."
+    },
+    {
+      "id": "E08",
+      "level": "advanced",
+      "stack": "JavaScript / Canvas",
+      "demo_url": "https://tholman.com/cursor-effects/",
+      "repo_url": "https://github.com/tholman/cursor-effects",
+      "reference_url": "https://github.com/tholman/cursor-effects",
+      "batch": "clone",
+      "name": "Cursor trail",
+      "focus": "Cursor trail",
+      "acceptance": "Stay inside the selected block; removing the block removes its listeners and canvases.",
+      "status": "queued",
+      "source_commit": "182a33839ad3ef63b14ad296e18bc1bb24a45bd6",
+      "default_branch": "master",
+      "source_license": "Unverified",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/tholman/cursor-effects",
+      "repository_pushed_at": "2026-02-26T12:24:18Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Creative cover or bounded canvas section",
+      "trigger": [
+        "pointer-move"
+      ],
+      "parameters": [
+        "style",
+        "color",
+        "scope"
+      ],
+      "export_recipe": "Use a block-scoped pointer-events:none canvas and an explicit destroy lifecycle.",
+      "reduced_motion": "Keep the system cursor with no trail."
+    },
+    {
+      "id": "E09",
+      "level": "basic",
+      "stack": "Canvas / canvas-confetti",
+      "demo_url": "https://www.kirilv.com/canvas-confetti/",
+      "repo_url": "https://github.com/catdad/canvas-confetti",
+      "reference_url": "https://github.com/catdad/canvas-confetti",
+      "batch": "clone",
+      "name": "Success confetti",
+      "focus": "Success confetti",
+      "acceptance": "A real success event fires once; an ordinary click must not manufacture business success; rendering stops after completion.",
+      "status": "queued",
+      "source_commit": "20eebad51dde793070c373d594099a7ed8d96e22",
+      "default_branch": "master",
+      "source_license": "ISC",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/catdad/canvas-confetti",
+      "repository_pushed_at": "2025-10-25T05:17:21Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Completion area or button feedback layer",
+      "trigger": [
+        "success-event",
+        "explicit-preview"
+      ],
+      "parameters": [
+        "count",
+        "angle",
+        "colors",
+        "origin"
+      ],
+      "export_recipe": "Bundle a one-shot renderer; keep independent readable success text.",
+      "reduced_motion": "Skip particles and retain the status text."
+    },
+    {
+      "id": "E10",
+      "level": "basic",
+      "stack": "CSS scroll-timeline",
+      "demo_url": "https://scroll-driven-animations.style/demos/progress-bar/css/",
+      "repo_url": "",
+      "reference_url": "https://scroll-driven-animations.style/",
+      "batch": "study",
+      "name": "Reading progress",
+      "focus": "Reading progress",
+      "acceptance": "Main article top is 0% and bottom is 100%; scrolling an independent sidebar must not change article progress.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://scroll-driven-animations.style/",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Article progress bar or sidebar indicator",
+      "trigger": [
+        "container-scroll"
+      ],
+      "parameters": [
+        "orientation",
+        "color",
+        "thickness",
+        "scrollContainer"
+      ],
+      "export_recipe": "Use a scoped scroll timeline with a JS fallback when needed; bind the actual scroll container.",
+      "reduced_motion": "Synchronize progress without additional smoothing."
+    },
+    {
+      "id": "E11",
+      "level": "advanced",
+      "stack": "simpleParallax.js / JavaScript",
+      "demo_url": "https://simpleparallax.com/",
+      "repo_url": "https://github.com/geosigno/simpleParallax.js",
+      "reference_url": "https://github.com/geosigno/simpleParallax.js",
+      "batch": "clone",
+      "name": "Image parallax",
+      "focus": "Image parallax",
+      "acceptance": "Scrolling forward and backward is reversible; narrow layouts expose no empty edges; pause offscreen.",
+      "status": "queued",
+      "source_commit": "55f4d10f6f0b4e1ec50041f9a2266b82bf6ee129",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/geosigno/simpleParallax.js",
+      "repository_pushed_at": "2026-07-14T19:54:04Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Image or cover inside a clipping wrapper",
+      "trigger": [
+        "scroll"
+      ],
+      "parameters": [
+        "direction",
+        "scale",
+        "amplitude",
+        "scrollContainer"
+      ],
+      "export_recipe": "Export self-owned images, a crop wrapper and a native JavaScript entry point.",
+      "reduced_motion": "Render a static cover image."
+    },
+    {
+      "id": "E12",
+      "level": "advanced",
+      "stack": "Native View Transitions API",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition",
+      "batch": "study",
+      "name": "Shared-element transition",
+      "focus": "Shared-element transition",
+      "acceptance": "Open the matching image and restore focus on return; navigation still works without the API.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "effect_role": "state-transition",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Thumbnail and corresponding detail hero",
+      "trigger": [
+        "open",
+        "back"
+      ],
+      "parameters": [
+        "source",
+        "target",
+        "duration",
+        "easing"
+      ],
+      "export_recipe": "Use unique view-transition names and a same-document state update; provide an immediate update fallback.",
+      "reduced_motion": "Update state and restore focus immediately."
+    },
+    {
+      "id": "E13",
+      "level": "advanced",
+      "stack": "WebGL / Paper Shaders",
+      "demo_url": "https://shaders.paper.design/mesh-gradient",
+      "repo_url": "https://github.com/paper-design/shaders",
+      "reference_url": "https://github.com/paper-design/shaders",
+      "batch": "clone",
+      "name": "Flowing mesh gradient",
+      "focus": "Flowing mesh gradient",
+      "acceptance": "Pause offscreen; disabling WebGL leaves readable content and working controls.",
+      "status": "queued",
+      "source_commit": "2fec1d57247033a7e72052156c65a826cff08ccb",
+      "default_branch": "main",
+      "source_license": "Apache-2.0",
+      "license_evidence": "Apache-2.0 metadata and pinned NOTICE reviewed. Retain LICENSE and NOTICE when bundling; assets and dependencies still require review.",
+      "license_url": "https://github.com/paper-design/shaders/blob/2fec1d57247033a7e72052156c65a826cff08ccb/LICENSE",
+      "repository_pushed_at": "2026-11-03T17:14:25Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Hero, banner or empty-state background",
+      "trigger": [
+        "visible-loop"
+      ],
+      "parameters": [
+        "colors",
+        "speed",
+        "distortion",
+        "swirl"
+      ],
+      "export_recipe": "Bundle only the chosen native shader entry; retain Apache LICENSE and NOTICE; include a CSS gradient base.",
+      "reduced_motion": "Use a static gradient with no rendering loop.",
+      "notice_url": "https://github.com/paper-design/shaders/blob/2fec1d57247033a7e72052156c65a826cff08ccb/NOTICE"
+    },
+    {
+      "id": "E14",
+      "level": "basic",
+      "stack": "Inline SVG feTurbulence",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feTurbulence",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feTurbulence",
+      "batch": "study",
+      "name": "Paper and film grain",
+      "focus": "Paper and film grain",
+      "acceptance": "Two instances have independent filter IDs; texture does not intercept clicks.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feTurbulence",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Cover, background or image overlay",
+      "trigger": [
+        "static"
+      ],
+      "parameters": [
+        "scale",
+        "opacity",
+        "seed"
+      ],
+      "export_recipe": "Inline an original SVG feTurbulence filter with a unique ID per instance.",
+      "reduced_motion": "Keep the texture static; never animate the seed."
+    },
+    {
+      "id": "E15",
+      "level": "advanced",
+      "stack": "Composed preset / SVG noise and displacement",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feDisplacementMap",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feDisplacementMap",
+      "batch": "study",
+      "name": "Ink edge",
+      "focus": "Ink edge",
+      "acceptance": "Distort shape edges only; body text remains clear and expanded filter bounds prevent clipping.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feDisplacementMap",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Self-owned SVG shape or chapter illustration",
+      "trigger": [
+        "viewport-enter",
+        "static"
+      ],
+      "parameters": [
+        "frequency",
+        "displacement",
+        "seed",
+        "duration"
+      ],
+      "export_recipe": "Compose original turbulence and displacement filters; keep text outside the filtered subtree.",
+      "reduced_motion": "Use a static ink shape or the original undistorted shape."
+    },
+    {
+      "id": "E16",
+      "level": "basic",
+      "stack": "SVG / Anime.js createDrawable",
+      "demo_url": "https://animejs.com/documentation/svg/createdrawable/",
+      "repo_url": "https://github.com/juliangarnier/anime",
+      "reference_url": "https://github.com/juliangarnier/anime",
+      "batch": "clone",
+      "name": "SVG stroke drawing",
+      "focus": "SVG stroke drawing",
+      "acceptance": "Paths of different lengths complete correctly and remain fully visible.",
+      "status": "queued",
+      "source_commit": "01b81be1df6843ccfe0a71c0699a746bf740dd77",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/juliangarnier/anime",
+      "repository_pushed_at": "2026-11-02T22:25:55Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Vector graphics"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Logo, map line or icon path",
+      "trigger": [
+        "load",
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "order",
+        "direction",
+        "stagger",
+        "duration"
+      ],
+      "export_recipe": "Use original getTotalLength/dash animation or a licensed minimal engine with self-owned SVG paths.",
+      "reduced_motion": "Display complete paths."
+    },
+    {
+      "id": "E17",
+      "level": "advanced",
+      "stack": "SVG / Anime.js morphTo",
+      "demo_url": "https://animejs.com/documentation/svg/morphto/",
+      "repo_url": "https://github.com/juliangarnier/anime",
+      "reference_url": "https://github.com/juliangarnier/anime",
+      "batch": "clone",
+      "name": "SVG contour morph",
+      "focus": "SVG contour morph",
+      "acceptance": "Rapid repeated toggles finish at the path matching the current application state.",
+      "status": "queued",
+      "source_commit": "01b81be1df6843ccfe0a71c0699a746bf740dd77",
+      "default_branch": "master",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/juliangarnier/anime",
+      "repository_pushed_at": "2026-11-02T22:25:55Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Vector graphics"
+      ],
+      "effect_role": "state-transition",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Two compatible icon or illustration shapes",
+      "trigger": [
+        "click",
+        "state-change"
+      ],
+      "parameters": [
+        "fromPath",
+        "toPath",
+        "duration",
+        "easing"
+      ],
+      "export_recipe": "Export compatible self-owned paths and a chosen interpolator; cancel superseded transitions.",
+      "reduced_motion": "Replace the path immediately."
+    },
+    {
+      "id": "E18",
+      "level": "basic",
+      "stack": "CSS variable font axes",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variation-settings",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variation-settings",
+      "batch": "study",
+      "name": "Variable font axes",
+      "focus": "Variable font axes",
+      "acceptance": "The title fits its container; without the variable font the complete text remains readable.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variation-settings",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Heading or index with supported font axes",
+      "trigger": [
+        "hover",
+        "focus",
+        "viewport-enter"
+      ],
+      "parameters": [
+        "axis",
+        "min",
+        "max",
+        "duration"
+      ],
+      "export_recipe": "Embed only a font licensed for redistribution; include a system-font fallback.",
+      "reduced_motion": "Use fixed width and weight."
+    },
+    {
+      "id": "E19",
+      "level": "advanced",
+      "stack": "Canvas / tsParticles Links",
+      "demo_url": "https://particles.js.org/demos/recipes/links",
+      "repo_url": "https://github.com/tsparticles/tsparticles",
+      "reference_url": "https://github.com/tsparticles/tsparticles/blob/main/LICENSE",
+      "batch": "clone",
+      "name": "Linked particle background",
+      "focus": "Linked particle background",
+      "acceptance": "Moving or removing a block leaves no extra canvases; reduce density on mobile.",
+      "status": "queued",
+      "source_commit": "19821ac564e3314ae3d188af2778597b8423693b",
+      "default_branch": "main",
+      "source_license": "MIT",
+      "license_evidence": "GitHub metadata only; per-file review pending",
+      "license_url": "https://github.com/tsparticles/tsparticles",
+      "repository_pushed_at": "2026-11-04T00:00:12Z",
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "block-layer",
+      "acquisition": "clone",
+      "reuse_policy": "review-before-vendoring",
+      "target": "Banner or map-heading background",
+      "trigger": [
+        "visible-loop"
+      ],
+      "parameters": [
+        "count",
+        "speed",
+        "linkDistance",
+        "color"
+      ],
+      "export_recipe": "Bundle only the required engine and Links preset; impose a particle budget and static fallback.",
+      "reduced_motion": "Use static points or a solid background."
+    },
+    {
+      "id": "E20",
+      "level": "basic",
+      "stack": "CSS backdrop-filter",
+      "demo_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter",
+      "repo_url": "",
+      "reference_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter",
+      "batch": "study",
+      "name": "Frosted glass panel",
+      "focus": "Frosted glass panel",
+      "acceptance": "Text remains readable over light and dark backgrounds; unsupported blur has an opaque fallback.",
+      "status": "queued",
+      "source_commit": null,
+      "default_branch": null,
+      "source_license": "No upstream code bundled; original implementation planned",
+      "license_evidence": "Platform reference only; no documentation code copied",
+      "license_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter",
+      "repository_pushed_at": null,
+      "upstream_built": false,
+      "verification": null,
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "effect_role": "element-attachment",
+      "acquisition": "study",
+      "reuse_policy": "independent-implementation",
+      "target": "Navigation, overlay or HUD panel",
+      "trigger": [
+        "static",
+        "theme-change"
+      ],
+      "parameters": [
+        "blur",
+        "baseOpacity",
+        "border"
+      ],
+      "export_recipe": "Inline scoped backdrop-filter CSS with a sufficiently opaque contrast base.",
+      "reduced_motion": "Keep blur fixed without animation."
     }
+  ],
+  "notes": [
+    "Acquisition method is separate from reuse permission and implementation progress.",
+    "Catalog paths overlap; count unique IDs, not category appearances.",
+    "The supplied CSV remains unchanged. Its queued labels do not overwrite verified implementation progress.",
+    "E01-E20 are planned contracts, not installed or behavior-verified effects."
   ]
 }

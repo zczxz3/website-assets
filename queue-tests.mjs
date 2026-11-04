@@ -1,4 +1,30 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {sample,clone,validateModel,moveItem,createHistory,websiteFiles,studioProject,zipFiles} from './queue-model.mjs';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {selectTargets,validateCatalog} from './queue-catalog.mjs';
+const registry=JSON.parse(readFileSync(new URL('./queue-registry.json',import.meta.url)));
+const effects=JSON.parse(readFileSync(new URL('./queue-effects.json',import.meta.url)));
+test('catalog preserves progress, deduplicates effect views and retains supplied CSV identity',()=>{
+ assert.deepEqual(validateCatalog(registry,effects),{targets:50,effects:20,status:'valid'});
+ assert.deepEqual(registry.targets.filter(r=>r.status==='implemented-bounded-study').map(r=>r.id),['B07','B08','B09','B10','A05','F03']);
+ assert.deepEqual(registry.targets.filter(r=>r.status==='reference-only').map(r=>r.id),['A09','A10','F10']);
+ assert.deepEqual(selectTargets(registry.targets,'tools').map(r=>r.id),['A06','A10']);
+ assert.equal(new Set(selectTargets(registry.targets,'effects').map(r=>r.id)).size,26);
+ assert.equal(selectTargets(registry.targets,'unrecognized-view').length,0);
+ const csvHash=createHash('sha256').update(readFileSync(new URL('./frontend-research-queue.csv',import.meta.url))).digest('hex');
+ assert.equal(csvHash,registry.original_csv_sha256);
+ assert.equal(csvHash,'1f6ec208a7ff2a681532f4deddcd8584b42fbf6640710cf5ae1e9a51df3d51d1');
+ assert.equal(registry.targets.find(r=>r.id==='E02').status,'queued');
+ assert.match(registry.targets.find(r=>r.id==='E05').source_license,/GPL/);
+});
+test('catalog validation rejects ambiguous IDs, stale counts, missing pins and false runtime claims',()=>{
+ for(const change of [r=>r.targets[1].id=r.targets[0].id,r=>r.counts.total--,r=>r.counts.effect_components--,r=>r.targets[0].source_commit=null,r=>r.targets[30].status='implemented-bounded-study']){
+  const r=structuredClone(registry);change(r);assert.throws(()=>validateCatalog(r,effects));
+ }
+ for(const change of [e=>e.effects.pop(),e=>e.effects[0].implementation.studio_installable=true,e=>e.effects[0].implementation.runtime_entry='imaginary.mjs',e=>e.effects[0].acceptance='different']){
+  const e=structuredClone(effects);change(e);assert.throws(()=>validateCatalog(registry,e));
+ }
+});
 test('a reorder changes preview source and project export identically',()=>{const m=clone(sample);m.projects=moveItem(m.projects,0,2);const html=websiteFiles(m)['index.html'];assert.ok(html.indexOf('project-orbit.html')<html.indexOf('project-field.html'));assert.equal(studioProject(m).files['index.html'].content,html);});
 test('undo and redo retain edits, isolate returned objects and truncate redo on a new edit',()=>{const h=createHistory(sample),m=h.value;m.name='Saved name';h.commit(m);m.name='Mutation outside history';assert.equal(h.value.name,'Saved name');h.undo();assert.equal(h.value.name,sample.name);h.redo();assert.equal(h.value.name,'Saved name');h.undo();h.commit({...h.value,name:'Different edit'});assert.equal(h.canRedo,false);});
 test('import rejects duplicate, traversing, excessive or malformed projects',()=>{for(const change of [m=>m.projects[1].id=m.projects[0].id,m=>m.projects[0].id='../bad',m=>m.projects=[],m=>m.projects=Array(13).fill(m.projects[0]),m=>m.accent='red;display:none',m=>m.layout='unknown']){const m=clone(sample);change(m);assert.throws(()=>validateModel(m));}});

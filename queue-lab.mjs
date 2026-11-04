@@ -1,3 +1,4 @@
+import {selectTargets} from './queue-catalog.mjs';
 import {sample,clone,escapeHTML as e,validateModel,createHistory,moveItem,websiteFiles,studioProject,zipFiles} from './queue-model.mjs';
 import {bindMenu,bindAsync,bindReorder} from './queue-components.mjs';
 const $=s=>document.querySelector(s),history=createHistory(sample),status=$('#status');let route='index.html',files={},registry=[];
@@ -31,7 +32,7 @@ $('#studio').addEventListener('click',()=>save('portfolio.mws.json',JSON.stringi
 $('#preview-page').addEventListener('change',event=>{route=event.target.value;preview();});
 window.addEventListener('message',event=>{if(event.source!==$('#preview').contentWindow||event.data?.type!=='queue-navigate'||typeof event.data.path!=='string')return;const path=event.data.path.split('#')[0];if(Object.hasOwn(files,path)&&path.endsWith('.html')){route=path;preview();}});
 const menus=['spin','spring','collapse'].map((kind,i)=>{const div=document.createElement('div');div.className='menu-unit';div.innerHTML=`<div class="menu-top"><span>${kind[0].toUpperCase()+kind.slice(1)}</span><button class="menu-button" data-motion="${kind}" type="button" aria-label="Toggle ${kind} menu" aria-controls="menu-${i}" aria-expanded="false"><i></i><i></i><i></i></button></div><nav class="menu-panel" id="menu-${i}" aria-label="${kind} navigation" hidden><a href="#workspace">Workspace</a><a href="#queue">Research queue</a></nav>`;$('#menus').append(div);return bindMenu(div.querySelector('button'),div.querySelector('nav'));});
-function drawQueue(){const selected=$('#filter').value;$('#queue-list').innerHTML=registry.filter(r=>selected==='all'||r.level===selected).map(r=>`<article class="queue-item"><b>${r.id}</b><div><a href="${e(r.demo_url)}" target="_blank" rel="noopener noreferrer">${e(r.name)} ↗</a><small>${e(r.status.replaceAll('-',' '))}</small></div></article>`).join('');}
+function drawQueue(){const selected=$('#filter').value;$('#queue-list').innerHTML=selectTargets(registry,selected).map(r=>`<article class="queue-item"><b>${r.id}</b><div><a href="${e(r.demo_url)}" target="_blank" rel="noopener noreferrer">${e(r.name)} ↗</a><small>${e(r.status.replaceAll('-',' '))}</small></div></article>`).join('');}
 $('#filter').addEventListener('change',drawQueue);fetch('./queue-registry.json').then(r=>{if(!r.ok)throw Error('Queue unavailable');return r.json();}).then(r=>{registry=r.targets;drawQueue();}).catch(()=>$('#queue-list').textContent='Research queue unavailable. Open QUEUE_RESEARCH.md.');
 window.addEventListener('pagehide',()=>{task.destroy();reorder.destroy();menus.forEach(m=>m.destroy());},{once:true});
 render();document.body.dataset.ready='queue';

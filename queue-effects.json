@@ -1,0 +1,653 @@
+{
+  "schema_version": 1,
+  "status": "proposal",
+  "studio_core_changed": false,
+  "integration_boundary": "The current Studio module v1 contract is static HTML/CSS. These descriptors are research data, not executable modules or a supported Studio API.",
+  "proposed_lifecycle": [
+    "mount(target, options, context)",
+    "update(options)",
+    "play()",
+    "pause()",
+    "destroy()"
+  ],
+  "lifecycle_requirements": [
+    "A stable target ID binds the effect; the editor owns the outer placement transform.",
+    "Animation uses a separate inner wrapper; removing a block cancels observers, listeners, animation frames and pending tasks.",
+    "Use scoped styles and unique filter IDs. Do not read global document nodes as component targets.",
+    "A missing API or reduced-motion setting keeps content and navigation usable.",
+    "Pause continuous renderers offscreen and when the document is hidden.",
+    "Exports must carry their minimal runtime, licensed local assets, notices and fallback."
+  ],
+  "effects": [
+    {
+      "id": "E01",
+      "name": "Fade and rise",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Entrance and reveal"
+      ],
+      "target": "Heading, image or card",
+      "trigger": [
+        "viewport-enter"
+      ],
+      "parameters": [
+        "distance",
+        "duration",
+        "delay",
+        "once"
+      ],
+      "acceptance": "Reveal on entry; once=true must not replay after leaving and re-entering.",
+      "export_recipe": "Inline scoped transform/opacity CSS and an observer; content starts readable if JS fails.",
+      "reduced_motion": "Show final position and full opacity.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E02",
+      "name": "Mask reveal",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Entrance and reveal"
+      ],
+      "target": "Image, cover or title container",
+      "trigger": [
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "shape",
+        "origin",
+        "direction",
+        "duration"
+      ],
+      "acceptance": "A circle from the selected origin or a directional rectangle reveals all corners after an image change.",
+      "export_recipe": "Inline clip-path keyframes and a trigger; remove clipping in the unsupported fallback.",
+      "reduced_motion": "Show the complete target immediately.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/text-reveal.mjs",
+          "limitation": "Line-mask reveal; no configurable circle or image mask."
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "Hand-drawn annotation",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "target": "Single-line or multiline text",
+      "trigger": [
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "type",
+        "strokeWidth",
+        "color",
+        "duration"
+      ],
+      "acceptance": "Underline or circle remains aligned after wrapping; repeated entry creates no duplicate SVG nodes.",
+      "export_recipe": "Bundle the chosen licensed annotation runtime; measure after fonts load and on resize.",
+      "reduced_motion": "Render the completed annotation.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E04",
+      "name": "Character and word stagger",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "target": "Heading or short text",
+      "trigger": [
+        "viewport-enter"
+      ],
+      "parameters": [
+        "splitMode",
+        "stagger",
+        "distance",
+        "duration"
+      ],
+      "acceptance": "Chinese and English reveal in reading order; assistive technology receives the complete sentence; split only once.",
+      "export_recipe": "Inline original splitting logic and indexed CSS; preserve a whole accessible text alternative.",
+      "reduced_motion": "Show the complete sentence immediately.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/text-reveal.mjs",
+          "limitation": "Line-level reveal only; grapheme splitting and full new acceptance remain pending."
+        },
+        {
+          "path": "buttons.mjs",
+          "limitation": "Button-specific stagger; not a generic text effect."
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "Typewriter and erase",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "target": "Heading, short phrase or tutorial",
+      "trigger": [
+        "load",
+        "click-play"
+      ],
+      "parameters": [
+        "typeSpeed",
+        "pause",
+        "eraseSpeed",
+        "loop"
+      ],
+      "acceptance": "Preserve Chinese and emoji graphemes, reserve layout space and allow looping to stop.",
+      "export_recipe": "Write original plain JavaScript; do not bundle current Typed.js code in the permissive component pack.",
+      "reduced_motion": "Show the complete text without a blinking cursor.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E06",
+      "name": "Number counter",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "target": "Metric, card number or index",
+      "trigger": [
+        "viewport-enter",
+        "value-change"
+      ],
+      "parameters": [
+        "start",
+        "end",
+        "precision",
+        "duration",
+        "prefix",
+        "suffix"
+      ],
+      "acceptance": "Handle negative numbers, decimals and units; finish at the exact formatted destination value.",
+      "export_recipe": "Bundle the chosen counter or original formatter; initial HTML contains the readable final value.",
+      "reduced_motion": "Set the final formatted number immediately.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E07",
+      "name": "Card tilt and glare",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "target": "Card, cover or button inner wrapper",
+      "trigger": [
+        "fine-pointer-move"
+      ],
+      "parameters": [
+        "maxAngle",
+        "perspective",
+        "glare",
+        "resetDuration"
+      ],
+      "acceptance": "Reset on pointer leave, preserve touch clicks and recompute bounds after editor movement.",
+      "export_recipe": "Keep editor placement on an outer wrapper and tilt transforms on an inner effect layer.",
+      "reduced_motion": "Keep the card static.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/book-tilt.mjs",
+          "limitation": "Book rotation study; general card/glare adapter and editor transform separation are pending."
+        },
+        {
+          "path": "buttons.mjs",
+          "limitation": "Button tilt preset; not a general card component."
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "Cursor trail",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "target": "Creative cover or bounded canvas section",
+      "trigger": [
+        "pointer-move"
+      ],
+      "parameters": [
+        "style",
+        "color",
+        "scope"
+      ],
+      "acceptance": "Stay inside the selected block; removing the block removes its listeners and canvases.",
+      "export_recipe": "Use a block-scoped pointer-events:none canvas and an explicit destroy lifecycle.",
+      "reduced_motion": "Keep the system cursor with no trail.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E09",
+      "name": "Success confetti",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Pointer and feedback"
+      ],
+      "target": "Completion area or button feedback layer",
+      "trigger": [
+        "success-event",
+        "explicit-preview"
+      ],
+      "parameters": [
+        "count",
+        "angle",
+        "colors",
+        "origin"
+      ],
+      "acceptance": "A real success event fires once; an ordinary click must not manufacture business success; rendering stops after completion.",
+      "export_recipe": "Bundle a one-shot renderer; keep independent readable success text.",
+      "reduced_motion": "Skip particles and retain the status text.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "buttons.mjs",
+          "limitation": "Sparks preset is visual feedback, not a verified business-success confetti contract."
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "name": "Reading progress",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "target": "Article progress bar or sidebar indicator",
+      "trigger": [
+        "container-scroll"
+      ],
+      "parameters": [
+        "orientation",
+        "color",
+        "thickness",
+        "scrollContainer"
+      ],
+      "acceptance": "Main article top is 0% and bottom is 100%; scrolling an independent sidebar must not change article progress.",
+      "export_recipe": "Use a scoped scroll timeline with a JS fallback when needed; bind the actual scroll container.",
+      "reduced_motion": "Synchronize progress without additional smoothing.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E11",
+      "name": "Image parallax",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "target": "Image or cover inside a clipping wrapper",
+      "trigger": [
+        "scroll"
+      ],
+      "parameters": [
+        "direction",
+        "scale",
+        "amplitude",
+        "scrollContainer"
+      ],
+      "acceptance": "Scrolling forward and backward is reversible; narrow layouts expose no empty edges; pause offscreen.",
+      "export_recipe": "Export self-owned images, a crop wrapper and a native JavaScript entry point.",
+      "reduced_motion": "Render a static cover image.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/ink-story.mjs",
+          "limitation": "Layered narrative motion; not image parallax with crop guarantees."
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "name": "Shared-element transition",
+      "role": "state-transition",
+      "catalog_paths": [
+        "Components/Effects/Scroll and transitions"
+      ],
+      "target": "Thumbnail and corresponding detail hero",
+      "trigger": [
+        "open",
+        "back"
+      ],
+      "parameters": [
+        "source",
+        "target",
+        "duration",
+        "easing"
+      ],
+      "acceptance": "Open the matching image and restore focus on return; navigation still works without the API.",
+      "export_recipe": "Use unique view-transition names and a same-document state update; provide an immediate update fallback.",
+      "reduced_motion": "Update state and restore focus immediately.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/shared-transition.mjs",
+          "limitation": "Existing shared-image study; native View Transition API adapter remains pending."
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "name": "Flowing mesh gradient",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "target": "Hero, banner or empty-state background",
+      "trigger": [
+        "visible-loop"
+      ],
+      "parameters": [
+        "colors",
+        "speed",
+        "distortion",
+        "swirl"
+      ],
+      "acceptance": "Pause offscreen; disabling WebGL leaves readable content and working controls.",
+      "export_recipe": "Bundle only the chosen native shader entry; retain Apache LICENSE and NOTICE; include a CSS gradient base.",
+      "reduced_motion": "Use a static gradient with no rendering loop.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E14",
+      "name": "Paper and film grain",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "target": "Cover, background or image overlay",
+      "trigger": [
+        "static"
+      ],
+      "parameters": [
+        "scale",
+        "opacity",
+        "seed"
+      ],
+      "acceptance": "Two instances have independent filter IDs; texture does not intercept clicks.",
+      "export_recipe": "Inline an original SVG feTurbulence filter with a unique ID per instance.",
+      "reduced_motion": "Keep the texture static; never animate the seed.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/film-distortion.mjs",
+          "limitation": "Film shader study; the standalone SVG texture is a new implementation."
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "name": "Ink edge",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "target": "Self-owned SVG shape or chapter illustration",
+      "trigger": [
+        "viewport-enter",
+        "static"
+      ],
+      "parameters": [
+        "frequency",
+        "displacement",
+        "seed",
+        "duration"
+      ],
+      "acceptance": "Distort shape edges only; body text remains clear and expanded filter bounds prevent clipping.",
+      "export_recipe": "Compose original turbulence and displacement filters; keep text outside the filtered subtree.",
+      "reduced_motion": "Use a static ink shape or the original undistorted shape.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/ink-story.mjs",
+          "limitation": "Canvas ink illustration; not an SVG displacement filter."
+        }
+      ]
+    },
+    {
+      "id": "E16",
+      "name": "SVG stroke drawing",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Vector graphics"
+      ],
+      "target": "Logo, map line or icon path",
+      "trigger": [
+        "load",
+        "viewport-enter",
+        "click"
+      ],
+      "parameters": [
+        "order",
+        "direction",
+        "stagger",
+        "duration"
+      ],
+      "acceptance": "Paths of different lengths complete correctly and remain fully visible.",
+      "export_recipe": "Use original getTotalLength/dash animation or a licensed minimal engine with self-owned SVG paths.",
+      "reduced_motion": "Display complete paths.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E17",
+      "name": "SVG contour morph",
+      "role": "state-transition",
+      "catalog_paths": [
+        "Components/Effects/Vector graphics"
+      ],
+      "target": "Two compatible icon or illustration shapes",
+      "trigger": [
+        "click",
+        "state-change"
+      ],
+      "parameters": [
+        "fromPath",
+        "toPath",
+        "duration",
+        "easing"
+      ],
+      "acceptance": "Rapid repeated toggles finish at the path matching the current application state.",
+      "export_recipe": "Export compatible self-owned paths and a chosen interpolator; cancel superseded transitions.",
+      "reduced_motion": "Replace the path immediately.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    },
+    {
+      "id": "E18",
+      "name": "Variable font axes",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Text and numbers"
+      ],
+      "target": "Heading or index with supported font axes",
+      "trigger": [
+        "hover",
+        "focus",
+        "viewport-enter"
+      ],
+      "parameters": [
+        "axis",
+        "min",
+        "max",
+        "duration"
+      ],
+      "acceptance": "The title fits its container; without the variable font the complete text remains readable.",
+      "export_recipe": "Embed only a font licensed for redistribution; include a system-font fallback.",
+      "reduced_motion": "Use fixed width and weight.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/variable-type.mjs",
+          "limitation": "Axis controls and geometric width fallback; no licensed variable font is bundled."
+        }
+      ]
+    },
+    {
+      "id": "E19",
+      "name": "Linked particle background",
+      "role": "block-layer",
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "target": "Banner or map-heading background",
+      "trigger": [
+        "visible-loop"
+      ],
+      "parameters": [
+        "count",
+        "speed",
+        "linkDistance",
+        "color"
+      ],
+      "acceptance": "Moving or removing a block leaves no extra canvases; reduce density on mobile.",
+      "export_recipe": "Bundle only the required engine and Links preset; impose a particle budget and static fallback.",
+      "reduced_motion": "Use static points or a solid background.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": [
+        {
+          "path": "components/particle-morph.mjs",
+          "limitation": "WebGL sphere/torus morph; not the Links canvas recipe."
+        }
+      ]
+    },
+    {
+      "id": "E20",
+      "name": "Frosted glass panel",
+      "role": "element-attachment",
+      "catalog_paths": [
+        "Components/Effects/Backgrounds and materials"
+      ],
+      "target": "Navigation, overlay or HUD panel",
+      "trigger": [
+        "static",
+        "theme-change"
+      ],
+      "parameters": [
+        "blur",
+        "baseOpacity",
+        "border"
+      ],
+      "acceptance": "Text remains readable over light and dark backgrounds; unsupported blur has an opaque fallback.",
+      "export_recipe": "Inline scoped backdrop-filter CSS with a sufficiently opaque contrast base.",
+      "reduced_motion": "Keep blur fixed without animation.",
+      "implementation": {
+        "status": "planned",
+        "runtime_entry": null,
+        "studio_installable": false,
+        "behavior_verified": false
+      },
+      "reuse_candidates": []
+    }
+  ]
+}

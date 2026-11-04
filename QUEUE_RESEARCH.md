@@ -1,13 +1,15 @@
-# Frontend Research Queue — Batch 03
+# Frontend Research Queue — Batch 03 + Effects
 
-Thirty targets from the supplied CSV. Checked 2026-11-04. The original CSV is preserved byte-for-byte; `queue-registry.json` is the English, machine-readable progress register. IDs are scoped to this batch and are not Foundation resource IDs.
+Fifty targets from the updated supplied CSV, checked 2026-11-04. The CSV is preserved byte-for-byte; `queue-registry.json` is the English progress register. IDs are scoped to this queue and are not Foundation resource IDs.
 
 ## Coverage and honest status
 
-- 28 repository heads pinned, including 26 clone candidates and two reference-only repositories; metadata is not a full build or a dependency license audit.
-- One official ZIP candidate (Dimension) and one site-only reference (Lusion).
-- Six independent bounded studies implemented: B07–B10, A05 and F03. See [verification](QUEUE_VERIFICATION.md) for actual test outcomes.
-- 21 implementation targets remain queued; three are reference-only. No claim that 30 upstream products have been completely reconstructed.
+- 50 targets: 23 basic, 17 advanced and 10 full-site entries.
+- Acquisition: 38 pinned clone candidates, one official ZIP candidate and 11 study references. Acquisition is not permission to redistribute.
+- Six bounded original studies remain implemented: B07–B10, A05 and F03; 41 targets are queued and A09, A10 and F10 remain reference-only.
+- 20 new effect contracts are documented in [Effect integration research](QUEUE_EFFECTS.md). They are not new completed components or installable Studio runtimes.
+- Overlapping catalog views expose 26 effect components and two orchestration tools without duplicating IDs.
+- The previous 30 rows retain their source pins and verification fields. New repository heads are metadata evidence, not complete builds or dependency license audits.
 
 ## First working slice
 
@@ -23,7 +25,7 @@ Thirty targets from the supplied CSV. Checked 2026-11-04. The original CSV is pr
 ## Queue and acceptance
 
 | ID | Target | Scope | Status | Acceptance |
-|---|---|---|---|
+|---|---|---|---|---|
 | B01 | [daisyUI Button](https://daisyui.com/components/button/) | Button variants | queued | Compare solid, outline, ghost, icon, sizes and disabled states in one page. |
 | B02 | [Bootstrap Buttons](https://getbootstrap.com/docs/5.3/components/buttons/) | Button states | queued | Check native disabled behavior and aria-pressed with keyboard activation. |
 | B03 | [Magic UI Shimmer Button](https://magicui.design/docs/components/shimmer-button) | Moving border highlight | queued | Expose highlight width, period, radius and color; freeze motion under reduced motion. |
@@ -54,6 +56,27 @@ Thirty targets from the supplied CSV. Checked 2026-11-04. The original CSV is pr
 | F08 | [Excalidraw](https://excalidraw.com/) | Canvas editing flow | queued | Select a tool, draw, select/edit, undo/redo and export in a local single-user scope. |
 | F09 | [Webamp](https://webamp.org/) | Multi-window audio flow | queued | Import owned audio; synchronize play, seek, volume, playlist and windows; exclude bundled music or unreviewed skins. |
 | F10 | [Lusion](https://lusion.co/) | Creative studio reference | reference-only | Observe home to project detail and return continuity; use original assets and no unlicensed site redistribution. |
+| E01 | [Fade and rise](https://michalsnik.github.io/aos/) | Fade and rise | queued | Reveal on entry; once=true must not replay after leaving and re-entering. |
+| E02 | [Mask reveal](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path) | Mask reveal | queued | A circle from the selected origin or a directional rectangle reveals all corners after an image change. |
+| E03 | [Hand-drawn annotation](https://roughnotation.com/) | Hand-drawn annotation | queued | Underline or circle remains aligned after wrapping; repeated entry creates no duplicate SVG nodes. |
+| E04 | [Character and word stagger](https://splitting.js.org/guide.html) | Character and word stagger | queued | Chinese and English reveal in reading order; assistive technology receives the complete sentence; split only once. |
+| E05 | [Typewriter and erase](https://mattboldt.com/demos/typed-js/) | Typewriter and erase | queued | Preserve Chinese and emoji graphemes, reserve layout space and allow looping to stop. |
+| E06 | [Number counter](https://inorganik.github.io/countUp.js/) | Number counter | queued | Handle negative numbers, decimals and units; finish at the exact formatted destination value. |
+| E07 | [Card tilt and glare](https://micku7zu.github.io/vanilla-tilt.js/) | Card tilt and glare | queued | Reset on pointer leave, preserve touch clicks and recompute bounds after editor movement. |
+| E08 | [Cursor trail](https://tholman.com/cursor-effects/) | Cursor trail | queued | Stay inside the selected block; removing the block removes its listeners and canvases. |
+| E09 | [Success confetti](https://www.kirilv.com/canvas-confetti/) | Success confetti | queued | A real success event fires once; an ordinary click must not manufacture business success; rendering stops after completion. |
+| E10 | [Reading progress](https://scroll-driven-animations.style/demos/progress-bar/css/) | Reading progress | queued | Main article top is 0% and bottom is 100%; scrolling an independent sidebar must not change article progress. |
+| E11 | [Image parallax](https://simpleparallax.com/) | Image parallax | queued | Scrolling forward and backward is reversible; narrow layouts expose no empty edges; pause offscreen. |
+| E12 | [Shared-element transition](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition) | Shared-element transition | queued | Open the matching image and restore focus on return; navigation still works without the API. |
+| E13 | [Flowing mesh gradient](https://shaders.paper.design/mesh-gradient) | Flowing mesh gradient | queued | Pause offscreen; disabling WebGL leaves readable content and working controls. |
+| E14 | [Paper and film grain](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feTurbulence) | Paper and film grain | queued | Two instances have independent filter IDs; texture does not intercept clicks. |
+| E15 | [Ink edge](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feDisplacementMap) | Ink edge | queued | Distort shape edges only; body text remains clear and expanded filter bounds prevent clipping. |
+| E16 | [SVG stroke drawing](https://animejs.com/documentation/svg/createdrawable/) | SVG stroke drawing | queued | Paths of different lengths complete correctly and remain fully visible. |
+| E17 | [SVG contour morph](https://animejs.com/documentation/svg/morphto/) | SVG contour morph | queued | Rapid repeated toggles finish at the path matching the current application state. |
+| E18 | [Variable font axes](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variation-settings) | Variable font axes | queued | The title fits its container; without the variable font the complete text remains readable. |
+| E19 | [Linked particle background](https://particles.js.org/demos/recipes/links) | Linked particle background | queued | Moving or removing a block leaves no extra canvases; reduce density on mobile. |
+| E20 | [Frosted glass panel](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter) | Frosted glass panel | queued | Text remains readable over light and dark backgrounds; unsupported blur has an opaque fallback. |
+
 
 ## Source and license provenance
 
@@ -61,7 +84,9 @@ The first six pinned upstream LICENSE files are preserved separately in `queue-u
 
 React Bits currently restricts redistribution of components, bundles and ports; [official license](https://raw.githubusercontent.com/DavidHDev/react-bits/main/LICENSE.md). GSAP has restrictions on competing no-code visual animation tools, including product reverse engineering for that purpose; [official terms](https://gsap.com/community/standard-license/). These are retained as reference-only entries and excluded from the acquisition script and runtime. Dimension requires attribution under its [official template license](https://html5up.net/license); its ZIP and assets have not been repackaged. Lusion has no established whole-site redistribution permission in this research.
 
-Repository license metadata for the other 20 clone candidates is provisional: inspect the pinned LICENSE, source-file notices, dependencies, assets and trademarks before packaging. Repository activity dates are evidence of updates, not guarantees of maintenance quality. The older B07–B10 sources are useful as small mechanism references, not recommendations to adopt their entire toolchains.
+Repository license metadata for the other 32 clone candidates is provisional: inspect the pinned LICENSE, source-file notices, dependencies, assets and trademarks before packaging. Repository activity dates are evidence of updates, not guarantees of maintenance quality. The older B07–B10 sources are useful as small mechanism references, not recommendations to adopt their entire toolchains.
+
+Current Typed.js v3 uses GPL-3.0 or commercial licensing, so E05 is planned as original JavaScript without vendoring that runtime. Paper Shaders requires preservation of LICENSE and NOTICE when bundled. See [effect-specific evidence and contracts](QUEUE_EFFECTS.md).
 
 ## Run and integrate
 

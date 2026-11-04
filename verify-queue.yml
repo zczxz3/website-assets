@@ -13,7 +13,8 @@ on:
       - "queue*.ts"
       - queue-source.zip
       - QUEUE_RESEARCH.md
-      - QUEUE_RESEARCH.md
+      - QUEUE_EFFECTS.md
+      - frontend-research-queue.csv
 
 permissions:
   contents: read
@@ -114,9 +115,9 @@ jobs:
               return json.loads(f.read_text()) if f.exists() else {}
           core=read('core-tests.json');browser=read('browser/summary.json');rea=read('rea/summary.json')
           node=ET.parse(r/'node-tests.xml').getroot() if (r/'node-tests.xml').exists() else None
-          node_passed=node is not None and not list(node.iter('failure')) and not list(node.iter('error')) and len(list(node.iter('testcase')))==8
+          node_passed=node is not None and not list(node.iter('failure')) and not list(node.iter('error')) and len(list(node.iter('testcase')))==10
           passed=node_passed and core.get('success') is True and browser.get('status')=='passed' and rea.get('status')=='passed'
-          report={'status':'passed' if passed else 'failed-or-incomplete','source_commit':os.environ['GITHUB_SHA'],'node_passed':8 if node_passed else 0,'core_passed':core.get('numPassedTests',0),'core_total':core.get('numTotalTests',0),'browser_passed':len(browser.get('scenarios',[])),'browser_failures':browser.get('failures',[]),'rea_passed':len(rea.get('scenarios',[]))}
+          report={'status':'passed' if passed else 'failed-or-incomplete','source_commit':os.environ['GITHUB_SHA'],'node_passed':10 if node_passed else 0,'core_passed':core.get('numPassedTests',0),'core_total':core.get('numTotalTests',0),'browser_passed':len(browser.get('scenarios',[])),'browser_failures':browser.get('failures',[]),'rea_passed':len(rea.get('scenarios',[]))}
           (r/'verification.json').write_text(json.dumps(report,indent=2))
           print(json.dumps(report))
           PYCODE
