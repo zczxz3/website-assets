@@ -8,7 +8,7 @@
 
 ## Button topic
 
-[Button Atlas research](BUTTON_RESEARCH.md) adds 20 original native-button components across 10 families. [Component contracts and API](BUTTON_COMPONENTS.md). Start a local HTTP server and open `buttons.html`; every button file is directly available in the repository and needs no source ZIP extraction. Button verification is reported separately from the 25-site checks below.
+[Button Atlas research](BUTTON_RESEARCH.md) adds 20 original native-button components across 10 families. [Component contracts and API](BUTTON_COMPONENTS.md). Start a local HTTP server and open `buttons.html`; every button file is directly available in the repository and needs no source ZIP extraction. [Button verification](BUTTON_VERIFICATION.md): 45 Playwright scenarios, 2 REA scenarios and 7 Node tests passed. Original reference capture limitations are recorded separately from the 25-site checks below.
 
 ## Research and components
 

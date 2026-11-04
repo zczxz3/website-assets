@@ -60,4 +60,10 @@ For a single effect, use `buttons.html?button=magnetic` (or another public ID). 
 
 ## Verification
 
-Validation is in progress; the final report is published only after the workflow evidence is inspected.
+**Verified:** 45 Playwright scenarios, 2 REA smoke scenarios and 7 Node tests passed. The lifecycle scenario contains 13 assertions. [Evidence and limitations](BUTTON_VERIFICATION.md).
+
+Original-page capture: 12 complete bounded entries, 3 security-screened entries (Colorion and both Codrops pages), 1 partial entry (React Bits). The table above relies on the separately inspected official text/repository sources where rendering was limited.
+
+![Button Atlas gallery](button-preview.png)
+
+[Download the small source package](button-source.zip) and serve its directory with `python3 -m http.server 8000`; open `/buttons.html`.

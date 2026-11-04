@@ -1,0 +1,46 @@
+{
+  "version": "button-atlas-1",
+  "date": "2026-11-04",
+  "tested_commit": "90b23498f10db831921f3dcd571e2fbe20241c29",
+  "verification_run": 41767686220,
+  "reference_run": 41767447094,
+  "independent_components": 20,
+  "families": 10,
+  "reference_resources": 16,
+  "playwright_scenarios_passed": 45,
+  "rea_scenarios_passed": 2,
+  "runtime_assertions_inside_one_scenario": 13,
+  "node_tests_passed": 7,
+  "original_browser_captures": {
+    "captured": 12,
+    "blocked": 3,
+    "partial": 1,
+    "screenshots_rehashed": 25
+  },
+  "source_sha256": {
+    "buttons.html": "b6cf3448705e3ec7a391023c970337fdd4be650ff0dfd5d57c6a329cbc4c967e",
+    "buttons.css": "27879ba1d66817a328e5435b4f129df92021f4795955128dcf63f0ec2a3ca6f7",
+    "buttons.mjs": "64d750bbb830c842f81db05bd976a953a4b82e23c6ae61639c9f63a844353c2b",
+    "button-catalog.mjs": "0ccc7535c9d853da99cd797832e23c0dc5439c0a1c29536669c2fd50441875ac",
+    "button-gallery.mjs": "33a51368afae95025bbe5e94770438b1e11a77a477efcc4e7644db82237a2f9e",
+    "button-contracts.html": "dac6f88f987d2c06a3ad04f7df096ec6b8dc490d0b9922aaf8610b5463a91133",
+    "button-tests.mjs": "fb41f6bb9deada7f085f57668044675a6b927d03a99750679a09ff07b38a4a5c",
+    "verify_buttons.mjs": "ce9fd88c410a7a668ab27c07629d96b5f9297770c9bef52df960ebced8084c0b",
+    "verify_buttons_rea.py": "5186721c6f3cdd2293a4f022292167042cb94ad347f5eb4d4d1ec2a572e9b5a0",
+    "button-resources.json": "12757413298c695f224929e8ac85fda0e14d9e8d23f56301815be0e9fae6aff4"
+  },
+  "artifacts": {
+    "button-source.zip": {
+      "bytes": 27095,
+      "sha256": "d0e6f5f957d6f748db2a3f8b0c254f07ed674f2fc3f7ae533459ef1b3eddbe90"
+    },
+    "button-verification.zip": {
+      "bytes": 6512515,
+      "sha256": "27eee1c88cd34bc6f00a86ff946e8b1a49c81c476de50d21e8f73d0795978211"
+    },
+    "button-reference-evidence.zip": {
+      "bytes": 3954548,
+      "sha256": "4f927ac94d6dff5585bea0e92f9bdc57f1be8fb958c167d6dab7e23a4f1222f4"
+    }
+  }
+}
