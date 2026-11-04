@@ -37,3 +37,24 @@ The source ZIP contains six research sections per site. `components/batch-two.mj
 16 → 20 → 17 → 18 → 19 are the requested first research tier. Current demos isolate one core mechanism per reference. Next passes should add original-behavior recordings, exact routes and timings, production asset pipelines, real cloth/character rigs and accessible mobile alternatives where applicable.
 
 The web text reader could not retrieve Juan’s original homepage; the author article was available. The Spark exposes a press-and-hold entry and desktop recommendation. Yichen’s extracted text includes a WebGL compatibility message. These text observations do not establish successful rendering.
+
+## Bounded original capture results
+
+Run: https://github.com/zczxz3/website-assets/actions/runs/41763844104
+
+All 10 returned HTTP 200. Nine bounded entry/PageDown scenarios completed; Chasing the Moment retained incomplete evidence. Static subsets: four completed, three failed and three not run; these are limited script inputs, not full audits.
+
+| Site | Browser | Observed view and limit |
+| --- | --- | --- |
+| 16 San Rita | captured | Map labels and markers visible; full terrain texture behavior not exercised. |
+| 17 Podium | captured | Opening loader remained visible; cinematic hero and project transitions not exercised. |
+| 18 Ten Years Away | captured | Opening year and sound-entry prompt visible; full comic progression not exercised. |
+| 19 The Spark | captured | Press-and-hold entry visible; full narrative not entered. |
+| 20 Juan Mora Romero | captured | Portfolio home and project grid visible; endless Lab and cloth views not entered. |
+| 21 Maria Vasilyeva | captured | Horizontal project-note composition visible; original audio not enabled. |
+| 22 Chasing the Moment | partial | Intro graphic visible, but capture incomplete after initial state. |
+| 23 Yichen Xie | captured | Bubble composition and navigation visible; original draw/pop not exercised. |
+| 24 ULTRAGRID | captured | Isometric desk and points of interest visible; full object navigation not exercised. |
+| 25 Heron AI | captured | Architectural building illustration and technical UI visible; full product workflow not exercised. |
+
+Original public evidence is preserved in `batch-two-reference-evidence.zip`; sanitized reports and one reference screenshot per site are also inside the source package. The original entry gates were not bypassed. `captured` refers to the finite scenario, not complete application rendering.

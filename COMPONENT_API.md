@@ -57,3 +57,22 @@ Call `destroy()` before removing or replacing a component. It aborts listeners, 
 - The ink study follows native page scrolling; its slider switches to manual progress. Select **Follow page scroll** to restore automatic progress.
 
 Run `python3 package_studies.py verify` before changing or expanding the source archive. After changing source files in a fully expanded checkout, run `python3 package_studies.py build` to rebuild and verify the deterministic ZIP. CI checks source parity before extraction.
+
+## Batch two entries (16–25)
+
+All entries expose `mount(host)` returning `destroy()`. Keep `batch-two.mjs`, `core.mjs` and `frame-scheduler.mjs` beside the entry module and load the root stylesheet.
+
+| Entry | Selected technique | Additional input |
+| --- | --- | --- |
+| `topographic-trail.mjs` | Triangle-mesh elevation and trail navigation | Drag to rotate |
+| `film-distortion.mjs` | Procedural GLSL grain and pointer distortion | Pointer position; WebGL required |
+| `comic-rail.mjs` | Horizontal illustrated chapters | Progress slider |
+| `cinematic-city.mjs` | Keyframed projected camera and tracking overlay | Progress slider |
+| `infinite-posters.mjs` | Wrapping atlas, inertia, analytic edge waves and channel offsets | Drag the scene |
+| `melody-grid.mjs` | Shared visual/note position | Explicit sound enable; Web Audio |
+| `runner-camera.mjs` | Procedural running cycle and city camera | Progress slider |
+| `sdf-bubbles.mjs` | GLSL smooth-union outlined distance fields | Click to add, double-click to remove; WebGL required |
+| `isometric-office.mjs` | Projected desk and accessible section controls | Emits bubbling `navigate` with `detail.section` |
+| `blueprint-workflow.mjs` | Drawing reveal, annotation and corrective highlight | Progress slider |
+
+These are finite technique studies. The city is CPU-projected; the poster wave is analytic rather than a physical cloth solver. The bubble pool is capped at 12 and the terrain is synthetic. The office has native section controls rather than scene-object raycasting. The blueprint is an illustration with no BIM/compliance engine.

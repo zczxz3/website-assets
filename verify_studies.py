@@ -43,6 +43,12 @@ def check(site,width,args,base,motion="reduce"):
         scenario['actions'].append({'step_id':'close-detail','action':'click','locator':{'kind':'role','role':'button','name':'Close project'},'timeout_ms':4000})
     if site['id']=='01':
         scenario['actions'].append({'step_id':'closed','action':'wait_for','locator':{'kind':'css','selector':"#stage[data-state='closed']"},'state':'visible','timeout_ms':4000})
+    if site['id']=='21':
+        scenario['actions'].extend([{'step_id':'enable-audio','action':'click','locator':{'kind':'role','role':'button','name':'Enable sound'},'timeout_ms':5000},{'step_id':'audio-enabled','action':'wait_for','locator':{'kind':'css','selector':'button[aria-pressed="true"]'},'state':'visible','timeout_ms':5000}])
+    if site['id']=='23':
+        scenario['actions'].extend([{'step_id':'draw-bubble','action':'click','locator':{'kind':'css','selector':'canvas'},'timeout_ms':5000},{'step_id':'bubble-drawn','action':'wait_for','locator':{'kind':'css','selector':"#stage[data-state='drawn']"},'state':'visible','timeout_ms':5000}])
+    if site['id']=='18':
+        scenario['actions'].extend([{'step_id':'follow-scroll','action':'click','locator':{'kind':'role','role':'button','name':'Follow scroll'},'timeout_ms':5000},{'step_id':'scroll-mode','action':'wait_for','locator':{'kind':'css','selector':"#stage[data-state='scroll']"},'state':'visible','timeout_ms':5000}])
     path=folder/'scenario.json';path.write_text(json.dumps(scenario,indent=2))
     result=subprocess.run([str(args.rea),'capture-browser-scenario',str(path),'--format','json'],capture_output=True,timeout=65)
     (folder/'stderr.txt').write_bytes(result.stderr)
