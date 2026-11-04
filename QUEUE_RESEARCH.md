@@ -65,6 +65,8 @@ Repository license metadata for the other 20 clone candidates is provisional: in
 
 ## Run and integrate
 
+See [component APIs and integration examples](QUEUE_COMPONENTS.md). Open `queue-controls.html` for independent control demos without the portfolio iframe.
+
 ```sh
 python3 -m http.server 8000
 # Open http://localhost:8000/queue.html

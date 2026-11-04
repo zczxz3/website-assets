@@ -9,7 +9,7 @@ module.css='/*\n'+await readFile('LICENSE','utf8')+'*/\n'+module.css;
 await writeFile('queue-card.zip',zipFiles({'module.json':JSON.stringify(module,null,2)}));
 for(const [name,content]of Object.entries(websiteFiles(sample)))await writeFile('queue-dist/'+name,content);
 await writeFile('queue-website.zip',zipFiles(websiteFiles(sample)));
-const names=['queue.html','queue.css','queue-lab.mjs','queue-model.mjs','queue-components.mjs','queue-registry.json','queue-data.json','queue-upstream-licenses.json','queue-fetch.py','queue-pack.mjs','queue-tests.mjs','queue-browser.mjs','queue-core.test.ts','queue-rea.py','verify-queue.yml','QUEUE_RESEARCH.md','LICENSE'];
+const names=['queue.html','queue-controls.html','queue.css','queue-lab.mjs','queue-model.mjs','queue-components.mjs','queue-registry.json','queue-data.json','queue-upstream-licenses.json','queue-fetch.py','queue-pack.mjs','queue-tests.mjs','queue-browser.mjs','queue-core.test.ts','queue-rea.py','verify-queue.yml','QUEUE_RESEARCH.md','QUEUE_COMPONENTS.md','LICENSE'];
 const files={};for(const name of names)files[name]=await readFile(name,'utf8');
 files['portfolio.mws.json']=project;files['module.json']=JSON.stringify(module,null,2);
 const registry=JSON.parse(files['queue-registry.json']);

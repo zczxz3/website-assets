@@ -5,6 +5,10 @@
       "bytes": 5299,
       "sha256": "df0be3312364c2fb2f5a46c6e17890a544485d3b8f40540ccaf5c624e16ab7cc"
     },
+    "queue-controls.html": {
+      "bytes": 2868,
+      "sha256": "bffaec04ad0f2b8e7813e260b8dc0edf8882e3ecd77200e06d4c8a1d89431187"
+    },
     "queue.css": {
       "bytes": 10303,
       "sha256": "827d2fbc2861f861b525a4a7b83185b2f2adc5e2c4cdd1d5b746fca78f3c73e3"
@@ -38,32 +42,36 @@
       "sha256": "847bbb5b002aab61f0bf821667f9a6c13da3f86d2f55f3b4e3159becb1bfd2f2"
     },
     "queue-pack.mjs": {
-      "bytes": 3340,
-      "sha256": "1d779c4f23131ea7ce58b3b15da428c8117823f3e509b566a3d5edf350ea09cd"
+      "bytes": 3384,
+      "sha256": "dfba586abfdc2f102da69acabcff97905d6f7c11795e1681e43ace09f5be7f5b"
     },
     "queue-tests.mjs": {
       "bytes": 3093,
       "sha256": "3f0b8ecd62e933333f561f5928e7da69e147d7d0292bfe71194e1e1368762d87"
     },
     "queue-browser.mjs": {
-      "bytes": 15415,
-      "sha256": "056dbf576c199838d670a038a7eac30776986453b97e2c80aaee965080a4bd6e"
+      "bytes": 15619,
+      "sha256": "5ddd93e799a67fc9653079673a4cfff7d854d29988c76215c0f9be9266da8a01"
     },
     "queue-core.test.ts": {
       "bytes": 1694,
       "sha256": "24ec89c4e2a332b691bf22455f8768e68e7671a98c3098a20072e4f07cda965c"
     },
     "queue-rea.py": {
-      "bytes": 2959,
-      "sha256": "1d4ab34b6875eb0113db57e4ac9eb5e3883dc6a67ab6437a1c981a5d83927dad"
+      "bytes": 2861,
+      "sha256": "0871a3906497ad987403cc3d5e66149f7f2f87611fad1f25e28d72574172d0ce"
     },
     "verify-queue.yml": {
       "bytes": 6509,
       "sha256": "58452b881a4d4e3773b409a3684ed79c0d1020892aab5cebc5569fa6dae93261"
     },
     "QUEUE_RESEARCH.md": {
-      "bytes": 12200,
-      "sha256": "a6438ddd1f3b6d25c8e4cdbd0cff44f26f428611c470a26e78fc51da4eaedea7"
+      "bytes": 12356,
+      "sha256": "d739705375d615b9626ea736e51f3cc93732d853ecd51724cd5017540f3dce24"
+    },
+    "QUEUE_COMPONENTS.md": {
+      "bytes": 5482,
+      "sha256": "461315eaf6be0e33a0d43f3e884b481782ece97b7438e9e91e290d3a94890f15"
     },
     "LICENSE": {
       "bytes": 1269,
@@ -198,6 +206,6 @@
       "sha256": "26453b42f8dadfac0765afce8e0a767db0fdce90352174e8cc85fa0a786736fe"
     }
   },
-  "archive_sha256": "fafcf5a352810645b8224772f8776d93fe061868d1beac13acbf9ddecc259e7c",
-  "archive_bytes": 157815
+  "archive_sha256": "adedf834a19131244f1a73130fb7ed479851875b7481df3679b0f31197bcf9c7",
+  "archive_bytes": 166699
 }
