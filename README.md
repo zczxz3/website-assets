@@ -1,10 +1,14 @@
 # Website Assets — Motion Atlas
 
-25 distinctive website references with independently written reusable interaction studies. English research, code and integration notes.
+25 distinctive website references plus 16 button resources, with independently written reusable interaction studies. English research, code and integration notes.
 
 **Version 0.3 verified:** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
 
 ![Motion Atlas gallery](gallery-preview-v3.png)
+
+## Button topic
+
+[Button Atlas research](BUTTON_RESEARCH.md) adds 20 original native-button components across 10 families. [Component contracts and API](BUTTON_COMPONENTS.md). Start a local HTTP server and open `buttons.html`; every button file is directly available in the repository and needs no source ZIP extraction. Button verification is reported separately from the 25-site checks below.
 
 ## Research and components
 

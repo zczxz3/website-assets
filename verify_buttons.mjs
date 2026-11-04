@@ -36,7 +36,7 @@ for(const width of [390,1280])for(const motion of ['reduce','no-preference'])awa
  await page.locator('#motion').check();if(motion==='reduce'){const durations=await page.locator('.ba-button').evaluateAll(es=>es.map(e=>getComputedStyle(e).transitionDuration));assert.ok(durations.every(d=>d==='0s'));}
  await page.locator('#size').selectOption('md');await page.locator('#speed').selectOption('420');await page.locator('h1').scrollIntoViewIfNeeded();
 });
-await scenario('lifecycle-contracts',{viewport:{width:1280,height:1000}},async page=>{await page.goto(base+'/button-contracts.html');await page.waitForSelector('body[data-result=passed]',{timeout:12000});summary.runtime_assertions=Number(await page.locator('body').getAttribute('data-checks'));assert.equal(summary.runtime_assertions,12);});
+await scenario('lifecycle-contracts',{viewport:{width:1280,height:1000}},async page=>{await page.goto(base+'/button-contracts.html');await page.waitForSelector('body[data-result=passed]',{timeout:12000});summary.runtime_assertions=Number(await page.locator('body').getAttribute('data-checks'));assert.equal(summary.runtime_assertions,13);});
 summary.status=summary.failures.length?'failed':'passed';
 }finally{await browser.close();server.kill();await writeFile(join(output,'summary.json'),JSON.stringify(summary,null,2));}
 if(summary.failures.length)process.exitCode=1;

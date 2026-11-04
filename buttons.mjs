@@ -45,7 +45,7 @@ export function mountButton(host, options={}) {
   const duration=Number(options.duration??420);
   if(!Number.isFinite(duration)||duration<80||duration>4000)throw new RangeError('duration must be 80–4000 ms');
   if(!['sm','md','lg'].includes(options.size||'md'))throw new RangeError('size must be sm, md or lg');
-  wrap.dataset.size=options.size||'md';wrap.style.setProperty('--ba-duration',duration+'ms');
+  wrap.dataset.motion=options.motion===false?'off':'system';wrap.dataset.size=options.size||'md';wrap.style.setProperty('--ba-duration',duration+'ms');
   for(const [key,value] of Object.entries({accent:options.accent,ink:options.ink,surface:options.surface})) {
     if(value!==undefined){if(!win.CSS.supports('color',value))throw new TypeError('Invalid theme color');wrap.style.setProperty('--ba-'+key,value);}
   }
