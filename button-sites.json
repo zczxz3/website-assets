@@ -1,0 +1,98 @@
+[
+  {
+    "id": "B01",
+    "name": "CSS Buttons",
+    "url": "https://cssbuttons.io/",
+    "directory": "b01"
+  },
+  {
+    "id": "B02",
+    "name": "Hover.css",
+    "url": "https://ianlunn.github.io/Hover/",
+    "directory": "b02"
+  },
+  {
+    "id": "B03",
+    "name": "Button Interaction Specs",
+    "url": "https://github.com/jsabutis/button-interaction-specs",
+    "directory": "b03"
+  },
+  {
+    "id": "B04",
+    "name": "Animated Buttons Colorion",
+    "url": "https://animatedbuttons.colorion.co/",
+    "directory": "b04"
+  },
+  {
+    "id": "B05",
+    "name": "CSS Button Creator",
+    "url": "https://cssbuttoncreator.com/css-buttons/",
+    "directory": "b05"
+  },
+  {
+    "id": "B06",
+    "name": "Amo Hover",
+    "url": "https://amo-hover.vercel.app/",
+    "directory": "b06"
+  },
+  {
+    "id": "B07",
+    "name": "Aceternity UI",
+    "url": "https://ui.aceternity.com/categories/button",
+    "directory": "b07"
+  },
+  {
+    "id": "B08",
+    "name": "Magic UI",
+    "url": "https://magicui.design/",
+    "directory": "b08"
+  },
+  {
+    "id": "B09",
+    "name": "React Bits",
+    "url": "https://reactbits.dev/",
+    "directory": "b09"
+  },
+  {
+    "id": "B10",
+    "name": "Codrops Magnetic Buttons",
+    "url": "https://tympanus.net/codrops/2020/08/05/magnetic-buttons/",
+    "directory": "b10"
+  },
+  {
+    "id": "B11",
+    "name": "Codrops Button Experiments",
+    "url": "https://tympanus.net/codrops/hub/tag/button/",
+    "directory": "b11"
+  },
+  {
+    "id": "B12",
+    "name": "AIMRAN Library",
+    "url": "https://library.aimran.es/",
+    "directory": "b12"
+  },
+  {
+    "id": "B13",
+    "name": "MicroKit UI",
+    "url": "https://microkit.co/components",
+    "directory": "b13"
+  },
+  {
+    "id": "B14",
+    "name": "Kokonut UI",
+    "url": "https://kokonutui.com/docs/buttons",
+    "directory": "b14"
+  },
+  {
+    "id": "B15",
+    "name": "useLayouts",
+    "url": "https://uselayouts.com/components/buttons",
+    "directory": "b15"
+  },
+  {
+    "id": "B16",
+    "name": "shadcn.io Buttons",
+    "url": "https://www.shadcn.io/button",
+    "directory": "b16"
+  }
+]

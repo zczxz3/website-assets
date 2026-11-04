@@ -1,0 +1,256 @@
+[
+  {
+    "id": "B01",
+    "name": "CSS Buttons",
+    "url": "https://cssbuttons.io/",
+    "author": "Community contributors (per-card attribution)",
+    "license_note": "Per-item permission; follow linked Uiverse entry. No umbrella license verified.",
+    "observation": "Community buttons with author and code links; visual examples require the live page.",
+    "categories": [
+      "Basic",
+      "Physics",
+      "Light"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b01"
+  },
+  {
+    "id": "B02",
+    "name": "Hover.css",
+    "url": "https://ianlunn.github.io/Hover/",
+    "author": "Ian Lunn",
+    "license_note": "Official site and license.txt separate personal/open-source from commercial terms. Do not treat all uses as unrestricted MIT.",
+    "observation": "Organized transforms, fills, borders, shadows and icon motion.",
+    "categories": [
+      "Basic",
+      "Physics",
+      "Text"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b02"
+  },
+  {
+    "id": "B03",
+    "name": "Button Interaction Specs",
+    "url": "https://github.com/jsabutis/button-interaction-specs",
+    "author": "jsabutis",
+    "license_note": "MIT label observed in official repository.",
+    "observation": "131 effects stated by the repository; consistent base button helps compare mechanisms.",
+    "categories": [
+      "Basic",
+      "Text",
+      "Experimental"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b03"
+  },
+  {
+    "id": "B04",
+    "name": "Animated Buttons Colorion",
+    "url": "https://animatedbuttons.colorion.co/",
+    "author": "Colorion",
+    "license_note": "MIT stated on the gallery.",
+    "observation": "99 CSS effects stated by the page; shared color token and reduced-motion support documented.",
+    "categories": [
+      "Basic",
+      "Light",
+      "Text"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b04"
+  },
+  {
+    "id": "B05",
+    "name": "CSS Button Creator",
+    "url": "https://cssbuttoncreator.com/css-buttons/",
+    "author": "CSS Button Creator",
+    "license_note": "Free copying advertised; a formal license was not verified.",
+    "observation": "141 examples in 13 styles stated by the page; hover, active and focus states documented.",
+    "categories": [
+      "Basic",
+      "Physics",
+      "Light"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b05"
+  },
+  {
+    "id": "B06",
+    "name": "Amo Hover",
+    "url": "https://amo-hover.vercel.app/",
+    "author": "Amo; individual author not identified",
+    "license_note": "Copying supported by the UI; formal license not verified.",
+    "observation": "48 buttons in the search index; live text exposes color, speed and radius controls. Count not independently enumerated.",
+    "categories": [
+      "Basic",
+      "Magnetic",
+      "Text"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b06"
+  },
+  {
+    "id": "B07",
+    "name": "Aceternity UI",
+    "url": "https://ui.aceternity.com/categories/button",
+    "author": "Aceternity UI",
+    "license_note": "Free category and separate Pro offer observed; verify the exact component terms.",
+    "observation": "Magnetic, moving-border, hover-gradient and stateful buttons listed.",
+    "categories": [
+      "Magnetic",
+      "Light",
+      "State"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b07"
+  },
+  {
+    "id": "B08",
+    "name": "Magic UI",
+    "url": "https://magicui.design/",
+    "author": "Magic UI / Dillion",
+    "license_note": "Core repository LICENSE.md is MIT; separate Pro assets are outside that finding.",
+    "observation": "React-oriented effects library and source repository.",
+    "categories": [
+      "Light",
+      "Particle"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b08"
+  },
+  {
+    "id": "B09",
+    "name": "React Bits",
+    "url": "https://reactbits.dev/",
+    "author": "David Haz and contributors",
+    "license_note": "Official repository states MIT + Commons Clause, not plain MIT. Pro is separate.",
+    "observation": "Creative React effects; dependency and input behavior vary by component.",
+    "categories": [
+      "Magnetic",
+      "Particle",
+      "Experimental"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b09"
+  },
+  {
+    "id": "B10",
+    "name": "Codrops Magnetic Buttons",
+    "url": "https://tympanus.net/codrops/2020/08/05/magnetic-buttons/",
+    "author": "Manoela Ilic / Codrops",
+    "license_note": "Linked codrops/MagneticButtons repository is MIT.",
+    "observation": "Article describes pointer attraction, independently displaced layers, border fill and depth.",
+    "categories": [
+      "Magnetic",
+      "Physics"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b10"
+  },
+  {
+    "id": "B11",
+    "name": "Codrops Button Experiments",
+    "url": "https://tympanus.net/codrops/hub/tag/button/",
+    "author": "Multiple creators credited on each experiment",
+    "license_note": "Index has no single reusable-code license; check each linked project.",
+    "observation": "Curated experiments include SVG electricity, magnetic response and hover effects.",
+    "categories": [
+      "Experimental",
+      "Liquid",
+      "Light"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b11"
+  },
+  {
+    "id": "B12",
+    "name": "AIMRAN Library",
+    "url": "https://library.aimran.es/",
+    "author": "AIMRAN",
+    "license_note": "Free library claim observed; formal license not found on the inspected index.",
+    "observation": "Index lists magnetic, ripple, loading/success, rolling-text and many other controls.",
+    "categories": [
+      "State",
+      "Particle",
+      "Text"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b12"
+  },
+  {
+    "id": "B13",
+    "name": "MicroKit UI",
+    "url": "https://microkit.co/components",
+    "author": "henriquegpb and contributors",
+    "license_note": "Official henriquegpb/microkit repository shows MIT.",
+    "observation": "Product microinteractions, click feedback and state transitions.",
+    "categories": [
+      "State",
+      "Navigation",
+      "Text"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b13"
+  },
+  {
+    "id": "B14",
+    "name": "Kokonut UI",
+    "url": "https://kokonutui.com/docs/buttons",
+    "author": "Kokonut UI / kokonut-labs",
+    "license_note": "Core repository LICENSE is MIT; Pro content is separate.",
+    "observation": "Button collection includes async feedback and particle success behavior.",
+    "categories": [
+      "State",
+      "Particle",
+      "Magnetic"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b14"
+  },
+  {
+    "id": "B15",
+    "name": "useLayouts",
+    "url": "https://uselayouts.com/components/buttons",
+    "author": "useLayouts contributors",
+    "license_note": "Button page states MIT; preserve required notices when copying substantial code.",
+    "observation": "11 React/Motion/Tailwind buttons stated by page, including save, delete, tactile and expanding actions.",
+    "categories": [
+      "State",
+      "Physics",
+      "Navigation"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b15"
+  },
+  {
+    "id": "B16",
+    "name": "shadcn.io Buttons",
+    "url": "https://www.shadcn.io/button",
+    "author": "shadcn.io; authors vary by item",
+    "license_note": "Mixed free and Pro offerings; consult item and Pro license. Not identical to the shadcn/ui project.",
+    "observation": "35 buttons stated by page; multiple surface and light effects carry Pro labels.",
+    "categories": [
+      "State",
+      "Light",
+      "Navigation"
+    ],
+    "checked_on": "2026-11-04",
+    "evidence_level": "official-page text; bounded rendering reported separately",
+    "directory": "b16"
+  }
+]
