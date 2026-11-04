@@ -1,0 +1,51 @@
+name: Verify isolated package consumer
+on:
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/publish-library.yml]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.1'
+      - run: |
+          npm ci --ignore-scripts --omit=optional --no-audit --no-fund
+          node library-build.mjs
+          npm pack ./library-dist --ignore-scripts
+          mkdir consumer
+          cp consumer.html consumer/
+          echo '{"ok":true}' > consumer/data.json
+          cd consumer
+          npm init -y
+          npm install ../zczxz3-website-assets-motion-0.4.0.tgz --ignore-scripts --no-audit --no-fund
+          npm install --save-dev typescript@5.9.3 --ignore-scripts --no-audit --no-fund
+          printf '%s\n' 'import {mountButton, bindMenu} from "@zczxz3/website-assets-motion";' 'const host=document.createElement("div");' 'mountButton(host,{effect:"magnetic"}).destroy();' '// @ts-expect-error unsupported effect must be rejected' 'mountButton(host,{effect:"invented"});' > consumer.mts
+          npx tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext --target ES2022 consumer.mts
+      - name: Consumer browser checks
+        run: |
+          CLI="$(node -e 'const {createRequire}=require("node:module");const {resolve,join,dirname}=require("node:path");const r=createRequire(resolve("node_modules/rea-agents/package.json"));process.stdout.write(join(dirname(r.resolve("playwright-core/package.json")),"cli.js"));')"
+          node "$CLI" install --with-deps chromium
+          node library-consumer-test.mjs
+          python3 package_studies.py verify
+      - name: Prepare original-only gallery
+        run: |
+          mkdir gallery
+          cp index.html index.mjs styles.css registry.mjs catalog.mjs gallery/
+          cp -r components gallery/
+          cp buttons.html buttons.css buttons.mjs button-catalog.mjs button-gallery.mjs button-resources.json gallery/
+          cp zczxz3-website-assets-motion-0.4.0.tgz gallery/
+          cd gallery && zip -qr ../gallery.zip .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: motion-package-and-consumer-verification
+          path: |
+            consumer-report
+            zczxz3-website-assets-motion-0.4.0.tgz
+            gallery.zip
