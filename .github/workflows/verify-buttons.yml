@@ -5,7 +5,10 @@ on:
   push:
     paths:
       - .github/workflows/verify-buttons.yml
-      - "button*"
+      - "buttons.*"
+      - "button-*.mjs"
+      - button-contracts.html
+      - button-resources.json
       - verify_buttons.mjs
       - verify_buttons_rea.py
 
