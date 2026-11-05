@@ -1,6 +1,24 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Motion Atlas — Website Assets</title><link rel="stylesheet" href="styles.css"></head>
-<body><a class="skip-link" href="#study-workspace">Skip to interactive study</a><header class="site-header"><a class="wordmark" href="./">WA<span> / MOTION ATLAS</span></a><a href="https://github.com/zczxz3/website-assets">Source ↗</a></header>
-<main><section class="intro"><p class="eyebrow">RESEARCH → UNDERSTAND → REBUILD</p><h1>Ideas in<br><em>motion.</em><sup>25</sup></h1><div class="intro-note"><p>Twenty-five independent interaction studies.<br>Small parts, made to be used again.</p><label class="motion-toggle"><input id="motion-toggle" type="checkbox"> Pause ambient motion</label></div></section>
-<section class="library-layout" aria-label="Component library"><aside class="library-sidebar"><label class="filter-label" for="study-search">Find a technique</label><input id="study-search" type="search" placeholder="Try particles, type, map…" autocomplete="off"><label class="filter-label" for="category-filter">Category</label><select id="category-filter"><option value="all">All studies</option></select><div class="filter-meta"><output id="result-count" aria-live="polite"></output><button id="clear-filters">Reset</button></div><nav id="study-nav" aria-label="Choose a study"></nav><p id="empty-results" hidden>No studies match. Try a broader search or reset the filters.</p></aside><article class="study-workspace" id="study-workspace" tabindex="-1"><div class="study-meta"><p id="study-category" class="eyebrow"></p><a id="original-link" target="_blank" rel="noreferrer">Reference ↗</a></div><h2 id="study-title"></h2><p id="study-status" class="sr-only" role="status"></p><p id="study-description" class="study-description"></p><div id="stage" class="demo-stage" role="region" aria-label="Interactive study"></div><div class="study-notes"><p id="study-tech"></p><div class="study-actions"><a id="study-permalink">Link to this study ↗</a><a id="module-link">View component source ↗</a></div></div><details><summary>Scope and implementation notes</summary><p id="scope-note"></p><p>These are original implementations of selected techniques, with original procedural artwork. They do not contain copied site branding, photographs, audio, proprietary fonts, or production datasets. Public-site capture and a complete visual reconstruction are separate milestones.</p></details></article></section>
-<footer>WEBSITE ASSETS <span>Original components · ES modules · No runtime dependencies</span></footer></main><script type="module" src="index.mjs"></script></body></html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website Assets — Local tools</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f3ec;color:#172d2b;font:16px/1.6 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:64px 24px}h1{font-size:clamp(36px,7vw,64px);line-height:1.1;letter-spacing:-.05em}p{max-width:680px;color:#4d615d}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px;margin:32px 0}.grid a{display:block;padding:24px;border:1px solid #ccd4c9;border-radius:12px;text-decoration:none;background:#fff;color:inherit}.grid a:hover{border-color:#246d58}.grid a:focus-visible{outline:3px solid #246d58;outline-offset:4px}.grid strong{display:block;font-size:20px}.grid span{display:block;margin-top:10px;color:#4d615d}a{color:#225c48}footer{margin-top:40px;font-size:14px}
+</style>
+<main>
+<p>WEBSITE ASSETS / OFFLINE WORKSPACE</p>
+<h1>Small tools.<br>Reusable pieces.</h1>
+<p>Explore original frontend studies, customize static components and download assets for Modular Website Studio. Start this repository with a local HTTP server.</p>
+<nav class="grid" aria-label="Tools">
+<a href="foundation/foundation.html"><strong>Foundation workbench ↗</strong><span>30 editable static modules. Filter, customize and download an individual module ZIP.</span></a>
+<a href="buttons/buttons.html"><strong>Button Atlas ↗</strong><span>20 original button presets. Compare pointer, keyboard and state feedback.</span></a>
+<a href="motion/index.html"><strong>Motion Atlas ↗</strong><span>25 site-inspired technique studies with shared, reusable source modules.</span></a>
+<a href="queue/queue.html"><strong>Queue Lab ↗</strong><span>Edit a portfolio, reorder projects and export linked offline pages.</span></a>
+<a href="studio/studio-components.zip" download><strong>Studio collection ↓</strong><span>31 static modules. Extract the collection, then install one ZIP from installable/.</span></a>
+<a href="studio/studio-shelf.mws.json" download><strong>Editable Studio shelf ↓</strong><span>Open this two-page project through Studio's Open project action.</span></a>
+</nav>
+<p>The 30 Foundation modules are included in the 31-module collection. Runtime JavaScript effects are separate from Studio's static-module installation interface.</p>
+<footer><a href="README.md">Repository guide</a> · <a href="library/LIBRARY.md">Typed runtime API</a> · <a href="docs/DISTRIBUTION.md">Licensing and evidence</a></footer>
+</main>
+</html>

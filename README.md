@@ -1,70 +1,73 @@
-# Website Assets — Technique Studies and Motion Components
+# Website Assets
 
-25 site-inspired technique studies (not reconstructed websites), 16 button resources and 26 foundation resources, with independently written reusable interaction studies and installable Studio modules. Lists overlap; these are topic counts, not unique-site counts. English research, code and integration notes.
+Reusable frontend techniques and offline component tools for **Modular Website Studio**. English source, research and integration notes. No hosted service is required.
 
-## Start here
+## Choose what you need
 
-**For Modular Website Studio:** [integration contract and offline installation](STUDIO_INTEGRATION.md). Download `studio-components.zip` for 31 existing static modules and a native two-page editable shelf. Runtime-only effects remain explicitly unsupported by the current Studio module interface.
+| Goal | Open | Delivered scope |
+| --- | --- | --- |
+| Install editable Studio components | [Studio integration](studio/STUDIO_INTEGRATION.md) · [download pack](studio/studio-components.zip) | 31 static modules; install an individual ZIP from `installable/` |
+| Open a complete editable sample | [Studio shelf](studio/studio-shelf.mws.json) | Native two-page project with the same 31 modules |
+| Customize fields, cards, menus and layouts | [Foundation guide](foundation/FOUNDATION_GUIDE.md) · [local workbench](foundation/foundation.html) | 30 original static modules, included in the 31-module Studio pack |
+| Use button effects in your own frontend | [Typed API and installation](library/LIBRARY.md) · [package](library/zczxz3-website-assets-motion-0.4.0.tgz) | 20 button presets and 3 DOM interaction bindings |
+| Explore visual techniques | [Motion Atlas](motion/index.html) · [API](motion/COMPONENT_API.md) · [source](motion/components/) | 25 site-inspired component studies; full original websites are not reconstructed |
+| Edit and export an offline portfolio | [Queue Lab](queue/queue.html) · [component API](queue/QUEUE_COMPONENTS.md) | 6 bounded studies; 41 targets queued and 3 reference-only |
 
-[Independent package consumer verification](LIBRARY_VERIFICATION.md): strict TypeScript compilation and two Chromium consumer scenarios passed.
+Counts overlap: the Foundation modules and button adaptations are part of the Studio collection, not additional modules. Runtime JavaScript effects cannot be installed through Studio's current static-module interface.
 
-- [Installable package and typed API](LIBRARY.md): 20 original button presets plus menu, async-task and reorder bindings. Install `zczxz3-website-assets-motion-0.4.0.tgz` from the repository root; npm registry publication is not claimed.
-- Study implementations are directly available in `components/`. **No source ZIP extraction is needed** to import them. Per-site folders are reference wrappers around shared modules, not independent reconstructed sites.
-- [Evidence and licensing boundaries](DISTRIBUTION.md). Reference-site fidelity, independent consumer integration and demo regression are different verification claims.
+## Local use
 
-**Version 0.3 demo regression (not reference-site fidelity):** 58/58 REA browser scenarios, 17/17 Node checks and 41/41 source comparisons passed. [Verification](STUDY_VERIFICATION.md).
-
-![Motion Atlas gallery](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/gallery-preview-v3.png)
-
-## Button topic
-
-[Button Atlas research](BUTTON_RESEARCH.md) adds 20 original native-button components across 10 families. [Component contracts and API](BUTTON_COMPONENTS.md). Start a local HTTP server and open `buttons.html`; every button file is directly available in the repository and needs no source ZIP extraction. [Button verification](BUTTON_VERIFICATION.md): 45 Playwright scenarios, 2 REA scenarios and 7 Node tests passed. Original reference capture limitations are recorded separately from the 25-site checks below.
-
-## Modular Website Studio foundations
-
-[Foundation guide](FOUNDATION_GUIDE.md) adds **30 installable static modules**: 20 native fields, disclosures, cards, navigation, feedback, data and layout patterns, plus 10 Button Atlas adaptations. [Review of 26 resources](FOUNDATION_RESEARCH.md) separates usable static sources, framework/runtime adapters, generators and unresolved licenses.
-
-Download [foundation-pack.zip](foundation-pack.zip), extract it, then install one ZIP from `installable/` using Studio's **模块 → ＋ 安装模块 ZIP**. Or open [foundation-showcase.mws.json](foundation-showcase.mws.json) as a complete editable project. Run a local server and open `foundation.html` for filtering, live theme/HTML editing and customized module ZIP downloads. Exported modules have no runtime dependencies; original source and MIT notices are included.
-
-[Foundation verification](FOUNDATION_VERIFICATION.md): **33 Studio core tests, 63 Chromium scenarios and 2 REA scenarios passed**, including real UI installation of all 30 modules and a save/reopen/export round trip. This pack does not enable script modules in Studio.
-
-![Foundation workbench](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/foundation-preview.png)
-
-## Frontend Queue — Batch 03
-
-[50-target queue and English analysis](QUEUE_RESEARCH.md): 23 basic, 17 advanced and 10 full-site targets. [20 new effect contracts](QUEUE_EFFECTS.md) add targets, triggers, parameters, export recipes and reduced-motion requirements; their implementations remain queued. Six bounded original studies connect **menu, loading, selection and spinner controls → project ordering → an editable portfolio**. The remaining 41 implementations are queued; React Bits, GSAP and Lusion are reference-only.
-
-Open `queue.html` with a local HTTP server. Edit project data, drag or use keyboard controls, save/reopen edits, and export linked offline HTML pages or a Studio project. [Source pack](queue-source.zip), [ready-made website](queue-website.zip), [Studio project](queue-portfolio.mws.json), [installable static card](queue-card.zip), and [verification](QUEUE_VERIFICATION.md). This is an original static portfolio recipe, not a complete port of the upstream Next.js application.
-
-[Queue verification](QUEUE_VERIFICATION.md): **10 Node tests, 2 Studio core tests, 15 Chromium scenarios and 2 REA scenarios passed**. [Reusable API examples](QUEUE_COMPONENTS.md).
-
-![Queue Lab](https://github.com/zczxz3/website-assets/releases/download/evidence-v0.3/queue-preview.png)
-
-## Research and components
-
-- [Batch two: references 16–25](BATCH_TWO.md): terrain, GLSL grain/distortion, horizontal comic, camera narrative, infinite posters, sound, runner, SDF bubbles, isometric navigation and engineering drawings.
-- [Consolidated research](RESEARCH.md) and [delivery overview](OVERVIEW.md).
-- [Component API](COMPONENT_API.md) and directly browsable [module source](components/).
-- [Original renderer limitations](BROWSER_LIMITATIONS.md).
-- [Machine-readable checksums and coverage](verification-manifest.json).
-
-These are component-level technique reconstructions. Exact original routes, artwork, complete timelines, character rigs, physical cloth and production datasets are outside the verified scope. Every new study records the implementation difference. Original code is MIT-licensed; original-site reference material retains its own rights.
-
-## Run
+Clone or download this repository, then run from its root:
 
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://localhost:8000`. The gallery has no runtime npm dependency. Shared modules are directly available; the 25 research directory trees, six research sections each, are inside `study-source.zip`.
+Open **http://127.0.0.1:8000/** for the local launcher. Gallery pages use browser-native modules and do not need npm dependencies. Open HTML through this local server; file URLs cannot reliably load module scripts or JSON.
 
-`mount(host)` returns `destroy()`. Keep shared module dependencies and include `styles.css`. New shader modules need WebGL; sound requires an explicit action. Motion preference, pause, offscreen suspension and cleanup follow the shared runtime.
+For Studio, download [studio-components.zip](studio/studio-components.zip), extract it, then select one ZIP under `installable/` using **模块 → ＋ 安装模块 ZIP**. Open `studio-shelf.mws.json` using **打开项目**. The collection ZIP itself is not an individual module ZIP.
 
-## Reproduce verification
+For an application consuming the runtime library:
 
 ```sh
-node --test component-tests.mjs
-python3 package_studies.py verify
+npm install /path/to/website-assets/library/zczxz3-website-assets-motion-0.4.0.tgz
 ```
 
-The GitHub workflow uses pinned REA 6.8.0 on a standard Ubuntu runner. The component archive is `component-verification.zip`; original second-batch evidence is `batch-two-reference-evidence.zip`. Original-demo evidence is preserved in the evidence-v0.3 Release. Third-party capture archives are no longer distributed from the current branch. Use the package directly, or use a shallow clone for local study; no online deployment is required.
+This is a local tarball distribution; npm registry and CDN publication are not claimed.
+
+## Repository map
+
+| Directory | Responsibility |
+| --- | --- |
+| [motion/](motion/) | 25 studies, shared lifecycle/rendering modules, gallery, study source pack and research |
+| [buttons/](buttons/) | Button Atlas source, demo, contracts, references and regression tools |
+| [foundation/](foundation/) | Static modules, visual workbench, deterministic pack builder and tests |
+| [queue/](queue/) | Research queue, interaction recipes, portfolio editor and export tools |
+| [studio/](studio/) | Integration contract, 31-module shelf, offline pack and compatibility tests |
+| [library/](library/) | Typed runtime distribution, build tool and independent consumer fixture |
+| [docs/](docs/) | Scope, distribution policy, overview and [directory migration guide](docs/REPOSITORY_LAYOUT.md) |
+| [scripts/](scripts/) | Root task runner, repository checks and REA environment verification |
+| [maintenance/](maintenance/) | Archived migration scripts and audit records; not current entrypoints |
+| [.github/workflows/](.github/workflows/) | Active verification and capture workflows |
+
+Source and its feature-specific guides, data, tests and downloadable packs stay together. [Old-to-new paths](docs/path-migration.json) cover every previously tracked file. The root no longer mixes six toolsets and their reports.
+
+## Maintain and verify
+
+```sh
+npm test
+npm run check
+npm run verify:motion
+npm run verify:foundation
+npm run build:queue
+npm run build:studio
+npm run build:library
+```
+
+Node tests and repository checks do not need REA installed. Browser/REA workflows use the pinned dependencies in `package-lock.json`; install with `npm ci --ignore-scripts --omit=optional` on a supported Node version. Studio integration tests use the pinned upstream revisions recorded in [compatibility notes](studio/STUDIO_COMPATIBILITY.md).
+
+## Evidence and reuse boundaries
+
+[Current organization checks](docs/ORGANIZATION_VERIFICATION.md) describe this directory migration. Previous [motion](motion/STUDY_VERIFICATION.md), [button](buttons/BUTTON_VERIFICATION.md), [Foundation](foundation/FOUNDATION_VERIFICATION.md), [Queue](queue/QUEUE_VERIFICATION.md) and [consumer](library/LIBRARY_VERIFICATION.md) reports retain their original tested revisions and dates. Those are historical results, not a claim that this reorganization reran every browser scenario or reproduced original-site fidelity.
+
+Original implementations are MIT-licensed. Third-party examples, artwork, dependencies and reference links retain their own licenses. See [distribution policy](docs/DISTRIBUTION.md). Original-demo evidence is preserved in the [evidence-v0.3 Release](https://github.com/zczxz3/website-assets/releases/tag/evidence-v0.3); no reference-site screenshot archives have been reintroduced. Git history is retained.

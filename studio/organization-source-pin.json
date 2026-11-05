@@ -1,0 +1,54 @@
+{
+  "commit": "3f989b2be833f468db600c24aa49194abf5f918e",
+  "scope": "All tracked src/core files and the listed package/configuration inputs; extra unused local files are not claimed to belong to the pin.",
+  "matched_inputs": [
+    {
+      "path": "package-lock.json",
+      "sha": "5ec0645365856139bea381197b3ac57920f2fa5f"
+    },
+    {
+      "path": "package.json",
+      "sha": "93fc3b7c00ab0c4858ea3bd2b38a63d7d5d3d9a6"
+    },
+    {
+      "path": "src/core/commands.ts",
+      "sha": "299cec7f4aa47a1144be47ac853307607f226935"
+    },
+    {
+      "path": "src/core/id.ts",
+      "sha": "c91501adb353344712e10ccb553e24a635effcf9"
+    },
+    {
+      "path": "src/core/io.ts",
+      "sha": "dcd4575e0e97e36fc78045ad45e63db0fca4954d"
+    },
+    {
+      "path": "src/core/modules.ts",
+      "sha": "d240c89a91fc77c0463186ac07a54009a00d5160"
+    },
+    {
+      "path": "src/core/sample.ts",
+      "sha": "490df61253360cb0e6c4133617d20c3382045a9e"
+    },
+    {
+      "path": "src/core/source.ts",
+      "sha": "06bda680cf2c3d1616ace634b44a9819c3afd4d7"
+    },
+    {
+      "path": "src/core/store.ts",
+      "sha": "7c798faf875510acf4d79847af5cc55cfe1bc050"
+    },
+    {
+      "path": "src/core/types.ts",
+      "sha": "cf0d998ad42e4f2523258e72f2b3daf67e316e59"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "5568c7f02e1e1cae1408f8e2b4126cc6b5455021"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha": "f41a92e35b25e1bcf9436e786a1b3813b0ae1f6f"
+    }
+  ]
+}

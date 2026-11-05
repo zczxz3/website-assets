@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/button-capture.yml
-      - button-sites.json
+      - "buttons/button-sites.json"
 
 permissions:
   contents: read
@@ -60,7 +63,8 @@ jobs:
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
-          python3 collect_sites.py --registry button-sites.json --rea node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/studies"
+          cd buttons
+          python3 ../motion/collect_sites.py --registry button-sites.json --rea ../node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/studies"
 
       - name: Upload original reports, including after failure
         if: ${{ always() }}

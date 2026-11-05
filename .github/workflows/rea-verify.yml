@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/rea-verify.yml
       - scripts/verify_rea.py
       - package.json

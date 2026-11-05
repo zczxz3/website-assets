@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/batch-two-capture.yml
 
 permissions:
@@ -59,7 +62,8 @@ jobs:
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
-          python3 collect_sites.py --registry batch-two-sites.json --rea node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/studies"
+          cd motion
+          python3 collect_sites.py --registry batch-two-sites.json --rea ../node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/studies"
 
       - name: Upload original reports, including after failure
         if: ${{ always() }}

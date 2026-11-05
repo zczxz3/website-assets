@@ -4,13 +4,16 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/verify-buttons.yml
-      - "buttons.*"
-      - "button-*.mjs"
-      - button-contracts.html
-      - button-resources.json
-      - verify_buttons.mjs
-      - verify_buttons_rea.py
+      - "buttons/buttons.*"
+      - "buttons/button-*.mjs"
+      - "buttons/button-contracts.html"
+      - "buttons/button-resources.json"
+      - "buttons/verify_buttons.mjs"
+      - "buttons/verify_buttons_rea.py"
 
 permissions:
   contents: read
@@ -64,16 +67,18 @@ jobs:
       - name: Check button state and motion invariants
         shell: bash
         run: |
+          cd buttons
           set -euo pipefail
           node --test button-tests.mjs | tee "${REPORT_DIR}/unit-tests.txt"
 
       - name: Verify real pointer, keyboard, touch and lifecycle scenarios
-        run: node verify_buttons.mjs "${REPORT_DIR}/button-checks"
+        run: cd buttons && node verify_buttons.mjs "${REPORT_DIR}/button-checks"
 
       - name: Verify save and undo through the unmodified REA CLI
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
+          cd buttons
           python3 verify_buttons_rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea-checks"
 
       - name: Upload original reports, including after failure

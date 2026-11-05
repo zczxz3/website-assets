@@ -1,0 +1,32 @@
+name: Verify repository layout and offline distributions
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**'
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.1'
+      - name: Check imports, links, syntax, archives and existing Node regressions
+        run: |
+          npm test
+          npm run check
+          npm run verify:motion
+          npm run verify:foundation
+      - name: Verify deterministic source and Studio distributions
+        run: |
+          sha256sum queue/queue-source.zip queue/queue-card.zip queue/queue-website.zip queue/queue-portfolio.mws.json studio/studio-components.zip > /tmp/distributions.sha256
+          npm run build:queue
+          npm run build:studio
+          sha256sum -c /tmp/distributions.sha256
+          npm run build:library

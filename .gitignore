@@ -5,3 +5,17 @@ reports/
 .env
 .env.*
 !.env.example
+
+# Regenerated build output and local integration fixture
+**/foundation-dist/
+**/queue-dist/
+**/studio-dist/
+**/library-dist/
+**/consumer/
+**/consumer-report/
+**/gallery/
+**/button-checks/
+**/component-checks/
+**/sites/
+studio-fixture/
+*.tmp.zip

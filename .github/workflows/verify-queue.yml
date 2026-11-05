@@ -4,17 +4,20 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/verify-queue.yml
-      - "queue*.mjs"
-      - "queue*.json"
-      - "queue*.html"
-      - "queue*.css"
-      - "queue*.py"
-      - "queue*.ts"
-      - queue-source.zip
-      - QUEUE_RESEARCH.md
-      - QUEUE_EFFECTS.md
-      - frontend-research-queue.csv
+      - "queue/queue*.mjs"
+      - "queue/queue*.json"
+      - "queue/queue*.html"
+      - "queue/queue*.css"
+      - "queue/queue*.py"
+      - "queue/queue*.ts"
+      - "queue/queue-source.zip"
+      - "queue/QUEUE_RESEARCH.md"
+      - "queue/QUEUE_EFFECTS.md"
+      - "queue/frontend-research-queue.csv"
 
 permissions:
   contents: read
@@ -83,24 +86,26 @@ jobs:
       - name: Verify deterministic archives and Studio core
         shell: bash
         run: |
+          cd queue
           set -euo pipefail
           sha256sum queue-source.zip queue-card.zip queue-website.zip queue-portfolio.mws.json > "${REPORT_DIR}/packages.sha256"
           node queue-pack.mjs
           sha256sum -c "${REPORT_DIR}/packages.sha256"
           node --test --test-reporter=junit queue-tests.mjs > "${REPORT_DIR}/node-tests.xml"
-          cp queue-core.test.ts studio-fixture/tests/queue-core.test.ts
-          cd studio-fixture
+          cp queue-core.test.ts ../studio-fixture/tests/queue-core.test.ts
+          cd ../studio-fixture
           npx vitest run tests/queue-core.test.ts --reporter=json --outputFile="${REPORT_DIR}/core-tests.json"
 
       - name: Verify native interactions and the real Studio install edit export flow
         if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
-        run: node queue-browser.mjs "${REPORT_DIR}/browser"
+        run: cd queue && node queue-browser.mjs "${REPORT_DIR}/browser"
 
       - name: Verify menu state through unmodified REA
         if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
+          cd queue
           python3 queue-rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea"
 
       - name: Summarize completed checks

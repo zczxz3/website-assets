@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "deterministic_rebuild_sha256": {
+    "foundation/foundation-pack.zip": "65b98a2cb0149f39c514e63ba744670a93ec08751f10ed0680c84d89a3012d1a",
+    "queue/queue-source.zip": "90216080926d0f5da91f821655805733a963c12b41fc637e9c337bf616547823",
+    "queue/queue-card.zip": "3107fda452bf62efc03a98bafb2c596401f53d9fd7ecf6109dc30d52a32f7324",
+    "queue/queue-website.zip": "bd32ed334c5a71346b20369d98fb9fcec67adf6f0c81112bd9b03cde3fded104",
+    "queue/queue-portfolio.mws.json": "a9c146e15a1dd619682eb7526d9a8aeabdde723f6d10daeb74700dfacdb43aa0",
+    "studio/studio-components.zip": "853b25fc9aab1913258dfe5fc437d84005c7ead955035aa5ff395c928bf6f75a",
+    "motion/study-source.zip": "bff29d69714ef38a538358d19e6ce2b9d082be6436c21195ce2aa1a7de43455f"
+  }
+}

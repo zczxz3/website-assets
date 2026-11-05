@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "cdaabdccfa9e4391e37450ef197e22e5f4eea83d",
+  "tracked_files_preserved": 154,
+  "physical_moves": 138,
+  "root_files_before": 114,
+  "root_files_after": 6,
+  "node_tests": {
+    "motion": 17,
+    "buttons": 7,
+    "queue": 10,
+    "total": 34
+  },
+  "studio_core_tests": 68,
+  "studio_source_pin": "3f989b2be833f468db600c24aa49194abf5f918e",
+  "studio_inputs_sha_checked": 12,
+  "deterministic_distributions": 7,
+  "local_http_routes": 15,
+  "workflow_yaml_parsed": 11,
+  "workflow_shell_blocks_parsed": 53,
+  "browser_tests": "not rerun in this migration",
+  "runtime_tarball": "preserved byte-for-byte"
+}

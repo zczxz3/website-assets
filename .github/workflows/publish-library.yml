@@ -2,7 +2,7 @@ name: Verify isolated package consumer
 on:
   workflow_dispatch:
   push:
-    paths: [.github/workflows/publish-library.yml]
+    paths: [.github/workflows/publish-library.yml, "library/**", "buttons/**", "queue/queue-components.mjs", package.json, package-lock.json]
 permissions:
   contents: read
 jobs:
@@ -16,6 +16,7 @@ jobs:
           node-version: '24.22.1'
       - run: |
           npm ci --ignore-scripts --omit=optional --no-audit --no-fund
+          cd library
           node library-build.mjs
           npm pack ./library-dist --ignore-scripts
           mkdir consumer
@@ -31,21 +32,20 @@ jobs:
         run: |
           CLI="$(node -e 'const {createRequire}=require("node:module");const {resolve,join,dirname}=require("node:path");const r=createRequire(resolve("node_modules/rea-agents/package.json"));process.stdout.write(join(dirname(r.resolve("playwright-core/package.json")),"cli.js"));')"
           node "$CLI" install --with-deps chromium
+          cd library
           node library-consumer-test.mjs
+          cd ../motion
           python3 package_studies.py verify
       - name: Prepare original-only gallery
         run: |
           mkdir gallery
-          cp index.html index.mjs styles.css registry.mjs catalog.mjs gallery/
-          cp -r components gallery/
-          cp buttons.html buttons.css buttons.mjs button-catalog.mjs button-gallery.mjs button-resources.json gallery/
-          cp zczxz3-website-assets-motion-0.4.0.tgz gallery/
+          git ls-files -z motion buttons foundation queue studio library index.html | xargs -0 cp --parents -t gallery
           cd gallery && zip -qr ../gallery.zip .
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: motion-package-and-consumer-verification
           path: |
-            consumer-report
-            zczxz3-website-assets-motion-0.4.0.tgz
+            library/consumer-report
+            library/zczxz3-website-assets-motion-0.4.0.tgz
             gallery.zip

@@ -4,16 +4,19 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/verify-foundation.yml
-      - "foundation*.mjs"
-      - "foundation*.json"
-      - "foundation*.html"
-      - "foundation*.css"
-      - "foundation*.py"
-      - "foundation*.ts"
-      - foundation-pack.zip
-      - FOUNDATION_GUIDE.md
-      - FOUNDATION_RESEARCH.md
+      - "foundation/foundation*.mjs"
+      - "foundation/foundation*.json"
+      - "foundation/foundation*.html"
+      - "foundation/foundation*.css"
+      - "foundation/foundation*.py"
+      - "foundation/foundation*.ts"
+      - "foundation/foundation-pack.zip"
+      - "foundation/FOUNDATION_GUIDE.md"
+      - "foundation/FOUNDATION_RESEARCH.md"
 
 permissions:
   contents: read
@@ -82,22 +85,24 @@ jobs:
       - name: Verify deterministic packages and the unmodified Studio core
         shell: bash
         run: |
+          cd foundation
           set -euo pipefail
           python3 foundation-pack.py verify | tee "${REPORT_DIR}/package-check.txt"
           python3 foundation-pack.py build
-          cp foundation-core.test.ts studio-fixture/tests/foundation-core.test.ts
-          cd studio-fixture
+          cp foundation-core.test.ts ../studio-fixture/tests/foundation-core.test.ts
+          cd ../studio-fixture
           npx vitest run tests/foundation-core.test.ts --reporter=json --outputFile="${REPORT_DIR}/core-tests.json"
 
       - name: Verify native interactions and the real Studio install edit export flow
         if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
-        run: node foundation-browser.mjs "${REPORT_DIR}/browser"
+        run: cd foundation && node foundation-browser.mjs "${REPORT_DIR}/browser"
 
       - name: Verify standalone disclosure through unmodified REA
         if: ${{ !cancelled() && steps.studio_build.outcome == 'success' }}
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
+          cd foundation
           python3 foundation-rea.py --browser "${browser_path}" --output "${REPORT_DIR}/rea"
 
       - name: Summarize completed checks

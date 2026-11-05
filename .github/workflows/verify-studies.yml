@@ -4,15 +4,18 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/verify-studies.yml
-      - study-source.zip
-      - verify_studies.py
-      - package_studies.py
-      - "components/*.mjs"
-      - "*.mjs"
-      - styles.css
-      - index.html
-      - runtime-check.html
+      - "motion/study-source.zip"
+      - "motion/verify_studies.py"
+      - "motion/package_studies.py"
+      - "motion/components/*.mjs"
+      - "motion/*.mjs"
+      - "motion/styles.css"
+      - "motion/index.html"
+      - "motion/runtime-check.html"
 
 permissions:
   contents: read
@@ -66,27 +69,30 @@ jobs:
       - name: Verify published source matches the tested archive
         shell: bash
         run: |
+          cd motion
           set -euo pipefail
           python3 package_studies.py verify | tee "${REPORT_DIR}/package-verification.json"
 
       - name: Materialize the reviewed study source bundle
-        run: python3 -m zipfile -e study-source.zip .
+        run: cd motion && python3 -m zipfile -e study-source.zip .
 
       - name: Check module syntax and algorithm invariants
-        run: node --test component-tests.mjs
+        run: cd motion && node --test component-tests.mjs
 
       - name: Verify 15 local components at desktop and mobile widths
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
-          python3 verify_studies.py --rea node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/component-checks"
+          cd motion
+          python3 verify_studies.py --rea ../node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/component-checks"
 
       - name: Follow observed public entry controls
         if: ${{ always() }}
         shell: bash
         run: |
           browser_path="$(node -e 'const {createRequire}=require("node:module"); const {join}=require("node:path"); const r=createRequire(join(process.cwd(),"node_modules/rea-agents/package.json")); process.stdout.write(r("playwright-core").chromium.executablePath());')"
-          python3 followup_sites.py --rea node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/reference-followups"
+          cd motion
+          python3 followup_sites.py --rea ../node_modules/.bin/rea --browser "${browser_path}" --output "${REPORT_DIR}/reference-followups"
 
       - name: Upload original reports, including after failure
         if: ${{ always() }}

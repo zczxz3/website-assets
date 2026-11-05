@@ -3,12 +3,18 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - package.json
+      - package-lock.json
+      - "scripts/**"
       - .github/workflows/verify-studio-assets.yml
-      - studio-pack.py
-      - studio-contract.test.ts
-      - studio-components.zip
-      - studio-catalog.json
-      - studio-shelf.mws.json
+      - "foundation/**"
+      - "queue/**"
+      - "library/*.tgz"
+      - "studio/studio-pack.py"
+      - "studio/studio-contract.test.ts"
+      - "studio/studio-components.zip"
+      - "studio/studio-catalog.json"
+      - "studio/studio-shelf.mws.json"
 permissions:
   contents: read
 jobs:
@@ -34,6 +40,7 @@ jobs:
           node-version: '24.22.1'
       - name: Verify reproducible Studio pack
         run: |
+          cd studio
           sha256sum studio-components.zip > /tmp/studio-pack.sha256
           python3 studio-pack.py
           sha256sum -c /tmp/studio-pack.sha256
@@ -45,9 +52,10 @@ jobs:
           persist-credentials: false
       - name: Test against the actual Studio interfaces
         run: |
-          npm --prefix studio-fixture ci --ignore-scripts --no-audit --no-fund
-          cp studio-contract.test.ts studio-fixture/tests/asset-contract.test.ts
-          cd studio-fixture
+          cd studio
+          npm --prefix ../studio-fixture ci --ignore-scripts --no-audit --no-fund
+          cp studio-contract.test.ts ../studio-fixture/tests/asset-contract.test.ts
+          cd ../studio-fixture
           npx vitest run tests/asset-contract.test.ts --reporter=json --outputFile=../studio-contract-results.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
